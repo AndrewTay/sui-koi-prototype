@@ -1,0 +1,12 @@
+{
+  "name": "sui-koi-atelier",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An interactive koi atelier concept with an original WebGL pond.",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check app.js && node --check pond.js && node --check model.js && node --check server.mjs"
+  }
+}
