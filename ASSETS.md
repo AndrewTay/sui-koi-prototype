@@ -1,6 +1,6 @@
 # Artwork and prompts
 
-All four assets were generated with the built-in Imagegen tool for this project. No CLI/API fallback was used. Original generated files were copied into this project and their alpha channels were preserved. No external website artwork or rendering code was reused.
+The original four assets were generated with the built-in Imagegen tool for this project. No CLI/API fallback was used. Original generated files were copied into this project and their alpha channels were preserved. No external website artwork or rendering code was reused.
 
 ## Landscape pond
 
@@ -34,3 +34,22 @@ Prompt:
 
 Use case: photorealistic-natural. Adapt this pond background into a beautiful PORTRAIT 1024x1536 mobile website background. Input image is style and palette reference. Keep the same deep clear jade teal water, organic photoreal detail, luxurious late afternoon zen garden atmosphere. Orthographic top-down view of a Japanese garden pond. Compose delicate Japanese maple foliage and a few moss-covered weathered stones along extreme TOP RIGHT and BOTTOM LEFT corners, with a slim irregular garden bank on the far right edge. Large open center-left water space with deep dark jade suitable for ivory typography in the upper half; clear turquoise lower half for an animated fish that will be added separately. Submerged smooth stones subtly visible near lower right edge. Rich natural photographic detail, restrained dappled sun and subtle caustics. 85 percent water. ABSOLUTELY NO FISH, animals, text, UI, border or watermark. Not a narrow stream. Calm refined full-bleed background.
 
+## Distinct additional varieties — 26 September 2026
+
+These two new sprite sheets replace all six CSS palette treatments. Each is a 1536 × 1024 RGBA image, with its original transparency preserved. Built-in Imagegen was used with `assets/catalog.png` as a style reference. The source PNGs were copied into the project without image manipulation. All imagery is illustrative, not a photograph of real inventory.
+
+### catalog-sanke-tancho-goshiki.png
+
+Saved asset: `assets/catalog-sanke-tancho-goshiki.png`
+
+Prompt:
+
+Create a high fidelity photorealistic product catalog sprite sheet of exactly THREE distinct Japanese koi on a genuinely transparent alpha background. Landscape 1536x1024. Three equal width columns, each fish centered precisely at x=256,768,1280. All fish straight and vertical with head at TOP and tail at BOTTOM. Entire anatomy including delicate translucent pectoral fins and forked tail contained INSIDE its own column; 8% transparent margin around each fish. Each occupies 86% of total height. Match the reference image's overhead view, soft light, natural scales and anatomical detail, but replace its three fish with: LEFT Sanke: ivory base, irregular rich vermilion red patches and SMALL isolated jet-black patches on its BACK, head white and red with NO black on head. CENTER Tancho Kohaku: entirely pearl ivory white body, exactly one circular vermilion red mark centered on its forehead; NO red anywhere else, NO black anywhere. RIGHT Goshiki: dark slate blue-grey reticulated scale ground, rich deep red islands on top, darker netting along flank. Natural robust mature koi proportions, not skinny eels, not sharks. Consistent size and soft warm light from upper left. Reference is style only. No water, no background, no baked shadows, no backdrop glow, no text, no dividing lines, no labels. The alpha channel outside each fish must be fully transparent. This is a production sprite sheet, not an infographic.
+
+### catalog-kujaku-shiro-chagoi.png
+
+Saved asset: `assets/catalog-kujaku-shiro-chagoi.png`
+
+Prompt:
+
+Create a high fidelity photorealistic product catalog sprite sheet of exactly THREE distinct Japanese koi on a genuinely transparent alpha background. Landscape 1536x1024. Three equal width columns, each fish centered precisely at x=256,768,1280. All fish straight and vertical with head at TOP and tail at BOTTOM. Entire anatomy including delicate translucent pectoral fins and forked tail contained INSIDE its own column; 8% transparent margin around each fish. Each occupies 86% of total height. Match the reference image's overhead view, soft light, natural scales and anatomical detail, but replace its three fish with: LEFT Kujaku: metallic platinum white base, striking orange-red patches across head and back, fine dark netlike reticulation clearly visible on individual dorsal scales. CENTER Shiro Utsuri: black base with large crisp ivory white wraps, black and white on head and body, NO red NO orange NO gold. RIGHT Chagoi: solid earthy tea-brown bronze body, slightly darker scale edges; NO red, NO white patches, NO black patches, NOT bright gold. Natural robust mature koi proportions, not skinny eels, not sharks. Consistent size and soft warm light from upper left. Reference is style only. No water, no background, no baked shadows, no backdrop glow, no text, no dividing lines, no labels. The alpha channel outside each fish must be fully transparent. This is a production sprite sheet, not an infographic.

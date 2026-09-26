@@ -2,6 +2,7 @@ import test, { before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { specimens } from '../model.js';
 
 let server, base;
 before(async () => {
@@ -25,7 +26,8 @@ test('homepage and every local HTML asset load successfully', async()=>{
 });
 
 test('all modules and generated images are served with browser-readable types',async()=>{
-  for(const [file,type] of [['app.js','text/javascript'],['model.js','text/javascript'],['pond.js','text/javascript'],['assets/catalog.png','image/png'],['assets/pond.png','image/png'],['assets/pond-mobile.png','image/png'],['assets/kohaku.png','image/png']]){
+  const assets = [...new Set(specimens.map(fish => fish.artwork.src))].map(src => [src, 'image/png']);
+  for(const [file,type] of [['app.js','text/javascript'],['model.js','text/javascript'],['pond.js','text/javascript'],['swimming.js','text/javascript'],['assets/pond.png','image/png'],['assets/pond-mobile.png','image/png'],...assets]){
     const response=await fetch(`${base}/${file}`);
     assert.equal(response.status,200,file);
     assert.ok(response.headers.get('content-type').startsWith(type),file);

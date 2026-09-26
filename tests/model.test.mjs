@@ -1,87 +1,123 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { idlePose, isNearFish, touchedPose, transitionPose, smoothstep, selectSpecimens, parseSaved, specimens, TRANSITION_DURATION, REVEAL_START } from '../model.js';
+import { smoothstep, selectSpecimens, parseSaved, specimens } from '../model.js';
+import { KoiMotion, CollectionFlight, pondLayout, TURN_RATE_LIMIT, TURN_ACCELERATION_LIMIT, SPINE_COUNT, JOINT_ANGLE_LIMIT, wrapAngle, nearBody } from '../swimming.js';
 
-test('entering starts at the exact live fish position and heading', () => {
-  for (const [width, height] of [[1440,900],[390,844],[360,740]]) {
-    for (const time of [0,18,50,120]) {
-      const start = idlePose(time,width,height);
-      const pose = transitionPose(0,width,height,start);
-      assert.ok(Math.abs(start.x-pose.x)<1e-8);
-      assert.ok(Math.abs(start.y-pose.y)<1e-8);
-      assert.ok(Math.abs(start.heading-pose.heading)<1e-8);
+const advance = (motion, seconds, step = 1 / 60) => { for (let t = 0; t < seconds; t += step) motion.advance(step); };
+const layouts = [[320,720],[390,844],[768,1024],[1440,900],[2560,1440]];
+
+test('nearby touches change intent without resetting position, heading, speed, or turn rate', () => {
+  const motion = new KoiMotion(pondLayout(1440,900));
+  advance(motion,5);
+  for (let click = 0; click < 8; click++) {
+    const before = motion.pose();
+    assert.equal(motion.touch(before.x+30,before.y),true);
+    assert.deepEqual(motion.pose(),before);
+    advance(motion,.16);
+  }
+});
+
+test('distant clicks do not excite or steer the fish', () => {
+  const motion = new KoiMotion(pondLayout(390,844));
+  const before = motion.pose();
+  assert.equal(motion.touch(0,0),false);
+  assert.equal(motion.alarm,0);
+  assert.deepEqual(motion.pose(),before);
+  assert.ok(nearBody(before,before.x,before.y));
+});
+
+test('touch response preserves bounded angular acceleration and forward movement', () => {
+  const motion = new KoiMotion(pondLayout(1440,900));
+  const s = motion.pose();
+  motion.touch(s.x+20,s.y-15);
+  let previous = s;
+  for(let frame=0;frame<1200;frame++) {
+    const now=motion.advance(1/120);
+    assert.ok(Math.abs(now.turnRate)<=TURN_RATE_LIMIT+1e-9);
+    assert.ok(Math.abs(now.turnRate-previous.turnRate)<=TURN_ACCELERATION_LIMIT/120+1e-8);
+    const distance=Math.hypot(now.x-previous.x,now.y-previous.y);
+    assert.ok(distance<=now.speed/120+1e-6);
+    assert.ok((now.x-previous.x)*Math.cos(now.heading)+(now.y-previous.y)*Math.sin(now.heading)>=-1e-7);
+    previous=now;
+  }
+  assert.equal(motion.alarm,0);
+});
+
+test('fish accelerates into a nearby startle and decelerates after recovery', () => {
+  const motion = new KoiMotion(pondLayout(1440,900));
+  const s=motion.pose();
+  motion.touch(s.x-Math.cos(s.heading)*30,s.y-Math.sin(s.heading)*30);
+  const initial=motion.pose().speed;
+  advance(motion,.7);
+  const burst=motion.pose().speed;
+  assert.ok(burst>initial*1.12);
+  advance(motion,5);
+  assert.ok(motion.pose().speed<burst);
+});
+
+test('long runs and repeated touches stay inside the swimming region at every breakpoint', () => {
+  for(const [width,height] of layouts) {
+    const motion=new KoiMotion(pondLayout(width,height)),b=motion.layout.bounds;
+    for(let i=0;i<10800;i++) {
+      if(i%277===0) { const p=motion.pose(); motion.touch(p.x+(i%2 ? 20 : -20),p.y+10); }
+      const p=motion.advance(1/60);
+      assert.ok(p.x>=b.left-1e-6&&p.x<=b.right+1e-6&&p.y>=b.top-1e-6&&p.y<=b.bottom+1e-6);
+      assert.ok(Object.values(p).every(Number.isFinite));
     }
   }
 });
 
-test('entrance follows one smooth banking arc and accelerates into the reveal', () => {
-  const width=1440,height=900,start=idlePose(18,width,height);
-  let previousSpeed=0;
-  const points=[];
-  for(let t=0;t<=TRANSITION_DURATION;t+=.02){
-    const pose=transitionPose(t,width,height,start);
-    points.push(pose);
-    assert.ok(pose.speed>=previousSpeed);
-    previousSpeed=pose.speed;
-  }
-  assert.ok(Math.hypot(points.at(-1).x-points[0].x,points.at(-1).y-points[0].y)>120);
-  assert.ok(points.every((point, index) => index === 0 || Math.hypot(point.x-points[index-1].x, point.y-points[index-1].y)<100));
-  assert.ok(REVEAL_START>2&&REVEAL_START<TRANSITION_DURATION);
-});
-
-test('idle fish stays within the pond on narrow and wide screens', () => {
-  for(const [width,height] of [[320,720],[390,844],[768,1024],[1440,900],[2560,1440]]){
-    for(let t=0;t<180;t+=.1){
-      const pose=idlePose(t,width,height);
-      assert.ok(pose.x>0&&pose.x<width);
-      assert.ok(pose.y>0&&pose.y<height);
-      assert.ok(Number.isFinite(pose.heading));
+test('the articulated spine has fixed segment lengths and bounded curvature during tight turns', () => {
+  const motion=new KoiMotion(pondLayout(390,844));
+  for(let i=0;i<1800;i++) {
+    if(i%131===0) { const p=motion.pose(); motion.touch(p.x,p.y-15); }
+    motion.advance(1/60);
+    if(i%10)continue;
+    const pose=motion.pose(),spine=motion.spine(),step=pose.length/(SPINE_COUNT-1);
+    let lastAngle=pose.heading+Math.PI;
+    for(let j=1;j<SPINE_COUNT;j++) {
+      const dx=spine[j*2]-spine[(j-1)*2],dy=spine[j*2+1]-spine[(j-1)*2+1];
+      assert.ok(Math.abs(Math.hypot(dx,dy)-step)<.00015);
+      const angle=Math.atan2(dy,dx);
+      assert.ok(Math.abs(wrapAngle(angle-lastAngle))<=JOINT_ANGLE_LIMIT+.0001);
+      lastAngle=angle;
     }
   }
 });
 
-test('idle fish follows two loose lobes instead of an orbit around one point', () => {
-  const width = 1440, height = 900, centerX = width * .715, centerY = height * .465;
-  const points = Array.from({ length: 240 }, (_, index) => idlePose(18 + index * .16, width, height));
-  const left = points.filter(point => point.x < centerX - 18).length;
-  const right = points.filter(point => point.x > centerX + 18).length;
-  const centralPasses = points.filter(point => Math.abs(point.x - centerX) < 18 && Math.abs(point.y - centerY) < 26).length;
-  assert.ok(left > 20 && right > 20);
-  assert.ok(centralPasses > 1);
-  assert.ok(new Set(points.map(point => point.heading.toFixed(2))).size > 20);
+test('simulation gives the same trajectory at 30, 60, and 120 frames per second', () => {
+  const states=[30,60,120].map(fps=>{const m=new KoiMotion(pondLayout(1440,900)); for(let n=0;n<fps*20;n++)m.advance(1/fps);return m.pose();});
+  for(const p of states)assert.ok(Math.hypot(p.x-states[0].x,p.y-states[0].y)<.001);
 });
 
-test('touch response moves the fish away quickly and settles back to idle motion', () => {
-  const base = { x: 700, y: 420, heading: 0, speed: .5, bend: .035 };
-  const immediate = touchedPose(base, 620, 420, 0);
-  const early = touchedPose(base, 620, 420, .08);
-  const burst = touchedPose(base, 620, 420, .55);
-  const decelerating = touchedPose(base, 620, 420, 1.4);
-  const settled = touchedPose(base, 620, 420, 3);
-  assert.equal(immediate.x, base.x);
-  assert.ok(early.x > base.x);
-  assert.ok(burst.x > early.x + 25);
-  assert.ok(decelerating.x < burst.x);
-  assert.ok(burst.speed > base.speed);
-  assert.ok(Math.abs(settled.x - base.x) < 20);
-  assert.ok(Number.isFinite(burst.heading));
+test('gallery handoff begins with identical live pose and spine and lands exactly on card', () => {
+  const motion=new KoiMotion(pondLayout(1440,900));advance(motion,14);
+  const start=motion.pose(),spine=motion.spine(),end={x:260,y:470,length:310};
+  const flight=new CollectionFlight(start,spine,end);
+  const first=flight.sample(0),last=flight.sample(flight.duration);
+  assert.equal(first.pose.x,start.x);assert.equal(first.pose.y,start.y);assert.equal(first.pose.heading,start.heading);
+  first.spine.forEach((v,i)=>assert.ok(Math.abs(v-spine[i])<.0002));
+  assert.equal(last.pose.x,end.x);assert.equal(last.pose.y,end.y);assert.equal(last.pose.length,end.length);
+  assert.ok(Math.abs(wrapAngle(last.pose.heading+Math.PI/2))<1e-9);
+  assert.equal(last.pose.speed,0);assert.equal(last.backdrop,1);assert.equal(last.settle,1);
+  assert.ok(Math.abs(last.spine[1]-(end.y-end.length*.46))<.0001);
 });
 
-test('touch response rotates progressively and only accepts nearby clicks', () => {
-  const base = { x: 700, y: 420, heading: 0, speed: .5, bend: .035 };
-  const early = touchedPose(base, 800, 420, .25, base.heading);
-  const later = touchedPose(base, 800, 420, 1.1, base.heading);
-  assert.ok(Math.abs(early.heading) < Math.abs(later.heading));
-  assert.equal(isNearFish(base, 745, 420, 50), true);
-  assert.equal(isNearFish(base, 751, 420, 50), false);
+test('handoff preserves the initial velocity and decelerates to zero with no positional snap', () => {
+  const m=new KoiMotion(pondLayout(1440,900));advance(m,7);
+  const s=m.pose(),flight=new CollectionFlight(s,m.spine(),{x:250,y:470,length:310}),dt=.00001;
+  const a=flight.sample(dt).pose,z=flight.sample(flight.duration).pose,y=flight.sample(flight.duration-dt).pose;
+  assert.ok(Math.abs((a.x-s.x)/dt-Math.cos(s.heading)*s.speed)<.01);
+  assert.ok(Math.abs((a.y-s.y)/dt-Math.sin(s.heading)*s.speed)<.01);
+  assert.ok(Math.hypot(z.x-y.x,z.y-y.y)/dt<.01);
 });
 
-test('transition remains finite with zero radius and clamped time', () => {
-  const width=1440,height=900,start={x:width*.635,y:height*.49,heading:0};
-  for(const t of [-100,0,.5,3.4,100]){
-    const pose=transitionPose(t,width,height,start);
-    for(const key of ['x','y','heading','speed','bend'])assert.ok(Number.isFinite(pose[key]));
-  }
+test('resize remaps swimming bounds without invalidating motion or the spine', () => {
+  const m=new KoiMotion(pondLayout(1440,900));advance(m,12);
+  m.resize(pondLayout(390,844));
+  advance(m,2);
+  assert.equal(m.state.length,m.layout.length);
+  assert.ok(m.spine().every(Number.isFinite));
 });
 
 test('variety filters and shortlist intersect correctly', () => {
@@ -97,11 +133,11 @@ test('saved data rejects corrupt input, unknown ids, and non-array structures', 
   assert.deepEqual([...parseSaved('["kohaku-01","kohaku-01","unknown",9,null]')],['kohaku-01']);
 });
 
-test('catalog identifiers and sprite slots are unique', () => {
+test('each catalog entry has its own artwork region', () => {
   assert.equal(new Set(specimens.map(x=>x.id)).size,specimens.length);
   assert.equal(specimens.length,9);
-  assert.ok(specimens.every(x=>[0,1,2].includes(x.sprite)));
-  assert.equal(new Set(specimens.map(x=>x.variant)).size,specimens.length);
+  assert.ok(specimens.every(x => x.artwork.index < x.artwork.columns));
+  assert.equal(new Set(specimens.map(x => `${x.artwork.src}:${x.artwork.index}`)).size, specimens.length);
 });
 
 test('smooth interpolation clamps and is monotonic', () => {

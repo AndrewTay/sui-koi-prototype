@@ -1,4 +1,5 @@
-import { clamp, idlePose, isNearFish, touchedPose, transitionPose } from './model.js';
+import { clamp } from './model.js';
+import { KoiMotion, CollectionFlight, pondLayout } from './swimming.js';
 
 const screenVertex = `#version 300 es
 in vec2 a_position;
@@ -11,6 +12,7 @@ in vec2 v_uv;
 uniform sampler2D u_image;
 uniform vec2 u_resolution;
 uniform float u_imageAspect;
+uniform float u_reveal;
 out vec4 color;
 void main(){
   vec2 uv=vec2(v_uv.x,1.-v_uv.y);
@@ -20,7 +22,7 @@ void main(){
   vec2 texel=1./vec2(textureSize(u_image,0));
   vec3 softened=texture(u_image,uv).rgb*.46;
   softened+=(texture(u_image,uv+vec2(texel.x*3.,0.)).rgb+texture(u_image,uv-vec2(texel.x*3.,0.)).rgb+texture(u_image,uv+vec2(0.,texel.y*3.)).rgb+texture(u_image,uv-vec2(0.,texel.y*3.)).rgb)*.135;
-  color=vec4(softened,1.);
+  color=vec4(softened*(1.-u_reveal),1.-u_reveal);
 }`;
 
 const fishVertex = `#version 300 es
@@ -28,24 +30,25 @@ precision highp float;
 in vec2 a_uv;
 out vec2 v_uv;
 uniform vec2 u_resolution;
-uniform vec2 u_position;
-uniform vec2 u_size;
-uniform float u_angle;
+uniform vec2 u_spine[25];
+uniform float u_length;
 uniform float u_beat;
 uniform float u_speed;
-uniform float u_bend;
+uniform float u_settle;
 uniform vec2 u_offset;
 void main(){
   v_uv=a_uv;
-  float tail=pow(a_uv.y,2.5);
-  float wave=sin(u_beat-a_uv.y*5.4);
-  vec2 p=(a_uv-.5)*u_size;
-  p.x+=wave*u_size.y*(.004+tail*(.037+u_speed*.008));
-  p.x+=u_bend*u_size.y*pow(a_uv.y-.18,2.);
+  float row=a_uv.y*24.;
+  int index=min(int(floor(row)),23);
+  vec2 centre=mix(u_spine[index],u_spine[index+1],row-float(index));
+  vec2 tangent=normalize(u_spine[min(index+2,24)]-u_spine[max(index-1,0)]+vec2(0.,.00001));
+  vec2 side=vec2(tangent.y,-tangent.x);
+  float lateral=(a_uv.x-.5)*u_length*(2./3.);
   float finBand=exp(-pow((a_uv.y-.33)*9.,2.));
-  p.x*=1.+sin(u_beat*.62)*.075*finBand;
-  float c=cos(u_angle),s=sin(u_angle);
-  p=mat2(c,s,-s,c)*p+u_position+u_offset;
+  lateral*=1.+sin(u_beat*.62)*.065*finBand*(1.-u_settle);
+  float tail=pow(a_uv.y,2.6);
+  lateral+=sin(u_beat-a_uv.y*5.4)*u_length*(.002+tail*(.018+u_speed*.02))*(1.-u_settle);
+  vec2 p=centre+side*lateral+u_offset;
   gl_Position=vec4(p.x/u_resolution.x*2.-1.,1.-p.y/u_resolution.y*2.,0.,1.);
 }`;
 
@@ -55,15 +58,16 @@ in vec2 v_uv;
 uniform sampler2D u_image;
 uniform float u_shadow;
 uniform float u_time;
+uniform float u_settle;
 out vec4 color;
 void main(){
   vec4 fish=texture(u_image,v_uv);
   if(fish.a<.008)discard;
-  if(u_shadow>.5){color=vec4(.015,.08,.065,fish.a*.28);return;}
-  vec3 lit=fish.rgb*vec3(.84,.9,.83);
+  if(u_shadow>.5){color=vec4(.015,.08,.065,fish.a*.20*(1.-u_settle));return;}
+  vec3 lit=fish.rgb*mix(vec3(.84,.9,.83),vec3(1.),u_settle);
   float light=pow(max(0.,sin(v_uv.x*16.+v_uv.y*19.+u_time*.6)),16.);
-  lit+=vec3(.07,.095,.06)*light;
-  color=vec4(lit,fish.a*.97);
+  lit+=vec3(.07,.095,.06)*light*(1.-u_settle);
+  color=vec4(lit,fish.a);
 }`;
 
 const waterFragment = `#version 300 es
@@ -73,21 +77,8 @@ uniform sampler2D u_scene;
 uniform vec2 u_resolution;
 uniform float u_time;
 uniform vec4 u_ripples[16];
-uniform vec2 u_center;
-uniform float u_energy;
+uniform float u_settle;
 out vec4 color;
-vec2 hash(vec2 p){return fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453);}
-float caustic(vec2 p){
-  vec2 cell=floor(p),f=fract(p);float first=10.,second=10.;
-  for(int y=-1;y<=1;y++)for(int x=-1;x<=1;x++){
-    vec2 n=vec2(float(x),float(y));
-    vec2 h=hash(cell+n);
-    vec2 point=.5+.36*sin(u_time*.19+6.2831*h);
-    float d=length(n+point-f);
-    if(d<first){second=first;first=d;}else if(d<second)second=d;
-  }
-  return exp(-26.*(second-first));
-}
 void main(){
   vec2 p=vec2(v_uv.x,1.-v_uv.y)*u_resolution;
   vec2 q=p/max(u_resolution.y,1.);
@@ -106,16 +97,11 @@ void main(){
     shift+=delta/max(dist,1.)*band*wave*fade*5.;
     foam+=band*wave*fade*.035;
   }
-  vec2 relative=p-u_center;
-  float distanceToCenter=length(relative);
-  float swirl=exp(-distanceToCenter/max(u_resolution.y*.55,1.))*u_energy;
-  shift+=vec2(-relative.y,relative.x)*.018*swirl;
   float field=smoothstep(.01,.22,v_uv.x)*smoothstep(.0,.18,1.-v_uv.x)*smoothstep(.0,.16,v_uv.y)*smoothstep(.0,.12,1.-v_uv.y);
-  vec2 uv=clamp(v_uv+vec2(shift.x,-shift.y)*field/u_resolution,vec2(.001),vec2(.999));
-  vec3 scene=texture(u_scene,uv).rgb;
-  float brightness=dot(scene,vec3(.2126,.7152,.0722));
-  scene+=vec3(.7,.85,.7)*foam*field;
-  color=vec4(scene,1.);
+  vec2 uv=clamp(v_uv+vec2(shift.x,-shift.y)*field*(1.-u_settle)/u_resolution,vec2(.001),vec2(.999));
+  vec4 scene=texture(u_scene,uv);
+  scene.rgb+=vec3(.7,.85,.7)*foam*field*(1.-u_settle)*scene.a;
+  color=vec4(scene.rgb/max(scene.a,.00001),scene.a);
 }`;
 
 function loadImage(url) {
@@ -139,10 +125,9 @@ export class Pond {
     this.canvas = canvas;
     this.images = images;
     this.onFallback = onFallback;
-    this.gl = canvas.getContext('webgl2', { alpha: false, antialias: false, depth: false, powerPreference: 'default' });
+    this.gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: false, antialias: false, depth: false, powerPreference: 'default' });
     if (!this.gl) throw new Error('WebGL 2 is unavailable.');
     this.time = 18;
-    this.beat = 0;
     this.ripples = new Float32Array(64);
     this.rippleIndex = 0;
     this.width = 1;
@@ -154,7 +139,7 @@ export class Pond {
     this.lastStamp = 0;
     this.lastWake = 0;
     this.transition = null;
-    this.fishTouch = null;
+    this.swimmer = null;
     this.contextLost = false;
     this.dprCap = 1.5;
     this.frameTimes = [];
@@ -249,9 +234,10 @@ export class Pond {
     const previousWidth = this.width, previousHeight = this.height;
     this.width = rect.width;
     this.height = rect.height;
-    if (this.transition) {
-      this.transition.start.x *= this.width / previousWidth;
-      this.transition.start.y *= this.height / previousHeight;
+    if (!this.swimmer || this.width !== previousWidth || this.height !== previousHeight) {
+      const copy = document.querySelector('.hero-copy').getBoundingClientRect();
+      const layout = pondLayout(this.width, this.height, copy.bottom);
+      if (this.swimmer) this.swimmer.resize(layout); else this.swimmer = new KoiMotion(layout);
     }
     const dpr = Math.min(window.devicePixelRatio || 1, this.dprCap);
     const width = Math.round(this.width * dpr), height = Math.round(this.height * dpr);
@@ -283,16 +269,15 @@ export class Pond {
   bindTexture(program, texture, name = 'u_image') { const gl = this.gl; gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, texture); gl.uniform1i(program.uniform(name), 0); }
 
   pose() {
-    const base = this.transition ? transitionPose(this.transition.elapsed, this.width, this.height, this.transition.start) : idlePose(this.time, this.width, this.height);
-    if (this.transition || !this.fishTouch) return base;
-    const age = this.time - this.fishTouch.time;
-    if (age > 3) { this.fishTouch = null; return base; }
-    return touchedPose(base, this.fishTouch.x, this.fishTouch.y, age, this.fishTouch.heading);
+    return this.transition ? this.transition.flight.sample(this.transition.elapsed).pose : this.swimmer.pose();
   }
 
   render() {
     if (!this.target || this.contextLost) return;
-    const gl = this.gl, pose = this.pose();
+    const gl = this.gl;
+    const frame = this.transition?.flight.sample(this.transition.elapsed);
+    const pose = frame?.pose ?? this.swimmer.pose();
+    const settle = frame?.settle ?? 0;
     gl.viewport(0, 0, this.canvas.width, this.canvas.height);
     gl.bindFramebuffer(gl.FRAMEBUFFER, this.target.framebuffer);
     gl.disable(gl.BLEND);
@@ -302,19 +287,19 @@ export class Pond {
     this.bindTexture(this.background, portrait ? this.mobileTexture : this.pondTexture);
     gl.uniform2f(this.background.uniform('u_resolution'), this.width, this.height);
     gl.uniform1f(this.background.uniform('u_imageAspect'), backdrop.width / backdrop.height);
+    gl.uniform1f(this.background.uniform('u_reveal'), frame?.backdrop ?? 0);
     this.draw(this.backgroundMesh);
     gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.useProgram(this.fish.handle);
     this.bindTexture(this.fish, this.fishTexture);
-    const size = this.width <= 760 ? Math.min(this.width * .59, 240) : Math.min(this.height * .41, 375);
+    const size = pose.length;
     gl.uniform2f(this.fish.uniform('u_resolution'), this.width, this.height);
-    gl.uniform2f(this.fish.uniform('u_position'), pose.x, pose.y);
-    gl.uniform2f(this.fish.uniform('u_size'), size * this.images[1].width / this.images[1].height, size);
-    gl.uniform1f(this.fish.uniform('u_angle'), pose.heading + Math.PI / 2);
-    gl.uniform1f(this.fish.uniform('u_beat'), this.beat);
-    gl.uniform1f(this.fish.uniform('u_speed'), pose.speed);
-    gl.uniform1f(this.fish.uniform('u_bend'), pose.bend);
+    gl.uniform2fv(this.fish.uniform('u_spine[0]'), frame?.spine ?? this.swimmer.spine());
+    gl.uniform1f(this.fish.uniform('u_length'), size);
+    gl.uniform1f(this.fish.uniform('u_beat'), pose.beat);
+    gl.uniform1f(this.fish.uniform('u_speed'), pose.speed / size);
+    gl.uniform1f(this.fish.uniform('u_settle'), settle);
     gl.uniform1f(this.fish.uniform('u_time'), this.time);
     gl.uniform2f(this.fish.uniform('u_offset'), size * .045, size * .07);
     gl.uniform1f(this.fish.uniform('u_shadow'), 1);
@@ -329,8 +314,7 @@ export class Pond {
     gl.uniform2f(this.water.uniform('u_resolution'), this.width, this.height);
     gl.uniform1f(this.water.uniform('u_time'), this.time);
     gl.uniform4fv(this.water.uniform('u_ripples[0]'), this.ripples);
-    gl.uniform1f(this.water.uniform('u_energy'), this.transition ? clamp(this.transition.elapsed / 2.8) : 0);
-    gl.uniform2f(this.water.uniform('u_center'), pose.center?.x ?? pose.x, pose.center?.y ?? pose.y);
+    gl.uniform1f(this.water.uniform('u_settle'), settle);
     this.draw(this.waterMesh);
   }
 
@@ -341,18 +325,15 @@ export class Pond {
   }
 
   scareFish(x, y) {
-    if (this.transition) return;
-    const current = this.pose();
-    const reach = this.width <= 760 ? Math.min(this.width * .25, 110) : Math.min(this.height * .17, 155);
-    if (!isNearFish(current, x, y, reach)) return false;
-    this.fishTouch = { x, y, time: this.time, heading: current.heading };
+    if (this.transition || !this.motion || !this.swimmer) return false;
+    const accepted = this.swimmer.touch(x, y);
     this.start();
-    return true;
+    return accepted;
   }
 
-  beginTransition() { this.transition = { start: this.pose(), elapsed: 0 }; this.fishTouch = null; this.start(); }
-  setTransitionTime(elapsed) { if (this.transition) this.transition.elapsed = elapsed; }
-  reset() { this.transition = null; this.fishTouch = null; this.ripples.fill(0); this.lastStamp = 0; this.resize(); }
+  beginTransition(destination, duration) { this.transition = { flight: new CollectionFlight(this.pose(), this.swimmer.spine(), destination, duration), elapsed: 0 }; this.start(); }
+  setTransitionTime(elapsed) { if (this.transition) { this.transition.elapsed = elapsed; this.render(); } }
+  reset() { this.transition = null; this.ripples.fill(0); this.lastStamp = 0; this.resize(); }
   setMotion(enabled) { this.motion = enabled; if (enabled) this.start(); else { this.stop(); this.render(); } }
   setActive(active) { this.active = active; if (active) { this.resize(); this.start(); } else this.stop(); }
 
@@ -360,12 +341,12 @@ export class Pond {
     this.raf = 0;
     if (!this.active || !this.motion || this.contextLost || document.hidden) return;
     const frameMs = this.lastStamp ? stamp - this.lastStamp : 16.67;
-    const dt = Math.min(frameMs / 1000, .045);
+    const dt = Math.min(frameMs / 1000, .1);
     this.lastStamp = stamp;
     this.time += dt;
+    if (!this.transition) this.swimmer.advance(dt);
     const pose = this.pose();
-    this.beat += dt * (2.3 + pose.speed * 2);
-    if (this.time - this.lastWake > (this.transition ? .14 : .48)) { this.addRipple(pose.x, pose.y, this.transition ? .48 : .13); this.lastWake = this.time; }
+    if (!this.transition && this.time - this.lastWake > .36) { this.addRipple(pose.x - Math.cos(pose.heading) * pose.length * .45, pose.y - Math.sin(pose.heading) * pose.length * .45, clamp(pose.speed / pose.length, .03, .22)); this.lastWake = this.time; }
     if (!this.transition && this.dprCap > 1) {
       this.frameTimes.push(frameMs);
       if (this.frameTimes.length >= 120) { const median = [...this.frameTimes].sort((a,b) => a-b)[60]; if (median > 28) { this.dprCap = 1; this.resize(); } this.frameTimes.length = 0; }

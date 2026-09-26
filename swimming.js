@@ -1,0 +1,202 @@
+import { clamp, mix, smoothstep } from './model.js';
+
+export const TURN_RATE_LIMIT = .68;
+export const TURN_ACCELERATION_LIMIT = 1.1;
+export const SPINE_COUNT = 25;
+export const JOINT_ANGLE_LIMIT = .04;
+export const wrapAngle = angle => Math.atan2(Math.sin(angle), Math.cos(angle));
+const approach = (current, target, maximum) => current + clamp(target - current, -maximum, maximum);
+
+export function pondLayout(width, height, copyBottom = height * .57) {
+  const mobile = width <= 760;
+  const surface = mobile
+    ? { left: 20, right: width - 20, top: Math.min(copyBottom + 22, height * .65), bottom: height - 65 }
+    : { left: width * .46, right: width - 28, top: 105, bottom: height - 75 };
+  const length = Math.min(mobile ? width * .46 : width * .22, height * .36, 320, (surface.bottom - surface.top) * .67, (surface.right - surface.left) * .60);
+  const inset = length * .52;
+  return { width, height, length, bounds: { left: surface.left + inset, right: surface.right - inset, top: surface.top + inset, bottom: surface.bottom - inset } };
+}
+
+// Click hit area follows the fish's orientation and covers head, body, and tail.
+export function nearBody(state, x, y) {
+  const dx = x - state.x, dy = y - state.y;
+  const along = dx * Math.cos(state.heading) + dy * Math.sin(state.heading);
+  const across = -dx * Math.sin(state.heading) + dy * Math.cos(state.heading);
+  return (along / (state.length * .52 + 16)) ** 2 + (across / (state.length * .18 + 20)) ** 2 <= 1;
+}
+
+// Integrate forward swimming in small time steps. Heading, velocity, and acceleration persist
+// across touches; recovery only changes steering intent, never position or rotation.
+export class KoiMotion {
+  constructor(layout) {
+    this.layout = layout;
+    const b = layout.bounds;
+    this.state = { x: mix(b.left, b.right, .66), y: mix(b.top, b.bottom, .55), heading: -2.45, turnRate: 0, speed: layout.length * .15, acceleration: 0, length: layout.length, beat: 0 };
+    this.phase = .7;
+    this.time = 0;
+    this.alarm = 0;
+    this.threat = null;
+    this.remainder = 0;
+    this.history = [];
+    this.initializeTrail();
+  }
+
+  initializeTrail() {
+    const s = this.state, nose = this.nose();
+    this.history = Array.from({ length: 160 }, (_, i) => ({ x: nose.x - Math.cos(s.heading) * i * s.length / 100, y: nose.y - Math.sin(s.heading) * i * s.length / 100 }));
+  }
+  nose() { const s = this.state; return { x: s.x + Math.cos(s.heading) * s.length * .46, y: s.y + Math.sin(s.heading) * s.length * .46 }; }
+  pose() { return { ...this.state }; }
+
+  touch(x, y) {
+    if (!nearBody(this.state, x, y)) return false;
+    const s = this.state;
+    // A click exactly at the centre favours the existing direction, avoiding an arbitrary flip.
+    if (Math.hypot(x - s.x, y - s.y) < 4) { x -= Math.cos(s.heading) * 10; y -= Math.sin(s.heading) * 10; }
+    this.threat = { x, y };
+    this.alarm = 1;
+    return true;
+  }
+
+  resize(layout) {
+    const old = this.layout.bounds, b = layout.bounds;
+    const sx = (b.right - b.left) / Math.max(1, old.right - old.left);
+    const sy = (b.bottom - b.top) / Math.max(1, old.bottom - old.top);
+    this.state.x = clamp(b.left + (this.state.x - old.left) * sx, b.left, b.right);
+    this.state.y = clamp(b.top + (this.state.y - old.top) * sy, b.top, b.bottom);
+    const scale = layout.length / this.state.length;
+    this.state.length = layout.length;
+    this.state.speed *= scale;
+    this.state.acceleration *= scale;
+    this.layout = layout;
+    this.threat = null;
+    this.alarm = 0;
+    this.initializeTrail();
+  }
+
+  advance(seconds) {
+    this.remainder += clamp(seconds, 0, .1);
+    while (this.remainder >= 1 / 120) { this.step(1 / 120); this.remainder -= 1 / 120; }
+    return this.pose();
+  }
+
+  step(dt) {
+    const s = this.state, b = this.layout.bounds;
+    this.time += dt;
+    this.phase += dt * .105;
+    // A moving, loose figure-eight is a steering target, never a rail the fish snaps onto.
+    const cx = (b.left + b.right) * .5, cy = (b.top + b.bottom) * .5;
+    const goal = { x: cx + (b.right - b.left) * .43 * Math.sin(this.phase), y: cy + (b.bottom - b.top) * .43 * Math.sin(this.phase * 2 + .3) };
+    const distance = Math.max(1, Math.hypot(goal.x - s.x, goal.y - s.y));
+    let dx = (goal.x - s.x) / distance, dy = (goal.y - s.y) / distance;
+    if (this.threat) {
+      const awayX = s.x - this.threat.x, awayY = s.y - this.threat.y;
+      const awayLength = Math.max(1, Math.hypot(awayX, awayY));
+      dx += awayX / awayLength * this.alarm * 4;
+      dy += awayY / awayLength * this.alarm * 4;
+    }
+    // Look ahead to begin banking well before reaching the edge.
+    const look = s.length * .22 + s.speed * 1.2;
+    const px = s.x + Math.cos(s.heading) * look, py = s.y + Math.sin(s.heading) * look;
+    const marginX = Math.max(12, (b.right - b.left) * .27), marginY = Math.max(12, (b.bottom - b.top) * .30);
+    dx += clamp((b.left + marginX - px) / marginX, 0, 2) * 5 - clamp((px - b.right + marginX) / marginX, 0, 2) * 5;
+    dy += clamp((b.top + marginY - py) / marginY, 0, 2) * 5 - clamp((py - b.bottom + marginY) / marginY, 0, 2) * 5;
+    const error = wrapAngle(Math.atan2(dy, dx) - s.heading);
+    const desiredTurn = clamp(error * .85, -TURN_RATE_LIMIT, TURN_RATE_LIMIT);
+    s.turnRate = approach(s.turnRate, desiredTurn, TURN_ACCELERATION_LIMIT * dt);
+    s.heading += s.turnRate * dt;
+    const cruise = s.length * (.15 + .025 * Math.sin(this.time * .47));
+    let targetSpeed = cruise * (1 + this.alarm * 2.5) / (1 + Math.abs(error) * .32);
+    const cos = Math.cos(s.heading), sin = Math.sin(s.heading);
+    const roomX = Math.abs(cos) < .001 ? Infinity : (cos > 0 ? b.right - s.x : s.x - b.left) / Math.abs(cos);
+    const roomY = Math.abs(sin) < .001 ? Infinity : (sin > 0 ? b.bottom - s.y : s.y - b.top) / Math.abs(sin);
+    const room = Math.max(0, Math.min(roomX, roomY));
+    const brake = s.length * .5;
+    targetSpeed = Math.min(targetSpeed, Math.sqrt(2 * brake * Math.max(0, room - 8)));
+    const desiredAcceleration = clamp((targetSpeed - s.speed) * 2.8, -brake, s.length * .42);
+    s.acceleration = approach(s.acceleration, desiredAcceleration, s.length * 1.8 * dt);
+    s.speed = Math.max(0, s.speed + s.acceleration * dt);
+    // The last few pixels are a collision boundary, not an animation reset.
+    s.speed = Math.min(s.speed, room / dt);
+    s.x += cos * s.speed * dt;
+    s.y += sin * s.speed * dt;
+    s.beat += dt * (2.1 + s.speed / s.length * 6);
+    this.alarm *= Math.exp(-dt * 1.15);
+    if (this.alarm < .006) { this.alarm = 0; this.threat = null; }
+    const nose = this.nose();
+    if (Math.hypot(nose.x - this.history[0].x, nose.y - this.history[0].y) > s.length * .006) {
+      this.history.unshift(nose);
+      if (this.history.length > 400) this.history.pop();
+    }
+  }
+
+  spine() {
+    const result = new Float32Array(SPINE_COUNT * 2), samples = [this.nose(), ...this.history];
+    const step = this.state.length / (SPINE_COUNT - 1);
+    let segment = 0, used = 0;
+    for (let i = 0; i < SPINE_COUNT; i++) {
+      const target = i * step;
+      while (segment < samples.length - 2 && used + Math.hypot(samples[segment + 1].x - samples[segment].x, samples[segment + 1].y - samples[segment].y) < target) {
+        used += Math.hypot(samples[segment + 1].x - samples[segment].x, samples[segment + 1].y - samples[segment].y);
+        segment++;
+      }
+      const a = samples[segment], z = samples[segment + 1];
+      const length = Math.max(.0001, Math.hypot(z.x - a.x, z.y - a.y));
+      const f = (target - used) / length;
+      result[i * 2] = mix(a.x, z.x, f);
+      result[i * 2 + 1] = mix(a.y, z.y, f);
+    }
+    // The trail supplies intent; fixed-length joints and a curvature limit supply anatomy.
+    // A slow turn must not fold the body back onto itself even if the head trail loops tightly.
+    let angle = this.state.heading + Math.PI;
+    const constrained = new Float32Array(result.length);
+    constrained[0] = result[0]; constrained[1] = result[1];
+    for (let i = 1; i < SPINE_COUNT; i++) {
+      const targetAngle = Math.atan2(result[i * 2 + 1] - result[(i - 1) * 2 + 1], result[i * 2] - result[(i - 1) * 2]);
+      angle += clamp(wrapAngle(targetAngle - angle), -JOINT_ANGLE_LIMIT, JOINT_ANGLE_LIMIT);
+      constrained[i * 2] = constrained[(i - 1) * 2] + Math.cos(angle) * step;
+      constrained[i * 2 + 1] = constrained[(i - 1) * 2 + 1] + Math.sin(angle) * step;
+    }
+    return constrained;
+  }
+}
+
+export function straightSpine(pose) {
+  const result = new Float32Array(SPINE_COUNT * 2);
+  for (let i = 0; i < SPINE_COUNT; i++) {
+    const along = (.46 - i / (SPINE_COUNT - 1)) * pose.length;
+    result[i * 2] = pose.x + Math.cos(pose.heading) * along;
+    result[i * 2 + 1] = pose.y + Math.sin(pose.heading) * along;
+  }
+  return result;
+}
+
+// Cubic Hermite handoff matches the live velocity and stops exactly on the catalog artwork.
+export class CollectionFlight {
+  constructor(start, spine, destination, duration = 3.6) {
+    this.start = { ...start };
+    this.initialSpine = spine.slice();
+    this.destination = { ...destination };
+    this.duration = duration;
+    this.rotation = wrapAngle(-Math.PI / 2 - start.heading);
+  }
+  sample(elapsed) {
+    const t = clamp(elapsed / this.duration), p = smoothstep(t);
+    const h00 = 2 * t ** 3 - 3 * t ** 2 + 1, h10 = t ** 3 - 2 * t ** 2 + t, h01 = -2 * t ** 3 + 3 * t ** 2;
+    const s = this.start, d = this.destination;
+    const vx = Math.cos(s.heading) * s.speed * this.duration, vy = Math.sin(s.heading) * s.speed * this.duration;
+    const x = h00 * s.x + h10 * vx + h01 * d.x;
+    const y = h00 * s.y + h10 * vy + h01 * d.y;
+    const heading = s.heading + this.rotation * p;
+    const length = mix(s.length, d.length, p);
+    const pose = { x, y, heading, length, speed: s.speed * (1 - p), turnRate: s.turnRate * (1 - p), beat: s.beat + (elapsed - elapsed ** 2 / (2 * this.duration)) * 2.2 };
+    const straight = straightSpine(pose), original = straightSpine(s);
+    const angle = heading - s.heading, cos = Math.cos(angle), sin = Math.sin(angle);
+    for (let i = 0; i < SPINE_COUNT; i++) {
+      const dx = this.initialSpine[i * 2] - original[i * 2], dy = this.initialSpine[i * 2 + 1] - original[i * 2 + 1];
+      straight[i * 2] += (dx * cos - dy * sin) * (1 - p);
+      straight[i * 2 + 1] += (dx * sin + dy * cos) * (1 - p);
+    }
+    return { pose, spine: straight, settle: p, backdrop: smoothstep((t - .12) / .66) };
+  }
+}

@@ -1,5 +1,5 @@
 import { Pond } from './pond.js';
-import { specimens, selectSpecimens, parseSaved, TRANSITION_DURATION, REVEAL_START, clamp, smoothstep } from './model.js';
+import { specimens, selectSpecimens, parseSaved, TRANSITION_DURATION, smoothstep } from './model.js';
 
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
@@ -10,15 +10,20 @@ let motion = !reducedMedia.matches;
 let pond = null, page = 'pond', sequence = 0;
 let filter = 'all', shortlistOnly = false, saved = new Set();
 let returnFocus = null;
+let flightAbort = null;
 try { saved = parseSaved(localStorage.getItem('sui-shortlist')); } catch { /* Shortlisting still works in this tab when storage is blocked. */ }
 
 function announce(message) { $('#announcer').textContent = message; }
-function sprite(fish) { return `<span class="sprite-window variant-${fish.variant}" style="--sprite-index:${fish.sprite}"><img src="assets/catalog.png" alt="${fish.name} koi, viewed from above" loading="lazy"></span>`; }
+function sprite(fish) {
+  const art = fish.artwork;
+  return `<span class="sprite-window" style="--sprite-index:${art.index};--sprite-columns:${art.columns};--sprite-aspect:${art.aspect}"><img src="${art.src}" alt="${fish.name} koi, viewed from above" loading="${fish.id === 'kohaku-01' ? 'eager' : 'lazy'}"></span>`;
+}
 
 function renderCatalog() {
   const filtered = selectSpecimens(filter, shortlistOnly, saved);
-  $('#fish-grid').innerHTML = filtered.map(fish => `<article class="fish-card"><button class="specimen-open" data-specimen="${fish.id}" aria-label="View ${fish.name} ${fish.number}"><span class="fish-art"><span class="specimen-number">N° ${fish.number}</span>${sprite(fish)}</span><span class="specimen-info"><span><h3>${fish.name}</h3><span class="specimen-meta">${fish.size} <span aria-hidden="true">&nbsp; / &nbsp;</span> ${fish.age}</span></span></span></button></article>`).join('');
+  $('#fish-grid').innerHTML = filtered.map(fish => `<article class="fish-card"><button class="specimen-open" data-specimen="${fish.id}" aria-label="View ${fish.name} ${fish.number}"><span class="fish-art"><span class="specimen-number">${fish.number}</span>${sprite(fish)}</span><span class="specimen-info"><span class="specimen-name" role="heading" aria-level="3">${fish.name}</span><span class="specimen-meta">${fish.size} <span aria-hidden="true"> / </span> ${fish.age}</span></span></button></article>`).join('');
   $('#empty-state').hidden = filtered.length > 0;
+  $('#empty-state h3').textContent = saved.size && shortlistOnly ? 'No saved koi in this variety' : 'No koi saved';
   $('#shortlist-count').textContent = `(${saved.size})`;
   $('#shortlist-toggle').setAttribute('aria-pressed', String(shortlistOnly));
   $$('[data-filter]').forEach(button => { const selected = button.dataset.filter === filter; button.classList.toggle('active', selected); button.setAttribute('aria-pressed', String(selected)); });
@@ -61,19 +66,21 @@ $$('dialog').forEach(dialog => {
 function setHash(hash, replace = false) { if (location.hash !== hash) history[replace ? 'replaceState' : 'pushState'](null, '', hash); }
 
 function finishCatalog(push = true, focus = true) {
+  flightAbort?.abort();
   page = 'catalog';
   home.hidden = true;
   home.inert = true;
+  canvas.hidden = true;
+  canvas.classList.remove('transport');
   catalog.hidden = false;
   catalog.inert = false;
-  catalog.classList.remove('revealing');
-  catalog.style.clipPath = '';
+  catalog.classList.remove('revealing', 'receiving');
   catalog.style.opacity = '';
-  $('#transition-ring').classList.remove('active');
   pond?.setActive(false);
   document.body.style.overflow = '';
+  document.body.dataset.page = 'collection';
   document.querySelector('meta[name="theme-color"]').content = '#f4f1e8';
-  document.title = 'The collection — SUI';
+  document.title = 'The Collection — SUI';
   skipLink.href = '#catalog-title';
   skipLink.textContent = 'Skip to the collection';
   if (push) setHash('#collection');
@@ -83,6 +90,7 @@ function finishCatalog(push = true, focus = true) {
 }
 
 function showPond(push = true) {
+  flightAbort?.abort();
   sequence++;
   page = 'pond';
   $$('dialog[open]').forEach(dialog => dialog.close());
@@ -90,12 +98,14 @@ function showPond(push = true) {
   home.inert = false;
   home.classList.remove('departing');
   home.classList.add('returning');
+  canvas.hidden = false;
+  canvas.classList.remove('transport');
   catalog.hidden = true;
   catalog.inert = true;
-  catalog.classList.remove('revealing');
-  catalog.style.clipPath = '';
-  $('#transition-ring').classList.remove('active');
+  catalog.classList.remove('revealing', 'receiving');
+  catalog.style.opacity = '';
   document.body.style.overflow = '';
+  document.body.dataset.page = 'pond';
   document.querySelector('meta[name="theme-color"]').content = '#163f38';
   document.title = 'SUI — Koi for quiet ponds';
   skipLink.href = '#enter';
@@ -116,35 +126,39 @@ function enterCollection(push = true) {
   home.classList.remove('returning');
   home.classList.add('departing');
   document.body.style.overflow = 'hidden';
-  announce('Opening the koi list');
+  document.body.dataset.page = 'entering';
+  announce('Opening the collection');
+  // The same Kohaku must be present at its destination even after returning from a filter.
+  filter = 'all';
+  shortlistOnly = false;
+  renderCatalog();
   if (!motion || !pond || pond.contextLost) { finishCatalog(push); return; }
-  pond.beginTransition();
-  const mobile = window.innerWidth <= 760;
-  const x = mobile ? '54%' : '63.5%', y = mobile ? '57.5%' : '49%';
-  document.documentElement.style.setProperty('--reveal-x', x);
-  document.documentElement.style.setProperty('--reveal-y', y);
-  let elapsed = 0, last = 0, revealed = false;
+  catalog.hidden = false;
+  catalog.inert = true;
+  catalog.classList.add('revealing', 'receiving');
+  catalog.style.opacity = '0';
+  canvas.classList.add('transport');
+  const destination = $('[data-specimen="kohaku-01"] .sprite-window').getBoundingClientRect();
+  pond.beginTransition({ x: destination.left + destination.width / 2, y: destination.top + destination.height * .46, length: destination.height }, TRANSITION_DURATION);
+  let elapsed = 0, last = null;
+  flightAbort = new AbortController();
+  document.addEventListener('visibilitychange', () => { last = null; }, { signal: flightAbort.signal });
   const advance = stamp => {
     if (run !== sequence) return;
-    if (last) elapsed += (stamp - last) / 1000;
-    last = stamp;
-    if (!motion) { finishCatalog(push); return; }
+    if (last !== null && !document.hidden) elapsed += (stamp - last) / 1000;
+    last = document.hidden ? null : stamp;
+    if (!motion || pond.contextLost) { finishCatalog(push); return; }
     pond.setTransitionTime(elapsed);
-    if (elapsed >= REVEAL_START) {
-      if (!revealed) {
-        revealed = true;
-        catalog.hidden = false;
-        catalog.inert = true;
-        catalog.classList.add('revealing');
-        $('#transition-ring').classList.add('active');
-      }
-      const progress = smoothstep((elapsed - REVEAL_START) / (TRANSITION_DURATION - REVEAL_START));
-      catalog.style.clipPath = `circle(${progress * 140}% at ${x} ${y})`;
-    }
+    catalog.style.opacity = String(smoothstep((elapsed / TRANSITION_DURATION - .08) / .60));
     if (elapsed >= TRANSITION_DURATION) finishCatalog(push); else requestAnimationFrame(advance);
   };
   requestAnimationFrame(advance);
 }
+
+// A layout change must never land the live fish on an obsolete screen coordinate.
+window.addEventListener('resize', () => {
+  if (page === 'entering') { sequence++; finishCatalog(); }
+});
 
 $('#enter').addEventListener('click', () => enterCollection());
 $$('.home-link,.back-to-pond').forEach(button => button.addEventListener('click', event => { event.preventDefault(); if (page !== 'pond') showPond(); }));
@@ -195,6 +209,7 @@ else { catalog.inert = true; setHash('#pond', true); }
 Pond.create(canvas, fallback => {
   document.body.classList.toggle('graphics-fallback', fallback);
   canvas.style.visibility = fallback ? 'hidden' : '';
+  if (fallback && page === 'entering') { sequence++; finishCatalog(); }
 }).then(renderer => {
   pond = renderer;
   pond.setMotion(motion);

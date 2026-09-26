@@ -14,10 +14,10 @@
 </head>
 <body>
   <a class="skip-link" href="#enter">Skip to browse the collection</a>
+  <canvas id="pond" aria-label="A koi swimming in a garden pond" role="img"></canvas>
   <main>
     <section id="home" class="home" aria-label="SUI koi pond">
       <div class="pond-base" aria-hidden="true"></div>
-      <canvas id="pond" aria-label="A koi swimming in a garden pond." role="img"></canvas>
       <img class="fallback-fish" src="assets/kohaku.png" alt="" aria-hidden="true">
       <div class="pond-shade" aria-hidden="true"></div>
       <header class="header hero-header">
@@ -31,7 +31,7 @@
       <footer class="hero-footer">
         <div class="experience-controls"><button id="motion-toggle" aria-pressed="true">Motion on</button></div>
       </footer>
-      <span id="loading" class="loading-label" role="status">Let the world slow down<span> · · ·</span></span>
+      <span id="loading" class="loading-label" role="status">Loading pond</span>
     </section>
 
     <section id="catalog" class="catalog" aria-labelledby="catalog-title" hidden>
@@ -46,7 +46,6 @@
       <div id="empty-state" class="empty-state" hidden><span class="empty-symbol">○</span><h3>No koi saved</h3><p>Save a koi to build a shortlist</p><button id="show-all" class="plain-button">Show all koi <span aria-hidden="true">↗</span></button></div>
     </section>
   </main>
-  <div id="transition-ring" class="transition-ring" aria-hidden="true"></div>
   <p id="announcer" class="sr-only" role="status" aria-live="polite"></p>
   <dialog id="specimen-dialog" class="specimen-dialog" aria-labelledby="specimen-title"><button class="dialog-close" data-close aria-label="Close specimen details">×</button><div id="specimen-content"></div></dialog>
   <noscript><div class="noscript-note">This interactive pond needs JavaScript. Enable it to swim into the collection.</div></noscript>

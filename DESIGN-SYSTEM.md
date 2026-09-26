@@ -14,7 +14,7 @@ SUI is a small koi catalogue with a living pond as its entry point. The pond sup
 
 3. **Motion has a reason**
 
-   The idle fish follows a loose figure-eight. A click within the fish’s nearby touch radius creates a damped directional flee response with a gradual build-up and settle. The entrance continues its current heading through one banking arc before accelerating into the collection. Decorative motion should not compete with the fish.
+   The idle fish steers toward a loose figure-eight guide while retaining its position, speed, and turn rate. Only nearby touches change its intent. The head leads a constrained spine so the body follows through a turn. On entry, the same fish becomes the first catalog specimen while the water fades away. Decorative motion should not compete with the fish.
 
 4. **Facts carry the catalogue**
 
@@ -31,24 +31,23 @@ SUI is a small koi catalogue with a living pond as its entry point. The pond sup
 | Token | Value | Use |
 | --- | --- | --- |
 | `--sui-pond` | `#173e37` | Pond base and dark surfaces |
-| `--sui-pond-deep` | `#071d19` | Pond shade and overlays |
 | `--sui-ivory` | `#f4f1e8` | Light text and catalogue background |
 | `--sui-ink` | `#23372f` | Catalogue text |
-| `--sui-muted` | `#757e72` | Supporting text and metadata |
-| `--sui-accent` | `#bc4e34` | Small vermilion accent and active filter |
+| `--sui-muted` | `#626d60` | Supporting text and metadata |
+| `--sui-accent` | `#a44932` | Active filter and link hover |
 | `--sui-line` | `rgba(35,55,47,.16)` | Catalogue rules |
 
-The original legacy variables map to the same palette: `--ivory`, `--ink`, `--muted`, `--red`, and `--line`.
+These are the canonical CSS tokens; duplicate legacy declarations have been removed.
 
 ### Typography
 
-- Display face: `Kokuryu`, then `Shingo`, then local `Yu Gothic`, `Noto Serif SC`, and a serif fallback
-- Interface face: `Shingo`, then local `Yu Gothic`, `Noto Sans SC`, and an Arial fallback
+- Display face: `Kokuryu`, then `Shingo`, then local `Yu Gothic`, then sans-serif
+- Interface face: `Shingo`, then local `Yu Gothic`, then Arial and sans-serif
 - Kokuryu and Shingo are preferred when installed; the prototype currently falls back to the locally available Japanese system fonts
-- Hero headline: `clamp(72px, 7.5vw, 124px)` on desktop, reduced at mobile breakpoints
-- Catalogue title: `clamp(55px, 5.3vw, 82px)`
-- Card name: `27px` desktop, `29px` mobile
-- Metadata and controls: `9px–12px`, with letter spacing used sparingly
+- Hero headline: `clamp(66px, 7.2vw, 112px)` on desktop, `clamp(48px, 12vw, 66px)` on mobile
+- Catalogue title: `clamp(34px, 4vw, 58px)`, with `37px` on mobile
+- Card name: `21px`
+- Metadata and controls: `11px–13px`, with letter spacing used sparingly
 
 Use display typography for the small number of hierarchy-defining titles. Use the body face for controls, filters, measurements, and accessibility text. Use `em` for semantic emphasis only; it never changes the text to italics.
 
@@ -56,7 +55,7 @@ Use display typography for the small number of hierarchy-defining titles. Use th
 
 - Base spacing: `8px`
 - Common steps: `16px`, `24px`, `40px`, `64px`
-- Card corners: nearly square (`2px`)
+- Card corners: square
 - Interactive controls: squircle radius `16px`
 - Focus ring: `2px` outline with `5px–7px` offset
 
@@ -74,7 +73,7 @@ The pond CTA uses `.enter-button`:
 - `16px` squircle corners
 - translucent ivory fill over the pond
 - thin ivory border
-- small line that extends on hover
+- a subtle change of surface and border on hover, with no decorative icon or line
 - visible focus state
 
 Use one primary button per surface. Do not pair it with another equivalent browse action.
@@ -98,6 +97,8 @@ Each card is a button with:
 
 The entire card opens details. Avoid a second “view” label or decorative arrow when the card itself is clearly interactive.
 
+Fish face upwards consistently and retain their original proportions. Every variety has a distinct artwork region; do not substitute recolors. The first Kohaku uses `assets/kohaku.png`, matching the pond fish exactly. During the entrance, its card image is temporarily hidden until the live rendered fish aligns with it, preventing duplication.
+
 ### Specimen dialog
 
 The dialog contains the fish, name, variety, length, age, one factual description, and the shortlist action. Keep the close control keyboard accessible and return focus to the originating card.
@@ -113,7 +114,9 @@ The dialog contains the fish, name, variety, length, age, one factual descriptio
 
 - Idle motion is paused when the pond is hidden or the document is inactive
 - Reduced motion starts with a still pond and skips the entrance timeline
-- The entrance sequence lasts about `3.4s`
+- The entrance sequence lasts about `3.6s` and settles into the measured first-card rectangle
+- A resize during entry completes the route immediately, avoiding stale landing coordinates
+- Turn rate is capped at `0.68 rad/s`, angular acceleration at `1.1 rad/s²`, and body joints at `0.04 rad` per segment
 - Rendering uses bounded GPU resources and a lower pixel-density fallback
 
 ## Content rules

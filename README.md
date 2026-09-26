@@ -21,10 +21,10 @@ The preview server binds to the local computer only. Serve this folder with any 
 
 ## Experience
 
-- One Kohaku swims through a jade garden pond. Its body, tail, and fins deform continuously.
+- One Kohaku explores the open water with continuous forward swimming. Its head leads a constrained, articulated spine; tail beats respond to speed.
 - Tap or drag across the water to create expanding ripples.
-- Click the pond and the koi moves away from the touch point with a short directional burst before returning to its path.
-- “Browse the collection” carries the same fish through a broad banking arc that follows its current heading, then accelerates into the reveal. Water distortion increases before an expanding circular reveal opens the collection. The sequence is approximately 3.4 seconds in a visible, normally scheduled tab.
+- Only a touch near the fish triggers a startle. Speed and rotation build gradually, then settle into exploration. Repeated clicks update its steering intent without resetting its position, velocity, or heading.
+- “Browse the collection” moves the same rendered Kohaku into the first collection card while the pond fades away. Position and initial velocity are continuous; the body settles into the same artwork and exact card dimensions over approximately 3.6 seconds. There is no spiral or circular page wipe.
 - Explore nine illustrative specimens, filter by variety, open details, and save a shortlist. The shortlist persists in browser local storage, with an in-memory fallback if storage is unavailable.
 - Return to the pond or turn motion off.
 - Native browser Back/Forward and direct `#collection` navigation work.
@@ -43,9 +43,10 @@ The reusable visual and content rules are documented in [DESIGN-SYSTEM.md](DESIG
 - `index.html`: semantic page structure, native dialogs, and controls.
 - `styles.css`: responsive typography and layout, dialog presentation, and page transition treatment.
 - `app.js`: navigation state, one coordinated entrance timeline, catalog interactions, persistence, motion controls, and accessibility behavior.
-- `model.js`: pure fish trajectories, interpolation, catalog data, and storage validation.
-- `pond.js`: native WebGL 2. An image-backed environment and a subdivided fish mesh are composed into a framebuffer. A second pass applies animated caustics, analytic ripple displacement, and subtle transition swirl. No rendering framework or third-party site code is included.
-- `assets/`: four original images made with built-in Imagegen. The six additional collection entries use deliberate palette treatments of the existing catalog sprite so the prototype remains self-contained while bespoke asset generation is unavailable. Prompts and file provenance are recorded in `ASSETS.md`.
+- `model.js`: catalog data, artwork mappings, interpolation helpers, and storage validation.
+- `swimming.js`: persistent motion at 120 integration steps per second, bounded turn rate and acceleration, proximity testing, steering, constrained spine geometry, and the continuous gallery handoff.
+- `pond.js`: native WebGL 2. The environment and articulated fish mesh are composed into a framebuffer. Analytic surface ripples refract that scene. During the handoff, background opacity and water effects diminish while the same fish remains rendered on a transparent canvas above the gallery. No rendering framework or third-party site code is included.
+- `assets/`: six original PNG assets made with built-in Imagegen. The six added varieties now have distinct artwork in two additional sprite sheets. No recoloring filters remain. The first catalog Kohaku uses the same image as the swimming fish. Prompts and provenance are recorded in `ASSETS.md`.
 - `server.mjs`: dependency-free local preview server.
 - `tests/`: trajectory/data unit tests and HTTP integration tests.
 
@@ -66,4 +67,4 @@ This is a completed visual and interaction prototype, not an operating fish deal
 
 The graphics are deliberately 2.5D: generated artwork, a deforming mesh, and analytic water effects. They are not a full fluid solver or a rigged anatomical 3D fish. This is an explicit rendering design, not a hidden workaround. A future freely moving camera or physically simulated water would require a different rendering scope.
 
-No known fragile implementation shortcuts remain in the tested flow. Native dialogs, direct state handling, bounded GPU resources, and deterministic trajectories keep the implementation self-contained. Browser/real-device performance beyond the tested desktop Chrome environment remains unverified. No existing APIs were changed or broken; this is a new standalone project. No structural block prevented completion.
+The old stateless trajectory and touch-offset helpers were replaced by the stateful motion module; their only callers and tests were migrated. Artwork entries now identify their source file and sprite region instead of a recolor variant. There are no external API changes. These are deliberate internal changes, not compatibility shims. No structural block prevented completion. Real-device Safari/Android performance is not verified; browser checks and their scope are recorded in `TESTING.md`.
