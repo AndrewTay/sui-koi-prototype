@@ -44,7 +44,7 @@ The reusable visual and content rules are documented in [DESIGN-SYSTEM.md](DESIG
 - `styles.css`: responsive typography and layout, dialog presentation, and page transition treatment.
 - `app.js`: navigation state, one coordinated entrance timeline, catalog interactions, persistence, motion controls, and accessibility behavior.
 - `model.js`: catalog data, artwork mappings, interpolation helpers, and storage validation.
-- `swimming.js`: persistent motion at 120 integration steps per second, bounded turn rate and acceleration, proximity testing, steering, constrained spine geometry, and the continuous gallery handoff.
+- `swimming.js`: persistent motion at 120 integration steps per second, bounded turn rate and acceleration, proximity testing, steering, persistent damped body joints, render-time interpolation, and the continuous gallery handoff.
 - `pond.js`: native WebGL 2. The environment and articulated fish mesh are composed into a framebuffer. Analytic surface ripples refract that scene. During the handoff, background opacity and water effects diminish while the same fish remains rendered on a transparent canvas above the gallery. No rendering framework or third-party site code is included.
 - `assets/`: six original PNG assets made with built-in Imagegen. The six added varieties now have distinct artwork in two additional sprite sheets. No recoloring filters remain. The first catalog Kohaku uses the same image as the swimming fish. Prompts and provenance are recorded in `ASSETS.md`.
 - `server.mjs`: dependency-free local preview server.

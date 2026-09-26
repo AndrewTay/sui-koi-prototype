@@ -4,6 +4,7 @@ export const TURN_RATE_LIMIT = .68;
 export const TURN_ACCELERATION_LIMIT = 1.1;
 export const SPINE_COUNT = 25;
 export const JOINT_ANGLE_LIMIT = .04;
+export const SIMULATION_STEP = 1 / 120;
 export const wrapAngle = angle => Math.atan2(Math.sin(angle), Math.cos(angle));
 const approach = (current, target, maximum) => current + clamp(target - current, -maximum, maximum);
 
@@ -37,13 +38,18 @@ export class KoiMotion {
     this.alarm = 0;
     this.threat = null;
     this.remainder = 0;
-    this.history = [];
-    this.initializeTrail();
+    this.jointAngles = new Float64Array(SPINE_COUNT - 1);
+    this.jointRates = new Float64Array(SPINE_COUNT - 1);
+    this.previousJointAngles = new Float64Array(SPINE_COUNT - 1);
+    this.initializeBody();
   }
 
-  initializeTrail() {
-    const s = this.state, nose = this.nose();
-    this.history = Array.from({ length: 160 }, (_, i) => ({ x: nose.x - Math.cos(s.heading) * i * s.length / 100, y: nose.y - Math.sin(s.heading) * i * s.length / 100 }));
+  initializeBody() {
+    this.jointAngles.fill(this.state.heading + Math.PI);
+    this.previousJointAngles.set(this.jointAngles);
+    this.jointRates.fill(0);
+    this.previousState = { ...this.state };
+    this.remainder = 0;
   }
   nose() { const s = this.state; return { x: s.x + Math.cos(s.heading) * s.length * .46, y: s.y + Math.sin(s.heading) * s.length * .46 }; }
   pose() { return { ...this.state }; }
@@ -71,17 +77,19 @@ export class KoiMotion {
     this.layout = layout;
     this.threat = null;
     this.alarm = 0;
-    this.initializeTrail();
+    this.initializeBody();
   }
 
   advance(seconds) {
     this.remainder += clamp(seconds, 0, .1);
-    while (this.remainder >= 1 / 120) { this.step(1 / 120); this.remainder -= 1 / 120; }
+    while (this.remainder >= SIMULATION_STEP) { this.step(SIMULATION_STEP); this.remainder -= SIMULATION_STEP; }
     return this.pose();
   }
 
   step(dt) {
     const s = this.state, b = this.layout.bounds;
+    this.previousState = { ...s };
+    this.previousJointAngles.set(this.jointAngles);
     this.time += dt;
     this.phase += dt * .105;
     // A moving, loose figure-eight is a steering target, never a rail the fish snaps onto.
@@ -123,41 +131,50 @@ export class KoiMotion {
     s.beat += dt * (2.1 + s.speed / s.length * 6);
     this.alarm *= Math.exp(-dt * 1.15);
     if (this.alarm < .006) { this.alarm = 0; this.threat = null; }
-    const nose = this.nose();
-    if (Math.hypot(nose.x - this.history[0].x, nose.y - this.history[0].y) > s.length * .006) {
-      this.history.unshift(nose);
-      if (this.history.length > 400) this.history.pop();
+    this.updateBody(dt);
+  }
+
+  updateBody(dt) {
+    let parentAngle = this.state.heading + Math.PI;
+    let parentRate = this.state.turnRate;
+    for (let i = 0; i < this.jointAngles.length; i++) {
+      // A critically damped joint follows its parent in time. No sampled-trail segment can
+      // replace its tangent abruptly. Unwrapped angles also avoid a discontinuity at ±pi.
+      const frequency = 24 - i * .30;
+      const angle = this.jointAngles[i], rate = this.jointRates[i];
+      const offset = angle - parentAngle;
+      const decay = Math.exp(-frequency * dt);
+      const c = rate + frequency * offset;
+      const desired = parentAngle + (offset + c * dt) * decay;
+      const constrained = clamp(desired, parentAngle - JOINT_ANGLE_LIMIT, parentAngle + JOINT_ANGLE_LIMIT);
+      this.jointAngles[i] = constrained;
+      this.jointRates[i] = constrained === desired ? (rate - frequency * c * dt) * decay : parentRate;
+      parentAngle = constrained;
+      parentRate = this.jointRates[i];
     }
   }
 
-  spine() {
-    const result = new Float32Array(SPINE_COUNT * 2), samples = [this.nose(), ...this.history];
-    const step = this.state.length / (SPINE_COUNT - 1);
-    let segment = 0, used = 0;
-    for (let i = 0; i < SPINE_COUNT; i++) {
-      const target = i * step;
-      while (segment < samples.length - 2 && used + Math.hypot(samples[segment + 1].x - samples[segment].x, samples[segment + 1].y - samples[segment].y) < target) {
-        used += Math.hypot(samples[segment + 1].x - samples[segment].x, samples[segment + 1].y - samples[segment].y);
-        segment++;
-      }
-      const a = samples[segment], z = samples[segment + 1];
-      const length = Math.max(.0001, Math.hypot(z.x - a.x, z.y - a.y));
-      const f = (target - used) / length;
-      result[i * 2] = mix(a.x, z.x, f);
-      result[i * 2 + 1] = mix(a.y, z.y, f);
+  buildSpine(pose, alpha = 1) {
+    const result = new Float32Array(SPINE_COUNT * 2), step = pose.length / (SPINE_COUNT - 1);
+    result[0] = pose.x + Math.cos(pose.heading) * pose.length * .46;
+    result[1] = pose.y + Math.sin(pose.heading) * pose.length * .46;
+    for (let i = 0; i < this.jointAngles.length; i++) {
+      const angle = mix(this.previousJointAngles[i], this.jointAngles[i], alpha);
+      result[(i + 1) * 2] = result[i * 2] + Math.cos(angle) * step;
+      result[(i + 1) * 2 + 1] = result[i * 2 + 1] + Math.sin(angle) * step;
     }
-    // The trail supplies intent; fixed-length joints and a curvature limit supply anatomy.
-    // A slow turn must not fold the body back onto itself even if the head trail loops tightly.
-    let angle = this.state.heading + Math.PI;
-    const constrained = new Float32Array(result.length);
-    constrained[0] = result[0]; constrained[1] = result[1];
-    for (let i = 1; i < SPINE_COUNT; i++) {
-      const targetAngle = Math.atan2(result[i * 2 + 1] - result[(i - 1) * 2 + 1], result[i * 2] - result[(i - 1) * 2]);
-      angle += clamp(wrapAngle(targetAngle - angle), -JOINT_ANGLE_LIMIT, JOINT_ANGLE_LIMIT);
-      constrained[i * 2] = constrained[(i - 1) * 2] + Math.cos(angle) * step;
-      constrained[i * 2 + 1] = constrained[(i - 1) * 2 + 1] + Math.sin(angle) * step;
-    }
-    return constrained;
+    return result;
+  }
+
+  spine() { return this.buildSpine(this.state); }
+
+  // Rendering is one fixed step behind the simulation, interpolated to the exact display
+  // timestamp. Screens at 90/144 Hz and slightly irregular 60 Hz no longer repeat/jump states.
+  sampleFrame() {
+    const alpha = clamp(this.remainder / SIMULATION_STEP);
+    const pose = {};
+    for (const key of Object.keys(this.state)) pose[key] = mix(this.previousState[key], this.state[key], alpha);
+    return { pose, spine: this.buildSpine(pose, alpha) };
   }
 }
 

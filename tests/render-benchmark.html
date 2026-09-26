@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../">
+<title>SUI renderer benchmark</title>
+<style>
+  html,body{margin:0;width:100%;height:100%;font:13px monospace;background:#173e37}
+  canvas{position:fixed;inset:0;width:100%;height:100%}
+  .hero-copy{position:absolute;left:8%;top:20%;width:30%;height:34%;pointer-events:none}
+  output{position:fixed;top:16px;left:16px;z-index:2;padding:16px;color:#23372f;background:#f4f1e8;white-space:pre}
+</style>
+<canvas id="pond"></canvas><div class="hero-copy" aria-hidden="true"></div>
+<output id="result">Warming up renderer</output>
+<script type="module">
+  import { Pond } from './pond.js';
+  const output=document.querySelector('#result');
+  try {
+    const pond=await Pond.create(document.querySelector('#pond'),()=>{output.textContent='Graphics context lost';});
+    const intervals=[];let last=null,warmup=90;
+    function measure(stamp) {
+      if(document.hidden){last=null;requestAnimationFrame(measure);return;}
+      if(last!==null) {
+        if(warmup>0)warmup--;
+        else intervals.push(stamp-last);
+      }
+      last=stamp;
+      if(intervals.length<180){requestAnimationFrame(measure);return;}
+      const sorted=[...intervals].sort((a,b)=>a-b);
+      const average=intervals.reduce((a,b)=>a+b,0)/intervals.length;
+      output.textContent='Sample complete\n'+JSON.stringify({viewport:[innerWidth,innerHeight],renderPixels:[pond.canvas.width,pond.canvas.height],frames:intervals.length,averageFps:Math.round(1000/average),medianMs:+sorted[90].toFixed(2),p95Ms:+sorted[171].toFixed(2),over33ms:intervals.filter(value=>value>33.4).length},null,2);
+    }
+    requestAnimationFrame(measure);
+  }catch(error){output.textContent='Benchmark failed: '+error.message;}
+</script>
+</html>

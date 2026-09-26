@@ -117,6 +117,9 @@ The dialog contains the fish, name, variety, length, age, one factual descriptio
 - The entrance sequence lasts about `3.6s` and settles into the measured first-card rectangle
 - A resize during entry completes the route immediately, avoiding stale landing coordinates
 - Turn rate is capped at `0.68 rad/s`, angular acceleration at `1.1 rad/s²`, and body joints at `0.04 rad` per segment
+- Body joints retain their own angles and angular velocities and follow their parent with critical damping; never rebuild them abruptly from a sampled trail
+- Interpolate body, heading, position, and tail phase between 120 Hz simulation steps for smooth display at arbitrary refresh rates
+- Use only one render driver during the collection handoff and begin from the currently displayed interpolated frame
 - Rendering uses bounded GPU resources and a lower pixel-density fallback
 
 ## Content rules

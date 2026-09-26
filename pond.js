@@ -269,14 +269,14 @@ export class Pond {
   bindTexture(program, texture, name = 'u_image') { const gl = this.gl; gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, texture); gl.uniform1i(program.uniform(name), 0); }
 
   pose() {
-    return this.transition ? this.transition.flight.sample(this.transition.elapsed).pose : this.swimmer.pose();
+    return this.transition ? this.transition.flight.sample(this.transition.elapsed).pose : this.swimmer.sampleFrame().pose;
   }
 
   render() {
     if (!this.target || this.contextLost) return;
     const gl = this.gl;
-    const frame = this.transition?.flight.sample(this.transition.elapsed);
-    const pose = frame?.pose ?? this.swimmer.pose();
+    const frame = this.transition ? this.transition.flight.sample(this.transition.elapsed) : this.swimmer.sampleFrame();
+    const pose = frame.pose;
     const settle = frame?.settle ?? 0;
     gl.viewport(0, 0, this.canvas.width, this.canvas.height);
     gl.bindFramebuffer(gl.FRAMEBUFFER, this.target.framebuffer);
@@ -295,7 +295,7 @@ export class Pond {
     this.bindTexture(this.fish, this.fishTexture);
     const size = pose.length;
     gl.uniform2f(this.fish.uniform('u_resolution'), this.width, this.height);
-    gl.uniform2fv(this.fish.uniform('u_spine[0]'), frame?.spine ?? this.swimmer.spine());
+    gl.uniform2fv(this.fish.uniform('u_spine[0]'), frame.spine);
     gl.uniform1f(this.fish.uniform('u_length'), size);
     gl.uniform1f(this.fish.uniform('u_beat'), pose.beat);
     gl.uniform1f(this.fish.uniform('u_speed'), pose.speed / size);
@@ -331,8 +331,18 @@ export class Pond {
     return accepted;
   }
 
-  beginTransition(destination, duration) { this.transition = { flight: new CollectionFlight(this.pose(), this.swimmer.spine(), destination, duration), elapsed: 0 }; this.start(); }
-  setTransitionTime(elapsed) { if (this.transition) { this.transition.elapsed = elapsed; this.render(); } }
+  beginTransition(destination, duration) {
+    const frame = this.swimmer.sampleFrame();
+    this.transition = { flight: new CollectionFlight(frame.pose, frame.spine, destination, duration), elapsed: 0, waterStartTime: this.time };
+    this.stop();
+  }
+  setTransitionTime(elapsed) {
+    if (this.transition) {
+      this.transition.elapsed = elapsed;
+      this.time = this.transition.waterStartTime + elapsed;
+      this.render();
+    }
+  }
   reset() { this.transition = null; this.ripples.fill(0); this.lastStamp = 0; this.resize(); }
   setMotion(enabled) { this.motion = enabled; if (enabled) this.start(); else { this.stop(); this.render(); } }
   setActive(active) { this.active = active; if (active) { this.resize(); this.start(); } else this.stop(); }
@@ -354,7 +364,7 @@ export class Pond {
     this.render();
     this.raf = requestAnimationFrame(this.tick);
   }
-  start() { if (!this.raf && this.active && this.motion && !document.hidden && !this.contextLost) { this.lastStamp = 0; this.raf = requestAnimationFrame(this.tick); } }
+  start() { if (!this.raf && this.active && this.motion && !this.transition && !document.hidden && !this.contextLost) { this.lastStamp = 0; this.raf = requestAnimationFrame(this.tick); } }
   stop() { cancelAnimationFrame(this.raf); this.raf = 0; this.lastStamp = 0; }
   dispose() {
     this.stop();

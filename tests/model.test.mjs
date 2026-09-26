@@ -90,6 +90,51 @@ test('simulation gives the same trajectory at 30, 60, and 120 frames per second'
   for(const p of states)assert.ok(Math.hypot(p.x-states[0].x,p.y-states[0].y)<.001);
 });
 
+test('the whole body remains continuous frame to frame through slow tight turns', () => {
+  for (const [width,height] of [[1440,900],[390,844]]) {
+    const motion=new KoiMotion(pondLayout(width,height));
+    let prior=motion.spine();
+    for(let frame=0;frame<60*120;frame++) {
+      motion.advance(1/60);
+      const next=motion.spine();
+      for(let joint=0;joint<SPINE_COUNT;joint++) {
+        const jump=Math.hypot(next[joint*2]-prior[joint*2],next[joint*2+1]-prior[joint*2+1]);
+        assert.ok(jump<motion.state.length*.012, 'body joint jumped '+jump+'px at '+frame/60+' seconds');
+      }
+      prior=next;
+    }
+  }
+});
+
+test('render interpolation avoids repeated poses on a 144 Hz or irregular display', () => {
+  for(const cadence of [[1/144],[.011,.019,.014,.021]]) {
+    const motion=new KoiMotion(pondLayout(1440,900));
+    advance(motion,4);
+    let last=motion.sampleFrame();
+    for(let i=0;i<600;i++) {
+      const dt=cadence[i%cadence.length];
+      motion.advance(dt);
+      const frame=motion.sampleFrame();
+      const expected=(frame.pose.speed+last.pose.speed)*.5*dt;
+      const distance=Math.hypot(frame.pose.x-last.pose.x,frame.pose.y-last.pose.y);
+      assert.ok(distance>0,'display frame repeated the previous fixed-step position');
+      assert.ok(Math.abs(distance-expected)<expected*.035,'rendered movement followed quantized simulation steps');
+      last=frame;
+    }
+  }
+});
+
+test('handoff starts at the interpolated visible body, including between fixed steps', () => {
+  const motion=new KoiMotion(pondLayout(1440,900));advance(motion,6);
+  motion.advance(.003);
+  const visible=motion.sampleFrame();
+  const flight=new CollectionFlight(visible.pose,visible.spine,{x:220,y:490,length:300});
+  const first=flight.sample(0);
+  assert.equal(first.pose.x,visible.pose.x);
+  assert.equal(first.pose.y,visible.pose.y);
+  first.spine.forEach((value,i)=>assert.ok(Math.abs(value-visible.spine[i])<.0002));
+});
+
 test('gallery handoff begins with identical live pose and spine and lands exactly on card', () => {
   const motion=new KoiMotion(pondLayout(1440,900));advance(motion,14);
   const start=motion.pose(),spine=motion.spine(),end={x:260,y:470,length:310};
