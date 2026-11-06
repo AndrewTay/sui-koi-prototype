@@ -1,70 +1,78 @@
-# SUI — Koi for quiet ponds
+# Mizu — Living Jewels
 
-An interactive web prototype for a small fictional koi collection. Built for desktop and mobile with original generated artwork, an original WebGL renderer, and a functioning illustrative collection.
+An interactive collector marketplace with a WebGL koi pond, a curated collection, specimen details, saved items, offer conversations, and local listing creation.
 
 ## Run
 
-Requires a current Node.js release. No package installation or build step is needed.
+Requires a current Node.js release. Install the existing component package's dependencies once:
 
 ```sh
+npm --prefix packages/mizu-ui install
 npm start
 ```
 
-Open http://127.0.0.1:4173. To use a different port in PowerShell:
-
-```powershell
-$env:PORT = '4180'
-npm start
-```
-
-The preview server binds to the local computer only. Serve this folder with any static HTTP host to share it elsewhere. Opening `index.html` via `file://` is not supported because the browser must load JavaScript modules and image textures over HTTP.
+Open http://127.0.0.1:4173. `npm start` builds the React marketplace before starting the static preview server. For live source updates, stop the preview server and run `npm run dev` (Vite, same port). `npm run build:marketplace` refreshes the static bundle independently.
 
 ## Experience
 
-- One Kohaku explores the open water with continuous forward swimming. Its head leads a constrained, articulated spine; tail beats respond to speed.
-- Tap or drag across the water to create expanding ripples.
-- Only a touch near the fish triggers a startle. Speed and rotation build gradually, then settle into exploration. Repeated clicks update its steering intent without resetting its position, velocity, or heading.
-- “Browse the collection” moves the same rendered Kohaku into the first collection card while the pond fades away. Position and initial velocity are continuous; the body settles into the same artwork and exact card dimensions over approximately 3.6 seconds. There is no spiral or circular page wipe.
-- Explore nine illustrative specimens, filter by variety, open details, and save a shortlist. The shortlist persists in browser local storage, with an in-memory fallback if storage is unavailable.
-- Return to the pond or turn motion off.
-- Native browser Back/Forward and direct `#collection` navigation work.
-- Reduced motion starts with a still pond and immediate catalog navigation. The manual motion control offers the same behavior.
+- The original articulated koi, touch ripples, reduced-motion behavior, and continuous pond-to-card transition remain in place.
+- Collection cards now show prices; details include the seller, breeder, quarantine notes and handover arrangements from the supplied Figma prototype. A calibrated grid can be toggled on the portrait.
+- Collection, Offers, Sell and Saved have direct hash routes and support browser Back/Forward.
+- Saved items, offer messages, counteroffers, reservations and custom listings persist locally. Existing SUI or Mizu shortlists are migrated. Storage failures are reported without blocking the current tab.
+- Offer forms validate amounts, handover and messages. The sample counteroffer can be accepted; reserved offers cannot be overwritten. New messages do not fabricate automated seller replies.
+- Sell validates specimen data and requires a readable PNG/JPG up to 2 MB. Custom listings use their own photograph and do not invent age, certification or quarantine information.
+- The department drawer uses a visible keyboard-accessible menu, native modal focus containment, Escape dismissal and library accordions. Other departments are previews using the source prototype's remote listing photos; unavailable photos show an explicit fallback.
+- Reset demo restores the initial sample state and offers Undo until the next reload.
 
-## Design refinement
+The marketplace is a local interactive prototype. No seller receives these messages or offers, no listing is published to a service, and no payment or real reservation occurs.
 
-The concept combines a full-bleed living environment with restrained editorial typography. Deep jade, ivory, and a small vermilion accent establish the visual language. The interface gives the koi most of the attention. The collection is a quiet ivory gallery with specimen portraits, filters, dimensions, and details on demand.
+## Figma import decisions
 
-The desktop and portrait pond artwork are independently composed so the garden remains visible at both aspect ratios. Mobile uses a smaller fish on a lower path to preserve the reading and interaction area.
+The source was the user-exported **Mizu App** Code Layer (`Cc9wVOVG4ZSCgga5DfNs5w`, `2012:988`). It was reviewed as a reference, not installed over the repository. Selected listing/seller/conversation data lives in `marketplace/reference-data.json`; UI and state handling were implemented separately.
 
-The reusable visual and content rules are documented in [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md).
+The marketplace composes the existing `packages/mizu-ui` Header, SpecimenCard, SpecimenDetails, FilterTab, EmptyState, Dialog, OfferForm, Message, MessageComposer, ImageUpload, Field, Button and department components. It reuses their semantic tokens and original icon SVGs. The six exported pond/koi images are byte-identical to the existing assets, so no image replacement was necessary. Inter is served locally from the font source referenced in the export.
+
+The pond retains its tested steering, fixed-step simulation and continuous collection handoff. Selected updates add stroke/glide/hold pacing, independent fin motion, softer submerged lighting and quieter wakes. The pond UI also adopts the export's glass controls, safe-area spacing and responsive type; the original local images provide the loading and WebGL fallback presentation. The reference's runtime/deployment files, duplicated component styles, synthetic reply timers, false transport/certification defaults for user-created listings and unrelated infrastructure were not imported.
+
+## Reconciliation with the supplied MIZU folder (6 November 2026)
+
+The separately supplied MIZU folder is a vanilla JavaScript implementation, not a drop-in update to this React marketplace. This repository remains the working version.
+
+| Area | This project | Supplied MIZU |
+| --- | --- | --- |
+| Marketplace | React with reusable `packages/mizu-ui` components | HTML and DOM rendering in `app.js` |
+| State | Saved items, listings and offer conversations persist locally | Shortlist persists; listings and conversations are held in memory |
+| Navigation | Direct collection, offers, sell and saved hash routes | Collection/pond hashes with internal section switching |
+| Presentation | Component-library typography and layout | Separate editorial styling and richer seller/sample content |
+| Pond | Stroke/glide/hold pacing, independent fins, quieter wakes | Earlier motion implementation and initialization timeout fallback |
+| Assets | Same six PNG images plus a local font | Same six PNG images |
+
+The broken development collection was caused by Vite resolving the compiled marketplace before the source-entry plugin. The HTML removed the compiled stylesheet, while the source CSS imports never loaded. The plugin now runs before normal resolution and handles both relative and root-relative bundle URLs. A development-server regression test checks that the source entry and all three stylesheets load. Static builds continue to use `marketplace-dist/`.
+
+No files from the supplied folder were copied over this project. Its simulated seller replies and different state/navigation model were not merged. Both folders pass their existing checks; this project's additional regression test covers the development-only failure.
 
 ## Architecture
 
-- `index.html`: semantic page structure, native dialogs, and controls.
-- `styles.css`: responsive typography and layout, dialog presentation, and page transition treatment.
-- `app.js`: navigation state, one coordinated entrance timeline, catalog interactions, persistence, motion controls, and accessibility behavior.
-- `model.js`: catalog data, artwork mappings, interpolation helpers, and storage validation.
-- `swimming.js`: persistent motion at 120 integration steps per second, bounded turn rate and acceleration, proximity testing, steering, persistent damped body joints, render-time interpolation, and the continuous gallery handoff.
-- `pond.js`: native WebGL 2. The environment and articulated fish mesh are composed into a framebuffer. Analytic surface ripples refract that scene. During the handoff, background opacity and water effects diminish while the same fish remains rendered on a transparent canvas above the gallery. No rendering framework or third-party site code is included.
-- `assets/`: six original PNG assets made with built-in Imagegen. The six added varieties now have distinct artwork in two additional sprite sheets. No recoloring filters remain. The first catalog Kohaku uses the same image as the swimming fish. Prompts and provenance are recorded in `ASSETS.md`.
-- `server.mjs`: dependency-free local preview server.
-- `tests/`: trajectory/data unit tests and HTTP integration tests.
-
-The renderer stops when the pond is hidden or the document is inactive, caps pixel density, and can reduce resolution when frame times are high. It releases GPU resources and supports context restoration. Unsupported graphics use the image-backed still presentation; the collection remains usable.
+- `marketplace/main.tsx`: React page composition and event handling.
+- `marketplace/state.js`: validation, migration, serialization and offer transitions.
+- `marketplace/styles.css`: responsive screen layout over the existing component library.
+- `marketplace/vite.config.mjs`: static marketplace bundle; root `vite.config.mjs` supplies live development.
+- `marketplace-dist/`: generated browser bundle, CSS and component assets. Rebuild after source edits before using the static server.
+- `app.js`: pond lifecycle, motion controls, routes and the coordinated entrance timeline. A small DOM-event boundary prepares the React collection before the koi lands in its first card.
+- `index.html` and `styles.css`: pond shell and original sprite geometry.
+- `model.js`: original koi artwork and motion helpers.
+- `pond.js` and `swimming.js`: original WebGL renderer and deterministic motion.
+- `packages/mizu-ui/`: reusable React components and design tokens, with its own gallery and tests.
+- `server.mjs`: local static preview, including correct SVG and font MIME types.
 
 ## Validation
 
 ```sh
+npm run build:marketplace
+npm run typecheck
 npm run check
 npm test
+npm --prefix packages/mizu-ui test
 ```
 
-See `TESTING.md` for the browser checks and their limits.
-
-## Scope and architectural integrity
-
-This is a completed visual and interaction prototype, not an operating fish dealership. SUI is fictional. All koi imagery and specimen measurements are illustrative. There is no checkout, seller integration, inventory backend, or enquiry submission.
-
-The graphics are deliberately 2.5D: generated artwork, a deforming mesh, and analytic water effects. They are not a full fluid solver or a rigged anatomical 3D fish. This is an explicit rendering design, not a hidden workaround. A future freely moving camera or physically simulated water would require a different rendering scope.
-
-The old stateless trajectory and touch-offset helpers were replaced by the stateful motion module; their only callers and tests were migrated. Artwork entries now identify their source file and sprite region instead of a recolor variant. There are no external API changes. These are deliberate internal changes, not compatibility shims. No structural block prevented completion. Real-device Safari/Android performance is not verified; browser checks and their scope are recorded in `TESTING.md`.
+Browser validation covered the pond handoff, collection, specimen details/grid, saved state, offer validation/submission, messages, counteroffers, acceptance, listing validation/upload/publishing, reload persistence, department navigation, and desktop/mobile layouts. See `TESTING.md` for the original renderer's verification limits.

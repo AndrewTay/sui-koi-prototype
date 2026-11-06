@@ -8,6 +8,16 @@ export const SIMULATION_STEP = 1 / 120;
 export const wrapAngle = angle => Math.atan2(Math.sin(angle), Math.cos(angle));
 const approach = (current, target, maximum) => current + clamp(target - current, -maximum, maximum);
 
+// A stroke, a glide and a quiet hold. The envelope joins continuously at the loop.
+export function swimmingEffort(time) {
+  const phase = ((time % 12) + 12) % 12;
+  return Math.max(1 - smoothstep((phase - 1.8) / 2.4), smoothstep((phase - 9.2) / 2.8));
+}
+
+export function wakeStrength(pose) {
+  return clamp((pose.speed / pose.length - .035) * .8, 0, .20) * (.25 + .75 * pose.effort);
+}
+
 export function pondLayout(width, height, copyBottom = height * .57) {
   const mobile = width <= 760;
   const surface = mobile
@@ -32,7 +42,7 @@ export class KoiMotion {
   constructor(layout) {
     this.layout = layout;
     const b = layout.bounds;
-    this.state = { x: mix(b.left, b.right, .66), y: mix(b.top, b.bottom, .55), heading: -2.45, turnRate: 0, speed: layout.length * .15, acceleration: 0, length: layout.length, beat: 0 };
+    this.state = { x: mix(b.left, b.right, .66), y: mix(b.top, b.bottom, .55), heading: -2.45, turnRate: 0, speed: layout.length * .15, acceleration: 0, length: layout.length, beat: 0, effort: .7, finPhase: 0, finActivity: .6 };
     this.phase = .7;
     this.time = 0;
     this.alarm = 0;
@@ -110,10 +120,12 @@ export class KoiMotion {
     dx += clamp((b.left + marginX - px) / marginX, 0, 2) * 5 - clamp((px - b.right + marginX) / marginX, 0, 2) * 5;
     dy += clamp((b.top + marginY - py) / marginY, 0, 2) * 5 - clamp((py - b.bottom + marginY) / marginY, 0, 2) * 5;
     const error = wrapAngle(Math.atan2(dy, dx) - s.heading);
-    const desiredTurn = clamp(error * .85, -TURN_RATE_LIMIT, TURN_RATE_LIMIT);
+    const desiredTurn = clamp(error * .85, -TURN_RATE_LIMIT, TURN_RATE_LIMIT) * (.1 + .9 * smoothstep(s.speed / s.length / .07));
     s.turnRate = approach(s.turnRate, desiredTurn, TURN_ACCELERATION_LIMIT * dt);
     s.heading += s.turnRate * dt;
-    const cruise = s.length * (.15 + .025 * Math.sin(this.time * .47));
+    const intent = Math.max(swimmingEffort(this.time) * .85, this.alarm);
+    s.effort += (intent - s.effort) * (1 - Math.exp(-dt * 3));
+    const cruise = s.length * (.018 + .19 * s.effort);
     let targetSpeed = cruise * (1 + this.alarm * 2.5) / (1 + Math.abs(error) * .32);
     const cos = Math.cos(s.heading), sin = Math.sin(s.heading);
     const roomX = Math.abs(cos) < .001 ? Infinity : (cos > 0 ? b.right - s.x : s.x - b.left) / Math.abs(cos);
@@ -128,7 +140,10 @@ export class KoiMotion {
     s.speed = Math.min(s.speed, room / dt);
     s.x += cos * s.speed * dt;
     s.y += sin * s.speed * dt;
-    s.beat += dt * (2.1 + s.speed / s.length * 6);
+    s.beat += dt * (.25 + s.effort * 7.5);
+    s.finPhase += dt * (3.2 + (1 - s.effort) * 1.3);
+    const finTarget = clamp(.25 + (1 - s.effort) * .6 + Math.abs(s.turnRate) * .2);
+    s.finActivity += (finTarget - s.finActivity) * (1 - Math.exp(-dt * 4));
     this.alarm *= Math.exp(-dt * 1.15);
     if (this.alarm < .006) { this.alarm = 0; this.threat = null; }
     this.updateBody(dt);
@@ -142,10 +157,14 @@ export class KoiMotion {
       // replace its tangent abruptly. Unwrapped angles also avoid a discontinuity at ±pi.
       const frequency = 24 - i * .30;
       const angle = this.jointAngles[i], rate = this.jointRates[i];
-      const offset = angle - parentAngle;
+      const along = (i + 1) / (SPINE_COUNT - 1);
+      const rear = smoothstep((along - .25) / .75);
+      const wave = this.state.effort * smoothstep(this.state.speed / this.state.length / .06) * rear * rear * .012 * Math.sin(this.state.beat - along * 5.2);
+      const target = parentAngle + wave;
+      const offset = angle - target;
       const decay = Math.exp(-frequency * dt);
       const c = rate + frequency * offset;
-      const desired = parentAngle + (offset + c * dt) * decay;
+      const desired = target + (offset + c * dt) * decay;
       const constrained = clamp(desired, parentAngle - JOINT_ANGLE_LIMIT, parentAngle + JOINT_ANGLE_LIMIT);
       this.jointAngles[i] = constrained;
       this.jointRates[i] = constrained === desired ? (rate - frequency * c * dt) * decay : parentRate;
@@ -206,7 +225,7 @@ export class CollectionFlight {
     const y = h00 * s.y + h10 * vy + h01 * d.y;
     const heading = s.heading + this.rotation * p;
     const length = mix(s.length, d.length, p);
-    const pose = { x, y, heading, length, speed: s.speed * (1 - p), turnRate: s.turnRate * (1 - p), beat: s.beat + (elapsed - elapsed ** 2 / (2 * this.duration)) * 2.2 };
+    const pose = { x, y, heading, length, speed: s.speed * (1 - p), turnRate: s.turnRate * (1 - p), beat: s.beat, effort: s.effort * (1 - p), finPhase: s.finPhase + (elapsed - elapsed ** 2 / (2 * this.duration)) * 3.2, finActivity: s.finActivity * (1 - p) };
     const straight = straightSpine(pose), original = straightSpine(s);
     const angle = heading - s.heading, cos = Math.cos(angle), sin = Math.sin(angle);
     for (let i = 0; i < SPINE_COUNT; i++) {

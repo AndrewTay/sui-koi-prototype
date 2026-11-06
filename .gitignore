@@ -3,3 +3,14 @@ node_modules/
 .env.*
 *.log
 .DS_Store
+.envrc
+.npmrc
+.netrc
+.aws/
+*.pem
+*.key
+*.p12
+*.pfx
+*.token
+mizu-figma-token.*
+outputs/

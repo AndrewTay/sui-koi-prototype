@@ -1,0 +1,48 @@
+{
+  "name": "@mizu/ui",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "React components and design tokens for the Mizu collector marketplace",
+  "sideEffects": [
+    "./dist/styles.css",
+    "./dist/tokens.css"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./tokens.css": "./dist/tokens.css"
+  },
+  "peerDependencies": {
+    "react": ">=18.3 <20",
+    "react-dom": ">=18.3 <20"
+  },
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "build": "npm run tokens && tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.code-connect.json --noEmit",
+    "test": "vitest run",
+    "demo": "vite demo --host 127.0.0.1",
+    "codeconnect:check": "node scripts/validate-code-connect.mjs",
+    "codeconnect:publish:keynote": "figma connect publish --config figma.keynote.config.json --skip-update-check"
+  },
+  "devDependencies": {
+    "@figma/code-connect": "^1.3.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "jsdom": "^26.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const port = Number(process.env.PORT || 4173);
-const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.woff2': 'font/woff2', '.md': 'text/plain; charset=utf-8' };
+const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.woff2': 'font/woff2', '.md': 'text/plain; charset=utf-8' };
 const server = http.createServer(async (request, response) => {
   try {
     if (!['GET', 'HEAD'].includes(request.method)) { response.writeHead(405); return response.end(); }
@@ -18,4 +18,4 @@ const server = http.createServer(async (request, response) => {
     response.end(request.method === 'HEAD' ? undefined : data);
   } catch { response.writeHead(404); response.end('Not found'); }
 });
-server.listen(port, '127.0.0.1', () => console.log(`SUI is ready at http://127.0.0.1:${server.address().port}`));
+server.listen(port, '127.0.0.1', () => console.log(`MIZU is ready at http://127.0.0.1:${server.address().port}`));

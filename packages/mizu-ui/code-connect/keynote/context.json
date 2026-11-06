@@ -1,0 +1,2748 @@
+[
+  {
+    "component": "Button",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:187",
+    "name": "Button",
+    "properties": {
+      "Icon#13:54": {
+        "name": "Icon",
+        "type": "INSTANCE_SWAP",
+        "key": "Icon#13:54"
+      },
+      "Show icon#13:55": {
+        "name": "Show icon",
+        "type": "BOOLEAN",
+        "key": "Show icon#13:55"
+      },
+      "Label#13:56": {
+        "name": "Label",
+        "type": "TEXT",
+        "key": "Label#13:56"
+      },
+      "Appearance": {
+        "name": "Appearance",
+        "type": "VARIANT",
+        "key": "Appearance",
+        "variantOptions": [
+          "Primary",
+          "Secondary",
+          "Text"
+        ]
+      },
+      "State": {
+        "name": "State",
+        "type": "VARIANT",
+        "key": "State",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Pressed",
+          "Focus",
+          "Disabled",
+          "Loading"
+        ]
+      }
+    },
+    "descendants": {
+      "INSTANCE[Icon/Plus]": {
+        "type": "INSTANCE",
+        "name": "Icon/Plus",
+        "mainComponentName": "Icon/Plus",
+        "references": {
+          "visible": "Show icon#13:55",
+          "mainComponent": "Icon#13:54"
+        },
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "Appearance=Primary, State=Default",
+          "Appearance=Primary, State=Hover",
+          "Appearance=Primary, State=Pressed",
+          "Appearance=Primary, State=Focus",
+          "Appearance=Primary, State=Disabled",
+          "Appearance=Secondary, State=Default",
+          "Appearance=Secondary, State=Hover",
+          "Appearance=Secondary, State=Pressed",
+          "Appearance=Secondary, State=Focus",
+          "Appearance=Secondary, State=Disabled",
+          "Appearance=Text, State=Default",
+          "Appearance=Text, State=Hover",
+          "Appearance=Text, State=Pressed",
+          "Appearance=Text, State=Focus",
+          "Appearance=Text, State=Disabled"
+        ]
+      },
+      "TEXT[Make an offer]": {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "nodeId": "13:101",
+        "textContent": "Make an offer",
+        "references": {
+          "characters": "Label#13:56"
+        },
+        "variants": [
+          "Appearance=Primary, State=Default",
+          "Appearance=Primary, State=Hover",
+          "Appearance=Primary, State=Pressed",
+          "Appearance=Primary, State=Focus",
+          "Appearance=Primary, State=Disabled",
+          "Appearance=Secondary, State=Default",
+          "Appearance=Secondary, State=Hover",
+          "Appearance=Secondary, State=Pressed",
+          "Appearance=Secondary, State=Focus",
+          "Appearance=Secondary, State=Disabled",
+          "Appearance=Text, State=Default",
+          "Appearance=Text, State=Hover",
+          "Appearance=Text, State=Pressed",
+          "Appearance=Text, State=Focus",
+          "Appearance=Text, State=Disabled"
+        ]
+      },
+      "INSTANCE[Icon/Spinner]": {
+        "type": "INSTANCE",
+        "name": "Icon/Spinner",
+        "mainComponentName": "Icon/Spinner",
+        "references": {},
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "Appearance=Primary, State=Loading",
+          "Appearance=Secondary, State=Loading",
+          "Appearance=Text, State=Loading"
+        ]
+      },
+      "TEXT[Sending…]": {
+        "type": "TEXT",
+        "name": "Sending…",
+        "nodeId": "13:126",
+        "textContent": "Sending…",
+        "references": {},
+        "variants": [
+          "Appearance=Primary, State=Loading",
+          "Appearance=Secondary, State=Loading",
+          "Appearance=Text, State=Loading"
+        ]
+      }
+    }
+  },
+  {
+    "component": "IconButton",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:204",
+    "name": "Icon button",
+    "properties": {
+      "Icon#13:61": {
+        "name": "Icon",
+        "type": "INSTANCE_SWAP",
+        "key": "Icon#13:61"
+      },
+      "State": {
+        "name": "State",
+        "type": "VARIANT",
+        "key": "State",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Focus",
+          "Disabled"
+        ]
+      }
+    },
+    "descendants": {
+      "INSTANCE[Icon/Close]": {
+        "type": "INSTANCE",
+        "name": "Icon/Close",
+        "mainComponentName": "Icon/Close",
+        "references": {
+          "mainComponent": "Icon#13:61"
+        },
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "State=Default",
+          "State=Hover",
+          "State=Focus",
+          "State=Disabled"
+        ]
+      }
+    }
+  },
+  {
+    "component": "NavigationItem",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:214",
+    "name": "Navigation item",
+    "properties": {
+      "Label#13:71": {
+        "name": "Label",
+        "type": "TEXT",
+        "key": "Label#13:71"
+      },
+      "Count#13:72": {
+        "name": "Count",
+        "type": "TEXT",
+        "key": "Count#13:72"
+      },
+      "Show count#13:73": {
+        "name": "Show count",
+        "type": "BOOLEAN",
+        "key": "Show count#13:73"
+      },
+      "State": {
+        "name": "State",
+        "type": "VARIANT",
+        "key": "State",
+        "variantOptions": [
+          "Default",
+          "Selected",
+          "Focus"
+        ]
+      }
+    },
+    "descendants": {
+      "TEXT[Collection]": {
+        "type": "TEXT",
+        "name": "Collection",
+        "nodeId": "13:206",
+        "textContent": "Collection",
+        "references": {
+          "characters": "Label#13:71"
+        },
+        "variants": [
+          "State=Default",
+          "State=Selected",
+          "State=Focus"
+        ]
+      },
+      "TEXT[(1)]": {
+        "type": "TEXT",
+        "name": "(1)",
+        "nodeId": "13:207",
+        "textContent": "(1)",
+        "references": {
+          "visible": "Show count#13:73",
+          "characters": "Count#13:72"
+        },
+        "variants": [
+          "State=Default",
+          "State=Selected",
+          "State=Focus"
+        ]
+      }
+    }
+  },
+  {
+    "component": "FilterTab",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:245",
+    "name": "Filter tab",
+    "properties": {
+      "Label#13:92": {
+        "name": "Label",
+        "type": "TEXT",
+        "key": "Label#13:92"
+      },
+      "Count#13:93": {
+        "name": "Count",
+        "type": "TEXT",
+        "key": "Count#13:93"
+      },
+      "Show count#13:94": {
+        "name": "Show count",
+        "type": "BOOLEAN",
+        "key": "Show count#13:94"
+      },
+      "Selected": {
+        "name": "Selected",
+        "type": "VARIANT",
+        "key": "Selected",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      },
+      "State": {
+        "name": "State",
+        "type": "VARIANT",
+        "key": "State",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Focus"
+        ]
+      }
+    },
+    "descendants": {
+      "TEXT[Kohaku]": {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "nodeId": "13:217",
+        "textContent": "Kohaku",
+        "references": {
+          "characters": "Label#13:92"
+        },
+        "variants": [
+          "Selected=False, State=Default",
+          "Selected=False, State=Hover",
+          "Selected=False, State=Focus",
+          "Selected=True, State=Default",
+          "Selected=True, State=Hover",
+          "Selected=True, State=Focus"
+        ]
+      },
+      "TEXT[09]": {
+        "type": "TEXT",
+        "name": "09",
+        "nodeId": "13:218",
+        "textContent": "09",
+        "references": {
+          "visible": "Show count#13:94",
+          "characters": "Count#13:93"
+        },
+        "variants": [
+          "Selected=False, State=Default",
+          "Selected=False, State=Hover",
+          "Selected=False, State=Focus",
+          "Selected=True, State=Default",
+          "Selected=True, State=Hover",
+          "Selected=True, State=Focus"
+        ]
+      }
+    }
+  },
+  {
+    "component": "StatusBadge",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:254",
+    "name": "Status badge",
+    "properties": {
+      "Amount#21:0": {
+        "name": "Amount",
+        "type": "TEXT",
+        "key": "Amount#21:0"
+      },
+      "Show amount#21:5": {
+        "name": "Show amount",
+        "type": "BOOLEAN",
+        "key": "Show amount#21:5"
+      },
+      "Status": {
+        "name": "Status",
+        "type": "VARIANT",
+        "key": "Status",
+        "variantOptions": [
+          "Counter",
+          "Reserved",
+          "Pending",
+          "Closed"
+        ]
+      }
+    },
+    "descendants": {
+      "TEXT[Counter · $2,320]": {
+        "type": "TEXT",
+        "name": "Counter · $2,320",
+        "nodeId": "13:247",
+        "textContent": "Counter",
+        "references": {},
+        "variants": [
+          "Status=Counter"
+        ]
+      },
+      "TEXT[· $2,320]": {
+        "type": "TEXT",
+        "name": "· $2,320",
+        "nodeId": "21:627",
+        "textContent": "· $2,320",
+        "references": {
+          "visible": "Show amount#21:5",
+          "characters": "Amount#21:0"
+        },
+        "variants": [
+          "Status=Counter",
+          "Status=Reserved",
+          "Status=Pending",
+          "Status=Closed"
+        ]
+      },
+      "TEXT[Reserved · $1,680]": {
+        "type": "TEXT",
+        "name": "Reserved · $1,680",
+        "nodeId": "13:249",
+        "textContent": "Reserved",
+        "references": {},
+        "variants": [
+          "Status=Reserved"
+        ]
+      },
+      "TEXT[Pending]": {
+        "type": "TEXT",
+        "name": "Pending",
+        "nodeId": "13:251",
+        "textContent": "Pending",
+        "references": {},
+        "variants": [
+          "Status=Pending"
+        ]
+      },
+      "TEXT[Closed]": {
+        "type": "TEXT",
+        "name": "Closed",
+        "nodeId": "13:253",
+        "textContent": "Closed",
+        "references": {},
+        "variants": [
+          "Status=Closed"
+        ]
+      }
+    }
+  },
+  {
+    "component": "Field",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:345",
+    "name": "Field",
+    "properties": {
+      "Label#13:160": {
+        "name": "Label",
+        "type": "TEXT",
+        "key": "Label#13:160"
+      },
+      "Value#13:161": {
+        "name": "Value",
+        "type": "TEXT",
+        "key": "Value#13:161"
+      },
+      "Help text#13:162": {
+        "name": "Help text",
+        "type": "TEXT",
+        "key": "Help text#13:162"
+      },
+      "Show help#13:163": {
+        "name": "Show help",
+        "type": "BOOLEAN",
+        "key": "Show help#13:163"
+      },
+      "Kind": {
+        "name": "Kind",
+        "type": "VARIANT",
+        "key": "Kind",
+        "variantOptions": [
+          "Text",
+          "Select",
+          "Textarea"
+        ]
+      },
+      "State": {
+        "name": "State",
+        "type": "VARIANT",
+        "key": "State",
+        "variantOptions": [
+          "Default",
+          "Filled",
+          "Focus",
+          "Error",
+          "Disabled"
+        ]
+      }
+    },
+    "descendants": {
+      "TEXT[Your offer (USD)]": {
+        "type": "TEXT",
+        "name": "Your offer (USD)",
+        "nodeId": "13:256",
+        "textContent": "Your offer (USD)",
+        "references": {
+          "characters": "Label#13:160"
+        },
+        "variants": [
+          "Kind=Text, State=Default",
+          "Kind=Text, State=Filled",
+          "Kind=Text, State=Focus",
+          "Kind=Text, State=Error",
+          "Kind=Text, State=Disabled"
+        ]
+      },
+      "TEXT[Enter amount]": {
+        "type": "TEXT",
+        "name": "Enter amount",
+        "nodeId": "13:258",
+        "textContent": "Enter amount",
+        "references": {
+          "characters": "Value#13:161"
+        },
+        "variants": [
+          "Kind=Text, State=Default"
+        ]
+      },
+      "TEXT[Use USD. The seller will review your]": {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "nodeId": "13:259",
+        "textContent": "Use USD. The seller will review your offer.",
+        "references": {
+          "visible": "Show help#13:163",
+          "characters": "Help text#13:162"
+        },
+        "variants": [
+          "Kind=Text, State=Default",
+          "Kind=Text, State=Filled",
+          "Kind=Text, State=Focus",
+          "Kind=Text, State=Disabled",
+          "Kind=Select, State=Default",
+          "Kind=Select, State=Filled",
+          "Kind=Select, State=Focus",
+          "Kind=Select, State=Disabled",
+          "Kind=Textarea, State=Default",
+          "Kind=Textarea, State=Filled",
+          "Kind=Textarea, State=Focus",
+          "Kind=Textarea, State=Disabled"
+        ]
+      },
+      "TEXT[1,650]": {
+        "type": "TEXT",
+        "name": "1,650",
+        "nodeId": "13:263",
+        "textContent": "1,650",
+        "references": {
+          "characters": "Value#13:161"
+        },
+        "variants": [
+          "Kind=Text, State=Filled",
+          "Kind=Text, State=Focus",
+          "Kind=Text, State=Error",
+          "Kind=Text, State=Disabled"
+        ]
+      },
+      "TEXT[Enter a valid amount greater than ze]": {
+        "type": "TEXT",
+        "name": "Enter a valid amount greater than ze",
+        "nodeId": "13:274",
+        "textContent": "Enter a valid amount greater than zero.",
+        "references": {},
+        "variants": [
+          "Kind=Text, State=Error",
+          "Kind=Select, State=Error",
+          "Kind=Textarea, State=Error"
+        ]
+      },
+      "TEXT[Handover preference]": {
+        "type": "TEXT",
+        "name": "Handover preference",
+        "nodeId": "13:281",
+        "textContent": "Handover preference",
+        "references": {
+          "characters": "Label#13:160"
+        },
+        "variants": [
+          "Kind=Select, State=Default",
+          "Kind=Select, State=Filled",
+          "Kind=Select, State=Focus",
+          "Kind=Select, State=Error",
+          "Kind=Select, State=Disabled"
+        ]
+      },
+      "TEXT[Pondside collection]": {
+        "type": "TEXT",
+        "name": "Pondside collection",
+        "nodeId": "13:283",
+        "textContent": "Pondside collection",
+        "references": {
+          "characters": "Value#13:161"
+        },
+        "variants": [
+          "Kind=Select, State=Default",
+          "Kind=Select, State=Filled",
+          "Kind=Select, State=Focus",
+          "Kind=Select, State=Error",
+          "Kind=Select, State=Disabled"
+        ]
+      },
+      "INSTANCE[Icon/Down]": {
+        "type": "INSTANCE",
+        "name": "Icon/Down",
+        "mainComponentName": "Icon/Down",
+        "references": {},
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "Kind=Select, State=Default",
+          "Kind=Select, State=Filled",
+          "Kind=Select, State=Focus",
+          "Kind=Select, State=Error",
+          "Kind=Select, State=Disabled"
+        ]
+      },
+      "TEXT[Message to seller]": {
+        "type": "TEXT",
+        "name": "Message to seller",
+        "nodeId": "13:321",
+        "textContent": "Message to seller",
+        "references": {
+          "characters": "Label#13:160"
+        },
+        "variants": [
+          "Kind=Textarea, State=Default",
+          "Kind=Textarea, State=Filled",
+          "Kind=Textarea, State=Focus",
+          "Kind=Textarea, State=Error",
+          "Kind=Textarea, State=Disabled"
+        ]
+      },
+      "TEXT[I would like to coordinate handover ]": {
+        "type": "TEXT",
+        "name": "I would like to coordinate handover ",
+        "nodeId": "13:323",
+        "textContent": "I would like to coordinate handover this week.",
+        "references": {
+          "characters": "Value#13:161"
+        },
+        "variants": [
+          "Kind=Textarea, State=Default",
+          "Kind=Textarea, State=Filled",
+          "Kind=Textarea, State=Focus",
+          "Kind=Textarea, State=Error",
+          "Kind=Textarea, State=Disabled"
+        ]
+      }
+    }
+  },
+  {
+    "component": "IconClose",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:73",
+    "name": "Icon/Close",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "IconPlus",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:76",
+    "name": "Icon/Plus",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "IconChevron",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:79",
+    "name": "Icon/Chevron",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "IconDown",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:82",
+    "name": "Icon/Down",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "IconMenu",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:85",
+    "name": "Icon/Menu",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "IconUpload",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:88",
+    "name": "Icon/Upload",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "IconCheck",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:91",
+    "name": "Icon/Check",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "IconSpinner",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "13:94",
+    "name": "Icon/Spinner",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "MediaKoi",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:181",
+    "name": "Media/Koi",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "MediaCeramic",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:183",
+    "name": "Media/Ceramic",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "MediaBonsai",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:185",
+    "name": "Media/Bonsai",
+    "properties": {},
+    "descendants": {}
+  },
+  {
+    "component": "Brand",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:191",
+    "name": "Brand",
+    "properties": {
+      "Size": {
+        "name": "Size",
+        "type": "VARIANT",
+        "key": "Size",
+        "variantOptions": [
+          "Desktop",
+          "Mobile"
+        ]
+      }
+    },
+    "descendants": {
+      "TEXT[mizu]": {
+        "type": "TEXT",
+        "name": "mizu",
+        "nodeId": "16:188",
+        "textContent": "mizu",
+        "references": {},
+        "variants": [
+          "Size=Desktop",
+          "Size=Mobile"
+        ]
+      }
+    }
+  },
+  {
+    "component": "Header",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:538",
+    "name": "Header",
+    "properties": {
+      "Viewport": {
+        "name": "Viewport",
+        "type": "VARIANT",
+        "key": "Viewport",
+        "variantOptions": [
+          "Desktop",
+          "Mobile"
+        ]
+      }
+    },
+    "descendants": {
+      "INSTANCE[Brand]": {
+        "type": "INSTANCE",
+        "name": "Brand",
+        "mainComponentName": "Brand",
+        "references": {},
+        "properties": {
+          "Size": {
+            "name": "Size",
+            "type": "VARIANT",
+            "key": "Size",
+            "variantOptions": [
+              "Desktop",
+              "Mobile"
+            ]
+          }
+        },
+        "descendants": {
+          "TEXT[mizu]": {
+            "type": "TEXT",
+            "name": "mizu",
+            "nodeId": "16:188",
+            "textContent": "mizu",
+            "references": {},
+            "variants": [
+              "Size=Desktop",
+              "Size=Mobile",
+              "Size=Desktop",
+              "Size=Mobile"
+            ]
+          }
+        },
+        "variants": [
+          "Viewport=Desktop",
+          "Viewport=Mobile"
+        ]
+      },
+      "INSTANCE[Icon button]": {
+        "type": "INSTANCE",
+        "name": "Icon button",
+        "mainComponentName": "Icon button",
+        "references": {},
+        "properties": {
+          "Icon#13:61": {
+            "name": "Icon",
+            "type": "INSTANCE_SWAP",
+            "key": "Icon#13:61"
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Default"
+            ]
+          }
+        },
+        "descendants": {
+          "INSTANCE[Icon/Close]": {
+            "type": "INSTANCE",
+            "name": "Icon/Close",
+            "mainComponentName": "Icon/Close",
+            "references": {
+              "mainComponent": "Icon#13:61"
+            },
+            "properties": {},
+            "descendants": {},
+            "variants": [
+              "State=Default",
+              "State=Default"
+            ]
+          }
+        },
+        "variants": [
+          "Viewport=Desktop",
+          "Viewport=Mobile"
+        ]
+      },
+      "INSTANCE[Navigation item]": {
+        "type": "INSTANCE",
+        "name": "Navigation item",
+        "mainComponentName": "Navigation item",
+        "references": {},
+        "properties": {
+          "Label#13:71": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#13:71"
+          },
+          "Count#13:72": {
+            "name": "Count",
+            "type": "TEXT",
+            "key": "Count#13:72"
+          },
+          "Show count#13:73": {
+            "name": "Show count",
+            "type": "BOOLEAN",
+            "key": "Show count#13:73"
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Default",
+              "Selected"
+            ]
+          }
+        },
+        "descendants": {
+          "TEXT[Collection]": {
+            "type": "TEXT",
+            "name": "Collection",
+            "nodeId": "13:206",
+            "textContent": "Collection",
+            "references": {
+              "characters": "Label#13:71"
+            },
+            "variants": [
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected"
+            ]
+          },
+          "TEXT[(1)]": {
+            "type": "TEXT",
+            "name": "(1)",
+            "nodeId": "13:207",
+            "textContent": "(1)",
+            "references": {
+              "visible": "Show count#13:73",
+              "characters": "Count#13:72"
+            },
+            "variants": [
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected",
+              "State=Default",
+              "State=Selected"
+            ]
+          }
+        },
+        "variants": [
+          "Viewport=Desktop",
+          "Viewport=Desktop",
+          "Viewport=Desktop",
+          "Viewport=Desktop",
+          "Viewport=Mobile",
+          "Viewport=Mobile",
+          "Viewport=Mobile",
+          "Viewport=Mobile"
+        ]
+      }
+    }
+  },
+  {
+    "component": "SpecimenCard",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:234",
+    "name": "Specimen card",
+    "properties": {
+      "Media#16:30": {
+        "name": "Media",
+        "type": "INSTANCE_SWAP",
+        "key": "Media#16:30"
+      },
+      "Title#16:31": {
+        "name": "Title",
+        "type": "TEXT",
+        "key": "Title#16:31"
+      },
+      "Metadata#16:32": {
+        "name": "Metadata",
+        "type": "TEXT",
+        "key": "Metadata#16:32"
+      },
+      "Reference#16:33": {
+        "name": "Reference",
+        "type": "TEXT",
+        "key": "Reference#16:33"
+      },
+      "Show reference#16:34": {
+        "name": "Show reference",
+        "type": "BOOLEAN",
+        "key": "Show reference#16:34"
+      },
+      "Layout": {
+        "name": "Layout",
+        "type": "VARIANT",
+        "key": "Layout",
+        "variantOptions": [
+          "Gallery",
+          "Compact"
+        ]
+      },
+      "State": {
+        "name": "State",
+        "type": "VARIANT",
+        "key": "State",
+        "variantOptions": [
+          "Default",
+          "Hover",
+          "Focus"
+        ]
+      }
+    },
+    "descendants": {
+      "INSTANCE[Media/Koi]": {
+        "type": "INSTANCE",
+        "name": "Media/Koi",
+        "mainComponentName": "Media/Koi",
+        "references": {
+          "mainComponent": "Media#16:30"
+        },
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "Layout=Gallery, State=Default",
+          "Layout=Gallery, State=Hover",
+          "Layout=Gallery, State=Focus",
+          "Layout=Compact, State=Default",
+          "Layout=Compact, State=Hover",
+          "Layout=Compact, State=Focus"
+        ]
+      },
+      "TEXT[Kohaku]": {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "nodeId": "16:196",
+        "textContent": "Kohaku",
+        "references": {
+          "characters": "Title#16:31"
+        },
+        "variants": [
+          "Layout=Gallery, State=Default",
+          "Layout=Gallery, State=Hover",
+          "Layout=Gallery, State=Focus",
+          "Layout=Compact, State=Default",
+          "Layout=Compact, State=Hover",
+          "Layout=Compact, State=Focus"
+        ]
+      },
+      "TEXT[54 cm · $2,400]": {
+        "type": "TEXT",
+        "name": "54 cm · $2,400",
+        "nodeId": "16:197",
+        "textContent": "54 cm · $2,400",
+        "references": {
+          "characters": "Metadata#16:32"
+        },
+        "variants": [
+          "Layout=Gallery, State=Default",
+          "Layout=Gallery, State=Hover",
+          "Layout=Gallery, State=Focus",
+          "Layout=Compact, State=Default",
+          "Layout=Compact, State=Hover",
+          "Layout=Compact, State=Focus"
+        ]
+      },
+      "TEXT[N° 01]": {
+        "type": "TEXT",
+        "name": "N° 01",
+        "nodeId": "16:198",
+        "textContent": "N° 01",
+        "references": {
+          "visible": "Show reference#16:34",
+          "characters": "Reference#16:33"
+        },
+        "variants": [
+          "Layout=Gallery, State=Default",
+          "Layout=Gallery, State=Hover",
+          "Layout=Gallery, State=Focus",
+          "Layout=Compact, State=Default",
+          "Layout=Compact, State=Hover",
+          "Layout=Compact, State=Focus"
+        ]
+      }
+    }
+  },
+  {
+    "component": "FactRow",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:235",
+    "name": "Fact row",
+    "properties": {
+      "Label#16:35": {
+        "name": "Label",
+        "type": "TEXT",
+        "key": "Label#16:35"
+      },
+      "Value#16:36": {
+        "name": "Value",
+        "type": "TEXT",
+        "key": "Value#16:36"
+      }
+    },
+    "descendants": {
+      "TEXT[Length & age]": {
+        "type": "TEXT",
+        "name": "Length & age",
+        "nodeId": "16:236",
+        "textContent": "Length & age",
+        "references": {
+          "characters": "Label#16:35"
+        }
+      },
+      "TEXT[54 cm · 3 years]": {
+        "type": "TEXT",
+        "name": "54 cm · 3 years",
+        "nodeId": "16:237",
+        "textContent": "54 cm · 3 years",
+        "references": {
+          "characters": "Value#16:36"
+        }
+      }
+    }
+  },
+  {
+    "component": "SpecimenDetails",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:539",
+    "name": "Specimen details",
+    "properties": {},
+    "descendants": {
+      "TEXT[Kohaku]": {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "nodeId": "16:540",
+        "textContent": "Kohaku",
+        "references": {}
+      },
+      "TEXT[$2,400]": {
+        "type": "TEXT",
+        "name": "$2,400",
+        "nodeId": "16:541",
+        "textContent": "$2,400",
+        "references": {}
+      },
+      "TEXT[Mizuho Koi House · Sonoma, CA]": {
+        "type": "TEXT",
+        "name": "Mizuho Koi House · Sonoma, CA",
+        "nodeId": "16:542",
+        "textContent": "Mizuho Koi House · Sonoma, CA",
+        "references": {}
+      },
+      "TEXT[Red and white patterning, viewed fro]": {
+        "type": "TEXT",
+        "name": "Red and white patterning, viewed fro",
+        "nodeId": "16:543",
+        "textContent": "Red and white patterning, viewed from above. Confirm condition and handover details with the seller.",
+        "references": {}
+      },
+      "INSTANCE[Fact row]": {
+        "type": "INSTANCE",
+        "name": "Fact row",
+        "mainComponentName": "Fact row",
+        "references": {},
+        "properties": {
+          "Label#16:35": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#16:35"
+          },
+          "Value#16:36": {
+            "name": "Value",
+            "type": "TEXT",
+            "key": "Value#16:36"
+          }
+        },
+        "descendants": {
+          "TEXT[Length & age]": {
+            "type": "TEXT",
+            "name": "Length & age",
+            "nodeId": "16:236",
+            "textContent": "Length & age",
+            "references": {
+              "characters": "Label#16:35"
+            }
+          },
+          "TEXT[54 cm · 3 years]": {
+            "type": "TEXT",
+            "name": "54 cm · 3 years",
+            "nodeId": "16:237",
+            "textContent": "54 cm · 3 years",
+            "references": {
+              "characters": "Value#16:36"
+            }
+          }
+        }
+      },
+      "INSTANCE[Button]": {
+        "type": "INSTANCE",
+        "name": "Button",
+        "mainComponentName": "Button",
+        "references": {},
+        "properties": {
+          "Icon#13:54": {
+            "name": "Icon",
+            "type": "INSTANCE_SWAP",
+            "key": "Icon#13:54"
+          },
+          "Show icon#13:55": {
+            "name": "Show icon",
+            "type": "BOOLEAN",
+            "key": "Show icon#13:55"
+          },
+          "Label#13:56": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#13:56"
+          },
+          "Appearance": {
+            "name": "Appearance",
+            "type": "VARIANT",
+            "key": "Appearance",
+            "variantOptions": [
+              "Primary",
+              "Secondary"
+            ]
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Default"
+            ]
+          }
+        },
+        "descendants": {
+          "INSTANCE[Icon/Plus]": {
+            "type": "INSTANCE",
+            "name": "Icon/Plus",
+            "mainComponentName": "Icon/Plus",
+            "references": {
+              "visible": "Show icon#13:55",
+              "mainComponent": "Icon#13:54"
+            },
+            "properties": {},
+            "descendants": {},
+            "variants": [
+              "Appearance=Primary, State=Default",
+              "Appearance=Secondary, State=Default",
+              "Appearance=Primary, State=Default",
+              "Appearance=Secondary, State=Default"
+            ]
+          },
+          "TEXT[Make an offer]": {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "nodeId": "13:101",
+            "textContent": "Make an offer",
+            "references": {
+              "characters": "Label#13:56"
+            },
+            "variants": [
+              "Appearance=Primary, State=Default",
+              "Appearance=Secondary, State=Default",
+              "Appearance=Primary, State=Default",
+              "Appearance=Secondary, State=Default"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "component": "Message",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:244",
+    "name": "Message",
+    "properties": {
+      "Message#16:41": {
+        "name": "Message",
+        "type": "TEXT",
+        "key": "Message#16:41"
+      },
+      "Timestamp#16:42": {
+        "name": "Timestamp",
+        "type": "TEXT",
+        "key": "Timestamp#16:42"
+      },
+      "Direction": {
+        "name": "Direction",
+        "type": "VARIANT",
+        "key": "Direction",
+        "variantOptions": [
+          "Received",
+          "Sent"
+        ]
+      }
+    },
+    "descendants": {
+      "TEXT[I would like to arrange collection t]": {
+        "type": "TEXT",
+        "name": "I would like to arrange collection t",
+        "nodeId": "16:239",
+        "textContent": "I would like to arrange collection this Saturday.",
+        "references": {
+          "characters": "Message#16:41"
+        },
+        "variants": [
+          "Direction=Received",
+          "Direction=Sent"
+        ]
+      },
+      "TEXT[Tue · Read]": {
+        "type": "TEXT",
+        "name": "Tue · Read",
+        "nodeId": "16:240",
+        "textContent": "Tue · Read",
+        "references": {
+          "characters": "Timestamp#16:42"
+        },
+        "variants": [
+          "Direction=Received",
+          "Direction=Sent"
+        ]
+      }
+    }
+  },
+  {
+    "component": "OfferSummary",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:278",
+    "name": "Offer summary",
+    "properties": {
+      "Media#16:52": {
+        "name": "Media",
+        "type": "INSTANCE_SWAP",
+        "key": "Media#16:52"
+      },
+      "Title#16:53": {
+        "name": "Title",
+        "type": "TEXT",
+        "key": "Title#16:53"
+      },
+      "Seller#16:54": {
+        "name": "Seller",
+        "type": "TEXT",
+        "key": "Seller#16:54"
+      },
+      "Status": {
+        "name": "Status",
+        "type": "VARIANT",
+        "key": "Status",
+        "variantOptions": [
+          "Counter",
+          "Reserved",
+          "Pending"
+        ]
+      }
+    },
+    "descendants": {
+      "INSTANCE[Media/Koi]": {
+        "type": "INSTANCE",
+        "name": "Media/Koi",
+        "mainComponentName": "Media/Koi",
+        "references": {
+          "mainComponent": "Media#16:52"
+        },
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "Status=Counter",
+          "Status=Reserved",
+          "Status=Pending"
+        ]
+      },
+      "TEXT[Kohaku]": {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "nodeId": "16:249",
+        "textContent": "Kohaku",
+        "references": {
+          "characters": "Title#16:53"
+        },
+        "variants": [
+          "Status=Counter",
+          "Status=Reserved",
+          "Status=Pending"
+        ]
+      },
+      "TEXT[Mizuho Koi House · Sonoma, CA]": {
+        "type": "TEXT",
+        "name": "Mizuho Koi House · Sonoma, CA",
+        "nodeId": "16:250",
+        "textContent": "Mizuho Koi House · Sonoma, CA",
+        "references": {
+          "characters": "Seller#16:54"
+        },
+        "variants": [
+          "Status=Counter",
+          "Status=Reserved",
+          "Status=Pending"
+        ]
+      },
+      "INSTANCE[Status badge]": {
+        "type": "INSTANCE",
+        "name": "Status badge",
+        "mainComponentName": "Status badge",
+        "references": {},
+        "properties": {
+          "Amount#21:0": {
+            "name": "Amount",
+            "type": "TEXT",
+            "key": "Amount#21:0"
+          },
+          "Show amount#21:5": {
+            "name": "Show amount",
+            "type": "BOOLEAN",
+            "key": "Show amount#21:5"
+          },
+          "Status": {
+            "name": "Status",
+            "type": "VARIANT",
+            "key": "Status",
+            "variantOptions": [
+              "Counter",
+              "Reserved",
+              "Pending"
+            ]
+          }
+        },
+        "descendants": {
+          "TEXT[Counter · $2,320]": {
+            "type": "TEXT",
+            "name": "Counter · $2,320",
+            "nodeId": "13:247",
+            "textContent": "Counter",
+            "references": {},
+            "variants": [
+              "Status=Counter",
+              "Status=Counter",
+              "Status=Counter"
+            ]
+          },
+          "TEXT[· $2,320]": {
+            "type": "TEXT",
+            "name": "· $2,320",
+            "nodeId": "21:627",
+            "textContent": "· $2,320",
+            "references": {
+              "visible": "Show amount#21:5",
+              "characters": "Amount#21:0"
+            },
+            "variants": [
+              "Status=Counter",
+              "Status=Reserved",
+              "Status=Pending",
+              "Status=Counter",
+              "Status=Reserved",
+              "Status=Pending",
+              "Status=Counter",
+              "Status=Reserved",
+              "Status=Pending"
+            ]
+          },
+          "TEXT[Reserved · $1,680]": {
+            "type": "TEXT",
+            "name": "Reserved · $1,680",
+            "nodeId": "13:249",
+            "textContent": "Reserved",
+            "references": {},
+            "variants": [
+              "Status=Reserved",
+              "Status=Reserved",
+              "Status=Reserved"
+            ]
+          },
+          "TEXT[Pending]": {
+            "type": "TEXT",
+            "name": "Pending",
+            "nodeId": "13:251",
+            "textContent": "Pending",
+            "references": {},
+            "variants": [
+              "Status=Pending",
+              "Status=Pending",
+              "Status=Pending"
+            ]
+          }
+        },
+        "variants": [
+          "Status=Counter",
+          "Status=Reserved",
+          "Status=Pending"
+        ]
+      },
+      "INSTANCE[Icon/Chevron]": {
+        "type": "INSTANCE",
+        "name": "Icon/Chevron",
+        "mainComponentName": "Icon/Chevron",
+        "references": {},
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "Status=Counter",
+          "Status=Reserved",
+          "Status=Pending"
+        ]
+      }
+    }
+  },
+  {
+    "component": "DepartmentAccordion",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:300",
+    "name": "Department accordion",
+    "properties": {
+      "Label#16:57": {
+        "name": "Label",
+        "type": "TEXT",
+        "key": "Label#16:57"
+      },
+      "Expanded": {
+        "name": "Expanded",
+        "type": "VARIANT",
+        "key": "Expanded",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    },
+    "descendants": {
+      "TEXT[Living Specimens]": {
+        "type": "TEXT",
+        "name": "Living Specimens",
+        "nodeId": "16:281",
+        "textContent": "Living Specimens",
+        "references": {
+          "characters": "Label#16:57"
+        },
+        "variants": [
+          "Expanded=False",
+          "Expanded=True"
+        ]
+      },
+      "INSTANCE[Icon/Chevron]": {
+        "type": "INSTANCE",
+        "name": "Icon/Chevron",
+        "mainComponentName": "Icon/Chevron",
+        "references": {},
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "Expanded=False"
+        ]
+      },
+      "INSTANCE[Icon/Down]": {
+        "type": "INSTANCE",
+        "name": "Icon/Down",
+        "mainComponentName": "Icon/Down",
+        "references": {},
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "Expanded=True"
+        ]
+      },
+      "INSTANCE[Navigation item]": {
+        "type": "INSTANCE",
+        "name": "Navigation item",
+        "mainComponentName": "Navigation item",
+        "references": {},
+        "properties": {
+          "Label#13:71": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#13:71"
+          },
+          "Count#13:72": {
+            "name": "Count",
+            "type": "TEXT",
+            "key": "Count#13:72"
+          },
+          "Show count#13:73": {
+            "name": "Show count",
+            "type": "BOOLEAN",
+            "key": "Show count#13:73"
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Default"
+            ]
+          }
+        },
+        "descendants": {
+          "TEXT[Collection]": {
+            "type": "TEXT",
+            "name": "Collection",
+            "nodeId": "13:206",
+            "textContent": "Collection",
+            "references": {
+              "characters": "Label#13:71"
+            },
+            "variants": [
+              "State=Default",
+              "State=Default",
+              "State=Default"
+            ]
+          },
+          "TEXT[(1)]": {
+            "type": "TEXT",
+            "name": "(1)",
+            "nodeId": "13:207",
+            "textContent": "(1)",
+            "references": {
+              "visible": "Show count#13:73",
+              "characters": "Count#13:72"
+            },
+            "variants": [
+              "State=Default",
+              "State=Default",
+              "State=Default"
+            ]
+          }
+        },
+        "variants": [
+          "Expanded=True",
+          "Expanded=True",
+          "Expanded=True"
+        ]
+      }
+    }
+  },
+  {
+    "component": "EmptyState",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:364",
+    "name": "Empty state",
+    "properties": {
+      "Reason": {
+        "name": "Reason",
+        "type": "VARIANT",
+        "key": "Reason",
+        "variantOptions": [
+          "Saved",
+          "Results"
+        ]
+      }
+    },
+    "descendants": {
+      "TEXT[No saved specimens]": {
+        "type": "TEXT",
+        "name": "No saved specimens",
+        "nodeId": "16:349",
+        "textContent": "No saved specimens",
+        "references": {},
+        "variants": [
+          "Reason=Saved"
+        ]
+      },
+      "TEXT[Save specimens from their detail vie]": {
+        "type": "TEXT",
+        "name": "Save specimens from their detail vie",
+        "nodeId": "16:350",
+        "textContent": "Save specimens from their detail view to find them here.",
+        "references": {},
+        "variants": [
+          "Reason=Saved"
+        ]
+      },
+      "INSTANCE[Button]": {
+        "type": "INSTANCE",
+        "name": "Button",
+        "mainComponentName": "Button",
+        "references": {},
+        "properties": {
+          "Icon#13:54": {
+            "name": "Icon",
+            "type": "INSTANCE_SWAP",
+            "key": "Icon#13:54"
+          },
+          "Show icon#13:55": {
+            "name": "Show icon",
+            "type": "BOOLEAN",
+            "key": "Show icon#13:55"
+          },
+          "Label#13:56": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#13:56"
+          },
+          "Appearance": {
+            "name": "Appearance",
+            "type": "VARIANT",
+            "key": "Appearance",
+            "variantOptions": [
+              "Secondary"
+            ]
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Default"
+            ]
+          }
+        },
+        "descendants": {
+          "INSTANCE[Icon/Plus]": {
+            "type": "INSTANCE",
+            "name": "Icon/Plus",
+            "mainComponentName": "Icon/Plus",
+            "references": {
+              "visible": "Show icon#13:55",
+              "mainComponent": "Icon#13:54"
+            },
+            "properties": {},
+            "descendants": {},
+            "variants": [
+              "Appearance=Secondary, State=Default",
+              "Appearance=Secondary, State=Default"
+            ]
+          },
+          "TEXT[Make an offer]": {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "nodeId": "13:131",
+            "textContent": "Make an offer",
+            "references": {
+              "characters": "Label#13:56"
+            },
+            "variants": [
+              "Appearance=Secondary, State=Default",
+              "Appearance=Secondary, State=Default"
+            ]
+          }
+        },
+        "variants": [
+          "Reason=Saved",
+          "Reason=Results"
+        ]
+      },
+      "TEXT[No matching specimens]": {
+        "type": "TEXT",
+        "name": "No matching specimens",
+        "nodeId": "16:357",
+        "textContent": "No matching specimens",
+        "references": {},
+        "variants": [
+          "Reason=Results"
+        ]
+      },
+      "TEXT[Try another variety or clear the cur]": {
+        "type": "TEXT",
+        "name": "Try another variety or clear the cur",
+        "nodeId": "16:358",
+        "textContent": "Try another variety or clear the current filter.",
+        "references": {},
+        "variants": [
+          "Reason=Results"
+        ]
+      }
+    }
+  },
+  {
+    "component": "ImageUpload",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:347",
+    "name": "Image upload",
+    "properties": {
+      "State": {
+        "name": "State",
+        "type": "VARIANT",
+        "key": "State",
+        "variantOptions": [
+          "Empty",
+          "Selected",
+          "Error",
+          "Uploading"
+        ]
+      }
+    },
+    "descendants": {
+      "INSTANCE[Icon/Upload]": {
+        "type": "INSTANCE",
+        "name": "Icon/Upload",
+        "mainComponentName": "Icon/Upload",
+        "references": {},
+        "properties": {},
+        "descendants": {},
+        "variants": [
+          "State=Empty",
+          "State=Selected",
+          "State=Error",
+          "State=Uploading"
+        ]
+      },
+      "TEXT[Specimen image]": {
+        "type": "TEXT",
+        "name": "Specimen image",
+        "nodeId": "16:305",
+        "textContent": "Specimen image",
+        "references": {},
+        "variants": [
+          "State=Empty",
+          "State=Error"
+        ]
+      },
+      "TEXT[Upload an overhead photograph. PNG o]": {
+        "type": "TEXT",
+        "name": "Upload an overhead photograph. PNG o",
+        "nodeId": "16:306",
+        "textContent": "Upload an overhead photograph. PNG or JPG.",
+        "references": {},
+        "variants": [
+          "State=Empty",
+          "State=Uploading"
+        ]
+      },
+      "INSTANCE[Button]": {
+        "type": "INSTANCE",
+        "name": "Button",
+        "mainComponentName": "Button",
+        "references": {},
+        "properties": {
+          "Icon#13:54": {
+            "name": "Icon",
+            "type": "INSTANCE_SWAP",
+            "key": "Icon#13:54"
+          },
+          "Show icon#13:55": {
+            "name": "Show icon",
+            "type": "BOOLEAN",
+            "key": "Show icon#13:55"
+          },
+          "Label#13:56": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#13:56"
+          },
+          "Appearance": {
+            "name": "Appearance",
+            "type": "VARIANT",
+            "key": "Appearance",
+            "variantOptions": [
+              "Secondary"
+            ]
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Default"
+            ]
+          }
+        },
+        "descendants": {
+          "INSTANCE[Icon/Plus]": {
+            "type": "INSTANCE",
+            "name": "Icon/Plus",
+            "mainComponentName": "Icon/Plus",
+            "references": {
+              "visible": "Show icon#13:55",
+              "mainComponent": "Icon#13:54"
+            },
+            "properties": {},
+            "descendants": {},
+            "variants": [
+              "Appearance=Secondary, State=Default",
+              "Appearance=Secondary, State=Default",
+              "Appearance=Secondary, State=Default",
+              "Appearance=Secondary, State=Default"
+            ]
+          },
+          "TEXT[Make an offer]": {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "nodeId": "13:131",
+            "textContent": "Make an offer",
+            "references": {
+              "characters": "Label#13:56"
+            },
+            "variants": [
+              "Appearance=Secondary, State=Default",
+              "Appearance=Secondary, State=Default",
+              "Appearance=Secondary, State=Default",
+              "Appearance=Secondary, State=Default"
+            ]
+          }
+        },
+        "variants": [
+          "State=Empty",
+          "State=Selected",
+          "State=Error",
+          "State=Uploading"
+        ]
+      },
+      "TEXT[kohaku-overhead.jpg]": {
+        "type": "TEXT",
+        "name": "kohaku-overhead.jpg",
+        "nodeId": "16:318",
+        "textContent": "kohaku-overhead.jpg",
+        "references": {},
+        "variants": [
+          "State=Selected"
+        ]
+      },
+      "TEXT[Image selected. Review before publis]": {
+        "type": "TEXT",
+        "name": "Image selected. Review before publis",
+        "nodeId": "16:319",
+        "textContent": "Image selected. Review before publishing.",
+        "references": {},
+        "variants": [
+          "State=Selected"
+        ]
+      },
+      "TEXT[Use a PNG or JPG image. Try another ]": {
+        "type": "TEXT",
+        "name": "Use a PNG or JPG image. Try another ",
+        "nodeId": "16:330",
+        "textContent": "Use a PNG or JPG image. Try another file.",
+        "references": {},
+        "variants": [
+          "State=Error"
+        ]
+      },
+      "TEXT[Uploading image…]": {
+        "type": "TEXT",
+        "name": "Uploading image…",
+        "nodeId": "16:340",
+        "textContent": "Uploading image…",
+        "references": {},
+        "variants": [
+          "State=Uploading"
+        ]
+      }
+    }
+  },
+  {
+    "component": "MessageComposer",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:404",
+    "name": "Message composer",
+    "properties": {
+      "State": {
+        "name": "State",
+        "type": "VARIANT",
+        "key": "State",
+        "variantOptions": [
+          "Default",
+          "Sending",
+          "Error"
+        ]
+      }
+    },
+    "descendants": {
+      "INSTANCE[Field]": {
+        "type": "INSTANCE",
+        "name": "Field",
+        "mainComponentName": "Field",
+        "references": {},
+        "properties": {
+          "Label#13:160": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#13:160"
+          },
+          "Value#13:161": {
+            "name": "Value",
+            "type": "TEXT",
+            "key": "Value#13:161"
+          },
+          "Help text#13:162": {
+            "name": "Help text",
+            "type": "TEXT",
+            "key": "Help text#13:162"
+          },
+          "Show help#13:163": {
+            "name": "Show help",
+            "type": "BOOLEAN",
+            "key": "Show help#13:163"
+          },
+          "Kind": {
+            "name": "Kind",
+            "type": "VARIANT",
+            "key": "Kind",
+            "variantOptions": [
+              "Text"
+            ]
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Filled"
+            ]
+          }
+        },
+        "descendants": {
+          "TEXT[Your offer (USD)]": {
+            "type": "TEXT",
+            "name": "Your offer (USD)",
+            "nodeId": "13:261",
+            "textContent": "Your offer (USD)",
+            "references": {
+              "characters": "Label#13:160"
+            },
+            "variants": [
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled"
+            ]
+          },
+          "TEXT[1,650]": {
+            "type": "TEXT",
+            "name": "1,650",
+            "nodeId": "13:263",
+            "textContent": "1,650",
+            "references": {
+              "characters": "Value#13:161"
+            },
+            "variants": [
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled"
+            ]
+          },
+          "TEXT[Use USD. The seller will review your]": {
+            "type": "TEXT",
+            "name": "Use USD. The seller will review your",
+            "nodeId": "13:264",
+            "textContent": "Use USD. The seller will review your offer.",
+            "references": {
+              "visible": "Show help#13:163",
+              "characters": "Help text#13:162"
+            },
+            "variants": [
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled"
+            ]
+          }
+        },
+        "variants": [
+          "State=Default",
+          "State=Sending",
+          "State=Error"
+        ]
+      },
+      "INSTANCE[Button]": {
+        "type": "INSTANCE",
+        "name": "Button",
+        "mainComponentName": "Button",
+        "references": {},
+        "properties": {
+          "Icon#13:54": {
+            "name": "Icon",
+            "type": "INSTANCE_SWAP",
+            "key": "Icon#13:54"
+          },
+          "Show icon#13:55": {
+            "name": "Show icon",
+            "type": "BOOLEAN",
+            "key": "Show icon#13:55"
+          },
+          "Label#13:56": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#13:56"
+          },
+          "Appearance": {
+            "name": "Appearance",
+            "type": "VARIANT",
+            "key": "Appearance",
+            "variantOptions": [
+              "Primary"
+            ]
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Default",
+              "Loading"
+            ]
+          }
+        },
+        "descendants": {
+          "INSTANCE[Icon/Plus]": {
+            "type": "INSTANCE",
+            "name": "Icon/Plus",
+            "mainComponentName": "Icon/Plus",
+            "references": {
+              "visible": "Show icon#13:55",
+              "mainComponent": "Icon#13:54"
+            },
+            "properties": {},
+            "descendants": {},
+            "variants": [
+              "Appearance=Primary, State=Default",
+              "Appearance=Primary, State=Default",
+              "Appearance=Primary, State=Default"
+            ]
+          },
+          "TEXT[Make an offer]": {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "nodeId": "13:101",
+            "textContent": "Make an offer",
+            "references": {
+              "characters": "Label#13:56"
+            },
+            "variants": [
+              "Appearance=Primary, State=Default",
+              "Appearance=Primary, State=Default",
+              "Appearance=Primary, State=Default"
+            ]
+          },
+          "INSTANCE[Icon/Spinner]": {
+            "type": "INSTANCE",
+            "name": "Icon/Spinner",
+            "mainComponentName": "Icon/Spinner",
+            "references": {},
+            "properties": {},
+            "descendants": {},
+            "variants": [
+              "Appearance=Primary, State=Loading",
+              "Appearance=Primary, State=Loading",
+              "Appearance=Primary, State=Loading"
+            ]
+          },
+          "TEXT[Sending…]": {
+            "type": "TEXT",
+            "name": "Sending…",
+            "nodeId": "13:126",
+            "textContent": "Sending…",
+            "references": {},
+            "variants": [
+              "Appearance=Primary, State=Loading",
+              "Appearance=Primary, State=Loading",
+              "Appearance=Primary, State=Loading"
+            ]
+          }
+        },
+        "variants": [
+          "State=Default",
+          "State=Sending",
+          "State=Error"
+        ]
+      },
+      "TEXT[Message was not sent. Try again; you]": {
+        "type": "TEXT",
+        "name": "Message was not sent. Try again; you",
+        "nodeId": "16:403",
+        "textContent": "Message was not sent. Try again; your draft is saved.",
+        "references": {},
+        "variants": [
+          "State=Error"
+        ]
+      }
+    }
+  },
+  {
+    "component": "OfferForm",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:405",
+    "name": "Offer form",
+    "properties": {},
+    "descendants": {
+      "TEXT[Propose an offer]": {
+        "type": "TEXT",
+        "name": "Propose an offer",
+        "nodeId": "16:406",
+        "textContent": "Propose an offer",
+        "references": {}
+      },
+      "TEXT[Asking $2,400 · Kohaku N° 01]": {
+        "type": "TEXT",
+        "name": "Asking $2,400 · Kohaku N° 01",
+        "nodeId": "16:407",
+        "textContent": "Asking $2,400 · Kohaku N° 01",
+        "references": {}
+      },
+      "INSTANCE[Field]": {
+        "type": "INSTANCE",
+        "name": "Field",
+        "mainComponentName": "Field",
+        "references": {},
+        "properties": {
+          "Label#13:160": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#13:160"
+          },
+          "Value#13:161": {
+            "name": "Value",
+            "type": "TEXT",
+            "key": "Value#13:161"
+          },
+          "Help text#13:162": {
+            "name": "Help text",
+            "type": "TEXT",
+            "key": "Help text#13:162"
+          },
+          "Show help#13:163": {
+            "name": "Show help",
+            "type": "BOOLEAN",
+            "key": "Show help#13:163"
+          },
+          "Kind": {
+            "name": "Kind",
+            "type": "VARIANT",
+            "key": "Kind",
+            "variantOptions": [
+              "Text",
+              "Select",
+              "Textarea"
+            ]
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Filled"
+            ]
+          }
+        },
+        "descendants": {
+          "TEXT[Your offer (USD)]": {
+            "type": "TEXT",
+            "name": "Your offer (USD)",
+            "nodeId": "13:261",
+            "textContent": "Your offer (USD)",
+            "references": {
+              "characters": "Label#13:160"
+            },
+            "variants": [
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled"
+            ]
+          },
+          "TEXT[1,650]": {
+            "type": "TEXT",
+            "name": "1,650",
+            "nodeId": "13:263",
+            "textContent": "1,650",
+            "references": {
+              "characters": "Value#13:161"
+            },
+            "variants": [
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled",
+              "Kind=Text, State=Filled"
+            ]
+          },
+          "TEXT[Use USD. The seller will review your]": {
+            "type": "TEXT",
+            "name": "Use USD. The seller will review your",
+            "nodeId": "13:264",
+            "textContent": "Use USD. The seller will review your offer.",
+            "references": {
+              "visible": "Show help#13:163",
+              "characters": "Help text#13:162"
+            },
+            "variants": [
+              "Kind=Text, State=Filled",
+              "Kind=Select, State=Filled",
+              "Kind=Textarea, State=Filled",
+              "Kind=Text, State=Filled",
+              "Kind=Select, State=Filled",
+              "Kind=Textarea, State=Filled",
+              "Kind=Text, State=Filled",
+              "Kind=Select, State=Filled",
+              "Kind=Textarea, State=Filled"
+            ]
+          },
+          "TEXT[Handover preference]": {
+            "type": "TEXT",
+            "name": "Handover preference",
+            "nodeId": "13:289",
+            "textContent": "Handover preference",
+            "references": {
+              "characters": "Label#13:160"
+            },
+            "variants": [
+              "Kind=Select, State=Filled",
+              "Kind=Select, State=Filled",
+              "Kind=Select, State=Filled"
+            ]
+          },
+          "TEXT[Pondside collection]": {
+            "type": "TEXT",
+            "name": "Pondside collection",
+            "nodeId": "13:291",
+            "textContent": "Pondside collection",
+            "references": {
+              "characters": "Value#13:161"
+            },
+            "variants": [
+              "Kind=Select, State=Filled",
+              "Kind=Select, State=Filled",
+              "Kind=Select, State=Filled"
+            ]
+          },
+          "INSTANCE[Icon/Down]": {
+            "type": "INSTANCE",
+            "name": "Icon/Down",
+            "mainComponentName": "Icon/Down",
+            "references": {},
+            "properties": {},
+            "descendants": {},
+            "variants": [
+              "Kind=Select, State=Filled",
+              "Kind=Select, State=Filled",
+              "Kind=Select, State=Filled"
+            ]
+          },
+          "TEXT[Message to seller]": {
+            "type": "TEXT",
+            "name": "Message to seller",
+            "nodeId": "13:326",
+            "textContent": "Message to seller",
+            "references": {
+              "characters": "Label#13:160"
+            },
+            "variants": [
+              "Kind=Textarea, State=Filled",
+              "Kind=Textarea, State=Filled",
+              "Kind=Textarea, State=Filled"
+            ]
+          },
+          "TEXT[I would like to coordinate handover ]": {
+            "type": "TEXT",
+            "name": "I would like to coordinate handover ",
+            "nodeId": "13:328",
+            "textContent": "I would like to coordinate handover this week.",
+            "references": {
+              "characters": "Value#13:161"
+            },
+            "variants": [
+              "Kind=Textarea, State=Filled",
+              "Kind=Textarea, State=Filled",
+              "Kind=Textarea, State=Filled"
+            ]
+          }
+        }
+      },
+      "INSTANCE[Button]": {
+        "type": "INSTANCE",
+        "name": "Button",
+        "mainComponentName": "Button",
+        "references": {},
+        "properties": {
+          "Icon#13:54": {
+            "name": "Icon",
+            "type": "INSTANCE_SWAP",
+            "key": "Icon#13:54"
+          },
+          "Show icon#13:55": {
+            "name": "Show icon",
+            "type": "BOOLEAN",
+            "key": "Show icon#13:55"
+          },
+          "Label#13:56": {
+            "name": "Label",
+            "type": "TEXT",
+            "key": "Label#13:56"
+          },
+          "Appearance": {
+            "name": "Appearance",
+            "type": "VARIANT",
+            "key": "Appearance",
+            "variantOptions": [
+              "Primary"
+            ]
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Default"
+            ]
+          }
+        },
+        "descendants": {
+          "INSTANCE[Icon/Plus]": {
+            "type": "INSTANCE",
+            "name": "Icon/Plus",
+            "mainComponentName": "Icon/Plus",
+            "references": {
+              "visible": "Show icon#13:55",
+              "mainComponent": "Icon#13:54"
+            },
+            "properties": {},
+            "descendants": {},
+            "variants": [
+              "Appearance=Primary, State=Default"
+            ]
+          },
+          "TEXT[Make an offer]": {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "nodeId": "13:101",
+            "textContent": "Make an offer",
+            "references": {
+              "characters": "Label#13:56"
+            },
+            "variants": [
+              "Appearance=Primary, State=Default"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "component": "Dialog",
+    "fileKey": "vzZcV01fYoCl3eGZylJHha",
+    "nodeId": "16:491",
+    "name": "Dialog",
+    "properties": {
+      "Body#16:60": {
+        "name": "Body",
+        "type": "INSTANCE_SWAP",
+        "key": "Body#16:60"
+      },
+      "Viewport": {
+        "name": "Viewport",
+        "type": "VARIANT",
+        "key": "Viewport",
+        "variantOptions": [
+          "Desktop",
+          "Mobile"
+        ]
+      }
+    },
+    "descendants": {
+      "INSTANCE[Icon button]": {
+        "type": "INSTANCE",
+        "name": "Icon button",
+        "mainComponentName": "Icon button",
+        "references": {},
+        "properties": {
+          "Icon#13:61": {
+            "name": "Icon",
+            "type": "INSTANCE_SWAP",
+            "key": "Icon#13:61"
+          },
+          "State": {
+            "name": "State",
+            "type": "VARIANT",
+            "key": "State",
+            "variantOptions": [
+              "Default"
+            ]
+          }
+        },
+        "descendants": {
+          "INSTANCE[Icon/Close]": {
+            "type": "INSTANCE",
+            "name": "Icon/Close",
+            "mainComponentName": "Icon/Close",
+            "references": {
+              "mainComponent": "Icon#13:61"
+            },
+            "properties": {},
+            "descendants": {},
+            "variants": [
+              "State=Default",
+              "State=Default"
+            ]
+          }
+        },
+        "variants": [
+          "Viewport=Desktop",
+          "Viewport=Mobile"
+        ]
+      },
+      "INSTANCE[Offer form]": {
+        "type": "INSTANCE",
+        "name": "Offer form",
+        "mainComponentName": "Offer form",
+        "references": {
+          "mainComponent": "Body#16:60"
+        },
+        "properties": {},
+        "descendants": {
+          "TEXT[Propose an offer]": {
+            "type": "TEXT",
+            "name": "Propose an offer",
+            "nodeId": "16:406",
+            "textContent": "Propose an offer",
+            "references": {}
+          },
+          "TEXT[Asking $2,400 · Kohaku N° 01]": {
+            "type": "TEXT",
+            "name": "Asking $2,400 · Kohaku N° 01",
+            "nodeId": "16:407",
+            "textContent": "Asking $2,400 · Kohaku N° 01",
+            "references": {}
+          },
+          "INSTANCE[Field]": {
+            "type": "INSTANCE",
+            "name": "Field",
+            "mainComponentName": "Field",
+            "references": {},
+            "properties": {
+              "Label#13:160": {
+                "name": "Label",
+                "type": "TEXT",
+                "key": "Label#13:160"
+              },
+              "Value#13:161": {
+                "name": "Value",
+                "type": "TEXT",
+                "key": "Value#13:161"
+              },
+              "Help text#13:162": {
+                "name": "Help text",
+                "type": "TEXT",
+                "key": "Help text#13:162"
+              },
+              "Show help#13:163": {
+                "name": "Show help",
+                "type": "BOOLEAN",
+                "key": "Show help#13:163"
+              },
+              "Kind": {
+                "name": "Kind",
+                "type": "VARIANT",
+                "key": "Kind",
+                "variantOptions": [
+                  "Text",
+                  "Select",
+                  "Textarea"
+                ]
+              },
+              "State": {
+                "name": "State",
+                "type": "VARIANT",
+                "key": "State",
+                "variantOptions": [
+                  "Filled"
+                ]
+              }
+            },
+            "descendants": {
+              "TEXT[Your offer (USD)]": {
+                "type": "TEXT",
+                "name": "Your offer (USD)",
+                "nodeId": "13:261",
+                "textContent": "Your offer (USD)",
+                "references": {
+                  "characters": "Label#13:160"
+                },
+                "variants": [
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled"
+                ]
+              },
+              "TEXT[1,650]": {
+                "type": "TEXT",
+                "name": "1,650",
+                "nodeId": "13:263",
+                "textContent": "1,650",
+                "references": {
+                  "characters": "Value#13:161"
+                },
+                "variants": [
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Text, State=Filled"
+                ]
+              },
+              "TEXT[Use USD. The seller will review your]": {
+                "type": "TEXT",
+                "name": "Use USD. The seller will review your",
+                "nodeId": "13:264",
+                "textContent": "Use USD. The seller will review your offer.",
+                "references": {
+                  "visible": "Show help#13:163",
+                  "characters": "Help text#13:162"
+                },
+                "variants": [
+                  "Kind=Text, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Text, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Textarea, State=Filled"
+                ]
+              },
+              "TEXT[Handover preference]": {
+                "type": "TEXT",
+                "name": "Handover preference",
+                "nodeId": "13:289",
+                "textContent": "Handover preference",
+                "references": {
+                  "characters": "Label#13:160"
+                },
+                "variants": [
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled"
+                ]
+              },
+              "TEXT[Pondside collection]": {
+                "type": "TEXT",
+                "name": "Pondside collection",
+                "nodeId": "13:291",
+                "textContent": "Pondside collection",
+                "references": {
+                  "characters": "Value#13:161"
+                },
+                "variants": [
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled"
+                ]
+              },
+              "INSTANCE[Icon/Down]": {
+                "type": "INSTANCE",
+                "name": "Icon/Down",
+                "mainComponentName": "Icon/Down",
+                "references": {},
+                "properties": {},
+                "descendants": {},
+                "variants": [
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled",
+                  "Kind=Select, State=Filled"
+                ]
+              },
+              "TEXT[Message to seller]": {
+                "type": "TEXT",
+                "name": "Message to seller",
+                "nodeId": "13:326",
+                "textContent": "Message to seller",
+                "references": {
+                  "characters": "Label#13:160"
+                },
+                "variants": [
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled"
+                ]
+              },
+              "TEXT[I would like to coordinate handover ]": {
+                "type": "TEXT",
+                "name": "I would like to coordinate handover ",
+                "nodeId": "13:328",
+                "textContent": "I would like to coordinate handover this week.",
+                "references": {
+                  "characters": "Value#13:161"
+                },
+                "variants": [
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled",
+                  "Kind=Textarea, State=Filled"
+                ]
+              }
+            }
+          },
+          "INSTANCE[Button]": {
+            "type": "INSTANCE",
+            "name": "Button",
+            "mainComponentName": "Button",
+            "references": {},
+            "properties": {
+              "Icon#13:54": {
+                "name": "Icon",
+                "type": "INSTANCE_SWAP",
+                "key": "Icon#13:54"
+              },
+              "Show icon#13:55": {
+                "name": "Show icon",
+                "type": "BOOLEAN",
+                "key": "Show icon#13:55"
+              },
+              "Label#13:56": {
+                "name": "Label",
+                "type": "TEXT",
+                "key": "Label#13:56"
+              },
+              "Appearance": {
+                "name": "Appearance",
+                "type": "VARIANT",
+                "key": "Appearance",
+                "variantOptions": [
+                  "Primary"
+                ]
+              },
+              "State": {
+                "name": "State",
+                "type": "VARIANT",
+                "key": "State",
+                "variantOptions": [
+                  "Default"
+                ]
+              }
+            },
+            "descendants": {
+              "INSTANCE[Icon/Plus]": {
+                "type": "INSTANCE",
+                "name": "Icon/Plus",
+                "mainComponentName": "Icon/Plus",
+                "references": {
+                  "visible": "Show icon#13:55",
+                  "mainComponent": "Icon#13:54"
+                },
+                "properties": {},
+                "descendants": {},
+                "variants": [
+                  "Appearance=Primary, State=Default",
+                  "Appearance=Primary, State=Default"
+                ]
+              },
+              "TEXT[Make an offer]": {
+                "type": "TEXT",
+                "name": "Make an offer",
+                "nodeId": "13:101",
+                "textContent": "Make an offer",
+                "references": {
+                  "characters": "Label#13:56"
+                },
+                "variants": [
+                  "Appearance=Primary, State=Default",
+                  "Appearance=Primary, State=Default"
+                ]
+              }
+            }
+          }
+        },
+        "variants": [
+          "Viewport=Desktop",
+          "Viewport=Mobile"
+        ]
+      }
+    }
+  }
+]

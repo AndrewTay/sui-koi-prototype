@@ -1,10 +1,27 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { smoothstep, selectSpecimens, parseSaved, specimens } from '../model.js';
-import { KoiMotion, CollectionFlight, pondLayout, TURN_RATE_LIMIT, TURN_ACCELERATION_LIMIT, SPINE_COUNT, JOINT_ANGLE_LIMIT, wrapAngle, nearBody } from '../swimming.js';
+import { KoiMotion, CollectionFlight, pondLayout, TURN_RATE_LIMIT, TURN_ACCELERATION_LIMIT, SPINE_COUNT, JOINT_ANGLE_LIMIT, wrapAngle, nearBody, swimmingEffort, wakeStrength } from '../swimming.js';
 
 const advance = (motion, seconds, step = 1 / 60) => { for (let t = 0; t < seconds; t += step) motion.advance(step); };
 const layouts = [[320,720],[390,844],[768,1024],[1440,900],[2560,1440]];
+
+test('the koi alternates propulsion and quiet holds without discontinuous effort or wakes at rest', () => {
+  assert.equal(swimmingEffort(0), swimmingEffort(12));
+  assert.equal(swimmingEffort(7), 0);
+  assert.equal(wakeStrength({ speed: 0, length: 250, effort: 0 }), 0);
+  const motion = new KoiMotion(pondLayout(1440, 900));
+  let fastest = 0, slowest = Infinity, previous = motion.pose();
+  for (let frame = 0; frame < 12 * 120; frame++) {
+    const pose = motion.advance(1 / 120);
+    fastest = Math.max(fastest, pose.speed); slowest = Math.min(slowest, pose.speed);
+    assert.ok(Math.abs(pose.effort - previous.effort) < .03);
+    assert.ok(pose.finPhase >= previous.finPhase);
+    assert.ok(pose.finActivity >= 0 && pose.finActivity <= 1);
+    previous = pose;
+  }
+  assert.ok(fastest > slowest * 3, 'the quiet hold should be visibly calmer than a stroke');
+});
 
 test('nearby touches change intent without resetting position, heading, speed, or turn rate', () => {
   const motion = new KoiMotion(pondLayout(1440,900));

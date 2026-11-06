@@ -1,0 +1,7 @@
+{
+  "codeConnect": {
+    "include": ["code-connect/keynote/**/*.figma.ts"],
+    "label": "React",
+    "language": "jsx"
+  }
+}

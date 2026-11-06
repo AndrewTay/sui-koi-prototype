@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#163f38">
-  <meta name="description" content="SUI — a small collection of ornamental koi">
-  <title>SUI — Koi for quiet ponds</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%231b3931'/%3E%3Ctext x='24' y='34' text-anchor='middle' font-size='34' fill='%23ece9dc' font-family='Georgia'%3ES%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="MIZU — a collector marketplace for living specimens and works of art">
+  <title>MIZU — Living Jewels</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%231b3931'/%3E%3Ctext x='24' y='34' text-anchor='middle' font-size='34' fill='%23ece9dc' font-family='Georgia'%3EM%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="marketplace-dist/marketplace.css">
   <link rel="preload" as="image" href="assets/pond.png" media="(min-width: 761px)">
   <link rel="preload" as="image" href="assets/pond-mobile.png" media="(max-width: 760px)">
   <link rel="preload" as="image" href="assets/kohaku.png">
@@ -16,16 +17,19 @@
   <a class="skip-link" href="#enter">Skip to browse the collection</a>
   <canvas id="pond" aria-label="A koi swimming in a garden pond" role="img"></canvas>
   <main>
-    <section id="home" class="home" aria-label="SUI koi pond">
-      <div class="pond-base" aria-hidden="true"></div>
+    <section id="home" class="home" aria-label="Mizu koi pond">
+      <div class="pond-base" aria-hidden="true"><picture>
+        <source media="(max-width: 760px)" srcset="assets/pond-mobile.png">
+        <img src="assets/pond.png" alt="" decoding="async" fetchpriority="high">
+      </picture></div>
       <img class="fallback-fish" src="assets/kohaku.png" alt="" aria-hidden="true">
       <div class="pond-shade" aria-hidden="true"></div>
       <header class="header hero-header">
-        <a class="brand home-link" href="#pond" aria-label="SUI — return to the pond"><span class="brand-name">sui</span></a>
+        <a class="brand home-link" href="#pond" aria-label="MIZU — return to the pond"><span class="brand-name">mizu</span></a>
       </header>
       <div class="hero-copy">
-        <h1>Koi for<br>quiet<br><em>ponds</em></h1>
-        <p class="hero-description">Colour, pattern, and scale<br>A small collection of ornamental carp</p>
+        <h1>Living<br><em>Jewels</em></h1>
+        <p class="hero-description">Lineage, lustre, and living form<br>A private curation of pedigree Japanese nishikigoi</p>
         <button id="enter" class="enter-button"><span>Browse the collection</span></button>
       </div>
       <footer class="hero-footer">
@@ -35,19 +39,11 @@
     </section>
 
     <section id="catalog" class="catalog" aria-labelledby="catalog-title" hidden>
-      <header class="header catalog-header">
-        <a class="brand home-link" href="#pond" aria-label="SUI — return to the pond"><span class="brand-name">sui</span></a>
-        <button class="back-to-pond text-link"><span aria-hidden="true">←</span> Back to the pond</button>
-        <button id="shortlist-toggle" class="text-link" aria-pressed="false">Shortlist <span id="shortlist-count">(0)</span></button>
-      </header>
-      <div class="catalog-intro"><h2 id="catalog-title" tabindex="-1">The <em>Collection</em></h2></div>
-      <div class="catalog-toolbar"><div class="filters" role="group" aria-label="Filter by koi variety"><button data-filter="all" class="active" aria-pressed="true">All koi <span>09</span></button><button data-filter="Kohaku" aria-pressed="false">Kohaku</button><button data-filter="Showa" aria-pressed="false">Showa</button><button data-filter="Ogon" aria-pressed="false">Ogon</button><button data-filter="Sanke" aria-pressed="false">Sanke</button><button data-filter="Tancho" aria-pressed="false">Tancho</button><button data-filter="Goshiki" aria-pressed="false">Goshiki</button><button data-filter="Kujaku" aria-pressed="false">Kujaku</button><button data-filter="Shiro Utsuri" aria-pressed="false">Shiro Utsuri</button><button data-filter="Chagoi" aria-pressed="false">Chagoi</button></div></div>
-      <div id="fish-grid" class="fish-grid"></div>
-      <div id="empty-state" class="empty-state" hidden><span class="empty-symbol">○</span><h3>No koi saved</h3><p>Save a koi to build a shortlist</p><button id="show-all" class="plain-button">Show all koi <span aria-hidden="true">↗</span></button></div>
+      <div id="marketplace-root"></div>
     </section>
   </main>
   <p id="announcer" class="sr-only" role="status" aria-live="polite"></p>
-  <dialog id="specimen-dialog" class="specimen-dialog" aria-labelledby="specimen-title"><button class="dialog-close" data-close aria-label="Close specimen details">×</button><div id="specimen-content"></div></dialog>
+
   <noscript><div class="noscript-note">This interactive pond needs JavaScript. Enable it to swim into the collection.</div></noscript>
   <script type="module" src="app.js"></script>
 </body>

@@ -1,0 +1,4779 @@
+[
+  {
+    "type": "INSTANCE",
+    "id": "13:97",
+    "name": "Appearance=Primary, State=Default",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Primary"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:98",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:102",
+    "name": "Appearance=Primary, State=Hover",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Primary"
+      },
+      "State": {
+        "value": "Hover"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:103",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:107",
+    "name": "Appearance=Primary, State=Pressed",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Primary"
+      },
+      "State": {
+        "value": "Pressed"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:108",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:112",
+    "name": "Appearance=Primary, State=Focus",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Primary"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:113",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:117",
+    "name": "Appearance=Primary, State=Disabled",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Primary"
+      },
+      "State": {
+        "value": "Disabled"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:118",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:122",
+    "name": "Appearance=Primary, State=Loading",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Primary"
+      },
+      "State": {
+        "value": "Loading"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:123",
+        "name": "Icon/Spinner",
+        "mainId": "13:94",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Sending…",
+        "textContent": "Sending…"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:127",
+    "name": "Appearance=Secondary, State=Default",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Secondary"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:128",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:132",
+    "name": "Appearance=Secondary, State=Hover",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Secondary"
+      },
+      "State": {
+        "value": "Hover"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:133",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:137",
+    "name": "Appearance=Secondary, State=Pressed",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Secondary"
+      },
+      "State": {
+        "value": "Pressed"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:138",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:142",
+    "name": "Appearance=Secondary, State=Focus",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Secondary"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:143",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:147",
+    "name": "Appearance=Secondary, State=Disabled",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Secondary"
+      },
+      "State": {
+        "value": "Disabled"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:148",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:152",
+    "name": "Appearance=Secondary, State=Loading",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Secondary"
+      },
+      "State": {
+        "value": "Loading"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:153",
+        "name": "Icon/Spinner",
+        "mainId": "13:94",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Sending…",
+        "textContent": "Sending…"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:157",
+    "name": "Appearance=Text, State=Default",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:158",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:162",
+    "name": "Appearance=Text, State=Hover",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Hover"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:163",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:167",
+    "name": "Appearance=Text, State=Pressed",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Pressed"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:168",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:172",
+    "name": "Appearance=Text, State=Focus",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:173",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:177",
+    "name": "Appearance=Text, State=Disabled",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Disabled"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:178",
+        "name": "Icon/Plus",
+        "mainId": "13:76",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Make an offer",
+        "textContent": "Make an offer"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:182",
+    "name": "Appearance=Text, State=Loading",
+    "mainId": "13:187",
+    "properties": {
+      "Icon#13:54": {
+        "value": "13:76"
+      },
+      "Show icon#13:55": {
+        "value": false
+      },
+      "Label#13:56": {
+        "value": "Make an offer"
+      },
+      "Appearance": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Loading"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:183",
+        "name": "Icon/Spinner",
+        "mainId": "13:94",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Sending…",
+        "textContent": "Sending…"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:188",
+    "name": "State=Default",
+    "mainId": "13:204",
+    "properties": {
+      "Icon#13:61": {
+        "value": "13:73"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:189",
+        "name": "Icon/Close",
+        "mainId": "13:73",
+        "properties": {},
+        "children": []
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:192",
+    "name": "State=Hover",
+    "mainId": "13:204",
+    "properties": {
+      "Icon#13:61": {
+        "value": "13:73"
+      },
+      "State": {
+        "value": "Hover"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:193",
+        "name": "Icon/Close",
+        "mainId": "13:73",
+        "properties": {},
+        "children": []
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:196",
+    "name": "State=Focus",
+    "mainId": "13:204",
+    "properties": {
+      "Icon#13:61": {
+        "value": "13:73"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:197",
+        "name": "Icon/Close",
+        "mainId": "13:73",
+        "properties": {},
+        "children": []
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:200",
+    "name": "State=Disabled",
+    "mainId": "13:204",
+    "properties": {
+      "Icon#13:61": {
+        "value": "13:73"
+      },
+      "State": {
+        "value": "Disabled"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "13:201",
+        "name": "Icon/Close",
+        "mainId": "13:73",
+        "properties": {},
+        "children": []
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:205",
+    "name": "State=Default",
+    "mainId": "13:214",
+    "properties": {
+      "Label#13:71": {
+        "value": "Collection"
+      },
+      "Count#13:72": {
+        "value": "(1)"
+      },
+      "Show count#13:73": {
+        "value": false
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Collection",
+        "textContent": "Collection"
+      },
+      {
+        "type": "TEXT",
+        "name": "(1)",
+        "textContent": "(1)"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:208",
+    "name": "State=Selected",
+    "mainId": "13:214",
+    "properties": {
+      "Label#13:71": {
+        "value": "Collection"
+      },
+      "Count#13:72": {
+        "value": "(1)"
+      },
+      "Show count#13:73": {
+        "value": false
+      },
+      "State": {
+        "value": "Selected"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Collection",
+        "textContent": "Collection"
+      },
+      {
+        "type": "TEXT",
+        "name": "(1)",
+        "textContent": "(1)"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:211",
+    "name": "State=Focus",
+    "mainId": "13:214",
+    "properties": {
+      "Label#13:71": {
+        "value": "Collection"
+      },
+      "Count#13:72": {
+        "value": "(1)"
+      },
+      "Show count#13:73": {
+        "value": false
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Collection",
+        "textContent": "Collection"
+      },
+      {
+        "type": "TEXT",
+        "name": "(1)",
+        "textContent": "(1)"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:215",
+    "name": "Selected=False, State=Default",
+    "mainId": "13:245",
+    "properties": {
+      "Label#13:92": {
+        "value": "Kohaku"
+      },
+      "Count#13:93": {
+        "value": "09"
+      },
+      "Show count#13:94": {
+        "value": false
+      },
+      "Selected": {
+        "value": "False"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "09",
+        "textContent": "09"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:220",
+    "name": "Selected=False, State=Hover",
+    "mainId": "13:245",
+    "properties": {
+      "Label#13:92": {
+        "value": "Kohaku"
+      },
+      "Count#13:93": {
+        "value": "09"
+      },
+      "Show count#13:94": {
+        "value": false
+      },
+      "Selected": {
+        "value": "False"
+      },
+      "State": {
+        "value": "Hover"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "09",
+        "textContent": "09"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:225",
+    "name": "Selected=False, State=Focus",
+    "mainId": "13:245",
+    "properties": {
+      "Label#13:92": {
+        "value": "Kohaku"
+      },
+      "Count#13:93": {
+        "value": "09"
+      },
+      "Show count#13:94": {
+        "value": false
+      },
+      "Selected": {
+        "value": "False"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "09",
+        "textContent": "09"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:230",
+    "name": "Selected=True, State=Default",
+    "mainId": "13:245",
+    "properties": {
+      "Label#13:92": {
+        "value": "Kohaku"
+      },
+      "Count#13:93": {
+        "value": "09"
+      },
+      "Show count#13:94": {
+        "value": false
+      },
+      "Selected": {
+        "value": "True"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "09",
+        "textContent": "09"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:235",
+    "name": "Selected=True, State=Hover",
+    "mainId": "13:245",
+    "properties": {
+      "Label#13:92": {
+        "value": "Kohaku"
+      },
+      "Count#13:93": {
+        "value": "09"
+      },
+      "Show count#13:94": {
+        "value": false
+      },
+      "Selected": {
+        "value": "True"
+      },
+      "State": {
+        "value": "Hover"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "09",
+        "textContent": "09"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:240",
+    "name": "Selected=True, State=Focus",
+    "mainId": "13:245",
+    "properties": {
+      "Label#13:92": {
+        "value": "Kohaku"
+      },
+      "Count#13:93": {
+        "value": "09"
+      },
+      "Show count#13:94": {
+        "value": false
+      },
+      "Selected": {
+        "value": "True"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "09",
+        "textContent": "09"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:246",
+    "name": "Status=Counter",
+    "mainId": "13:254",
+    "properties": {
+      "Amount#21:0": {
+        "value": "· $2,320"
+      },
+      "Show amount#21:5": {
+        "value": true
+      },
+      "Status": {
+        "value": "Counter"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Counter · $2,320",
+        "textContent": "Counter"
+      },
+      {
+        "type": "TEXT",
+        "name": "· $2,320",
+        "textContent": "· $2,320"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:248",
+    "name": "Status=Reserved",
+    "mainId": "13:254",
+    "properties": {
+      "Amount#21:0": {
+        "value": "· $2,320"
+      },
+      "Show amount#21:5": {
+        "value": true
+      },
+      "Status": {
+        "value": "Reserved"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Reserved · $1,680",
+        "textContent": "Reserved"
+      },
+      {
+        "type": "TEXT",
+        "name": "· $2,320",
+        "textContent": "· $2,320"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:250",
+    "name": "Status=Pending",
+    "mainId": "13:254",
+    "properties": {
+      "Amount#21:0": {
+        "value": "· $2,320"
+      },
+      "Show amount#21:5": {
+        "value": true
+      },
+      "Status": {
+        "value": "Pending"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Pending",
+        "textContent": "Pending"
+      },
+      {
+        "type": "TEXT",
+        "name": "· $2,320",
+        "textContent": "· $2,320"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:252",
+    "name": "Status=Closed",
+    "mainId": "13:254",
+    "properties": {
+      "Amount#21:0": {
+        "value": "· $2,320"
+      },
+      "Show amount#21:5": {
+        "value": true
+      },
+      "Status": {
+        "value": "Closed"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Closed",
+        "textContent": "Closed"
+      },
+      {
+        "type": "TEXT",
+        "name": "· $2,320",
+        "textContent": "· $2,320"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:255",
+    "name": "Kind=Text, State=Default",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Your offer (USD)",
+        "textContent": "Your offer (USD)"
+      },
+      {
+        "type": "TEXT",
+        "name": "Enter amount",
+        "textContent": "Enter amount"
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:260",
+    "name": "Kind=Text, State=Filled",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Filled"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Your offer (USD)",
+        "textContent": "Your offer (USD)"
+      },
+      {
+        "type": "TEXT",
+        "name": "1,650",
+        "textContent": "1,650"
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:265",
+    "name": "Kind=Text, State=Focus",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Your offer (USD)",
+        "textContent": "Your offer (USD)"
+      },
+      {
+        "type": "TEXT",
+        "name": "1,650",
+        "textContent": "1,650"
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:270",
+    "name": "Kind=Text, State=Error",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Error"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Your offer (USD)",
+        "textContent": "Your offer (USD)"
+      },
+      {
+        "type": "TEXT",
+        "name": "1,650",
+        "textContent": "1,650"
+      },
+      {
+        "type": "TEXT",
+        "name": "Enter a valid amount greater than ze",
+        "textContent": "Enter a valid amount greater than zero."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:275",
+    "name": "Kind=Text, State=Disabled",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Text"
+      },
+      "State": {
+        "value": "Disabled"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Your offer (USD)",
+        "textContent": "Your offer (USD)"
+      },
+      {
+        "type": "TEXT",
+        "name": "1,650",
+        "textContent": "1,650"
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:280",
+    "name": "Kind=Select, State=Default",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Select"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Handover preference",
+        "textContent": "Handover preference"
+      },
+      {
+        "type": "TEXT",
+        "name": "Pondside collection",
+        "textContent": "Pondside collection"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "13:284",
+        "name": "Icon/Down",
+        "mainId": "13:82",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:288",
+    "name": "Kind=Select, State=Filled",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Select"
+      },
+      "State": {
+        "value": "Filled"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Handover preference",
+        "textContent": "Handover preference"
+      },
+      {
+        "type": "TEXT",
+        "name": "Pondside collection",
+        "textContent": "Pondside collection"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "13:292",
+        "name": "Icon/Down",
+        "mainId": "13:82",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:296",
+    "name": "Kind=Select, State=Focus",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Select"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Handover preference",
+        "textContent": "Handover preference"
+      },
+      {
+        "type": "TEXT",
+        "name": "Pondside collection",
+        "textContent": "Pondside collection"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "13:300",
+        "name": "Icon/Down",
+        "mainId": "13:82",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:304",
+    "name": "Kind=Select, State=Error",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Select"
+      },
+      "State": {
+        "value": "Error"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Handover preference",
+        "textContent": "Handover preference"
+      },
+      {
+        "type": "TEXT",
+        "name": "Pondside collection",
+        "textContent": "Pondside collection"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "13:308",
+        "name": "Icon/Down",
+        "mainId": "13:82",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Enter a valid amount greater than ze",
+        "textContent": "Choose a handover preference."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:312",
+    "name": "Kind=Select, State=Disabled",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Select"
+      },
+      "State": {
+        "value": "Disabled"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Handover preference",
+        "textContent": "Handover preference"
+      },
+      {
+        "type": "TEXT",
+        "name": "Pondside collection",
+        "textContent": "Pondside collection"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "13:316",
+        "name": "Icon/Down",
+        "mainId": "13:82",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:320",
+    "name": "Kind=Textarea, State=Default",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Textarea"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Message to seller",
+        "textContent": "Message to seller"
+      },
+      {
+        "type": "TEXT",
+        "name": "I would like to coordinate handover ",
+        "textContent": "I would like to coordinate handover this week."
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:325",
+    "name": "Kind=Textarea, State=Filled",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Textarea"
+      },
+      "State": {
+        "value": "Filled"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Message to seller",
+        "textContent": "Message to seller"
+      },
+      {
+        "type": "TEXT",
+        "name": "I would like to coordinate handover ",
+        "textContent": "I would like to coordinate handover this week."
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:330",
+    "name": "Kind=Textarea, State=Focus",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Textarea"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Message to seller",
+        "textContent": "Message to seller"
+      },
+      {
+        "type": "TEXT",
+        "name": "I would like to coordinate handover ",
+        "textContent": "I would like to coordinate handover this week."
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:335",
+    "name": "Kind=Textarea, State=Error",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Textarea"
+      },
+      "State": {
+        "value": "Error"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Message to seller",
+        "textContent": "Message to seller"
+      },
+      {
+        "type": "TEXT",
+        "name": "I would like to coordinate handover ",
+        "textContent": "I would like to coordinate handover this week."
+      },
+      {
+        "type": "TEXT",
+        "name": "Enter a valid amount greater than ze",
+        "textContent": "Add a message before sending."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:340",
+    "name": "Kind=Textarea, State=Disabled",
+    "mainId": "13:345",
+    "properties": {
+      "Label#13:160": {
+        "value": "Your offer (USD)"
+      },
+      "Value#13:161": {
+        "value": "Enter amount"
+      },
+      "Help text#13:162": {
+        "value": "Use USD. The seller will review your offer."
+      },
+      "Show help#13:163": {
+        "value": false
+      },
+      "Kind": {
+        "value": "Textarea"
+      },
+      "State": {
+        "value": "Disabled"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Message to seller",
+        "textContent": "Message to seller"
+      },
+      {
+        "type": "TEXT",
+        "name": "I would like to coordinate handover ",
+        "textContent": "I would like to coordinate handover this week."
+      },
+      {
+        "type": "TEXT",
+        "name": "Use USD. The seller will review your",
+        "textContent": "Use USD. The seller will review your offer."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:73",
+    "name": "Icon/Close",
+    "mainId": "13:73",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:76",
+    "name": "Icon/Plus",
+    "mainId": "13:76",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:79",
+    "name": "Icon/Chevron",
+    "mainId": "13:79",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:82",
+    "name": "Icon/Down",
+    "mainId": "13:82",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:85",
+    "name": "Icon/Menu",
+    "mainId": "13:85",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:88",
+    "name": "Icon/Upload",
+    "mainId": "13:88",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:91",
+    "name": "Icon/Check",
+    "mainId": "13:91",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "13:94",
+    "name": "Icon/Spinner",
+    "mainId": "13:94",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:181",
+    "name": "Media/Koi",
+    "mainId": "16:181",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:183",
+    "name": "Media/Ceramic",
+    "mainId": "16:183",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:185",
+    "name": "Media/Bonsai",
+    "mainId": "16:185",
+    "properties": {},
+    "children": []
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:187",
+    "name": "Size=Desktop",
+    "mainId": "16:191",
+    "properties": {
+      "Size": {
+        "value": "Desktop"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "mizu",
+        "textContent": "mizu"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:189",
+    "name": "Size=Mobile",
+    "mainId": "16:191",
+    "properties": {
+      "Size": {
+        "value": "Mobile"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "mizu",
+        "textContent": "mizu"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:492",
+    "name": "Viewport=Desktop",
+    "mainId": "16:538",
+    "properties": {
+      "Viewport": {
+        "value": "Desktop"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:494",
+        "name": "Brand",
+        "mainId": "16:191",
+        "properties": {
+          "Size": {
+            "value": "Desktop",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "mizu",
+            "textContent": "mizu"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:496",
+        "name": "Icon button",
+        "mainId": "13:204",
+        "properties": {
+          "Icon#13:61": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:85",
+            "preferredValues": []
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "id": "I16:496;13:189",
+            "name": "Icon/Menu",
+            "mainId": "13:85",
+            "properties": {},
+            "children": []
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:503",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Collection"
+          },
+          "State": {
+            "value": "Selected",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Collection"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:506",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Offers"
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Offers"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:509",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Sell"
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Sell"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:512",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Saved"
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Saved"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:515",
+    "name": "Viewport=Mobile",
+    "mainId": "16:538",
+    "properties": {
+      "Viewport": {
+        "value": "Mobile"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:517",
+        "name": "Brand",
+        "mainId": "16:191",
+        "properties": {
+          "Size": {
+            "value": "Mobile",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "mizu",
+            "textContent": "mizu"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:519",
+        "name": "Icon button",
+        "mainId": "13:204",
+        "properties": {
+          "Icon#13:61": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:85",
+            "preferredValues": []
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "id": "I16:519;13:189",
+            "name": "Icon/Menu",
+            "mainId": "13:85",
+            "properties": {},
+            "children": []
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:526",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Collection"
+          },
+          "State": {
+            "value": "Selected",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Collection"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:529",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Offers"
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Offers"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:532",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Sell"
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Sell"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:535",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Saved"
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Saved"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:192",
+    "name": "Layout=Gallery, State=Default",
+    "mainId": "16:234",
+    "properties": {
+      "Media#16:30": {
+        "value": "16:181"
+      },
+      "Title#16:31": {
+        "value": "Kohaku"
+      },
+      "Metadata#16:32": {
+        "value": "54 cm · $2,400"
+      },
+      "Reference#16:33": {
+        "value": "N° 01"
+      },
+      "Show reference#16:34": {
+        "value": false
+      },
+      "Layout": {
+        "value": "Gallery"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:193",
+        "name": "Media/Koi",
+        "mainId": "16:181",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "54 cm · $2,400",
+        "textContent": "54 cm · $2,400"
+      },
+      {
+        "type": "TEXT",
+        "name": "N° 01",
+        "textContent": "N° 01"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:199",
+    "name": "Layout=Gallery, State=Hover",
+    "mainId": "16:234",
+    "properties": {
+      "Media#16:30": {
+        "value": "16:181"
+      },
+      "Title#16:31": {
+        "value": "Kohaku"
+      },
+      "Metadata#16:32": {
+        "value": "54 cm · $2,400"
+      },
+      "Reference#16:33": {
+        "value": "N° 01"
+      },
+      "Show reference#16:34": {
+        "value": false
+      },
+      "Layout": {
+        "value": "Gallery"
+      },
+      "State": {
+        "value": "Hover"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:200",
+        "name": "Media/Koi",
+        "mainId": "16:181",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "54 cm · $2,400",
+        "textContent": "54 cm · $2,400"
+      },
+      {
+        "type": "TEXT",
+        "name": "N° 01",
+        "textContent": "N° 01"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:206",
+    "name": "Layout=Gallery, State=Focus",
+    "mainId": "16:234",
+    "properties": {
+      "Media#16:30": {
+        "value": "16:181"
+      },
+      "Title#16:31": {
+        "value": "Kohaku"
+      },
+      "Metadata#16:32": {
+        "value": "54 cm · $2,400"
+      },
+      "Reference#16:33": {
+        "value": "N° 01"
+      },
+      "Show reference#16:34": {
+        "value": false
+      },
+      "Layout": {
+        "value": "Gallery"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:207",
+        "name": "Media/Koi",
+        "mainId": "16:181",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "54 cm · $2,400",
+        "textContent": "54 cm · $2,400"
+      },
+      {
+        "type": "TEXT",
+        "name": "N° 01",
+        "textContent": "N° 01"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:213",
+    "name": "Layout=Compact, State=Default",
+    "mainId": "16:234",
+    "properties": {
+      "Media#16:30": {
+        "value": "16:181"
+      },
+      "Title#16:31": {
+        "value": "Kohaku"
+      },
+      "Metadata#16:32": {
+        "value": "54 cm · $2,400"
+      },
+      "Reference#16:33": {
+        "value": "N° 01"
+      },
+      "Show reference#16:34": {
+        "value": false
+      },
+      "Layout": {
+        "value": "Compact"
+      },
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:214",
+        "name": "Media/Koi",
+        "mainId": "16:181",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "54 cm · $2,400",
+        "textContent": "54 cm · $2,400"
+      },
+      {
+        "type": "TEXT",
+        "name": "N° 01",
+        "textContent": "N° 01"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:220",
+    "name": "Layout=Compact, State=Hover",
+    "mainId": "16:234",
+    "properties": {
+      "Media#16:30": {
+        "value": "16:181"
+      },
+      "Title#16:31": {
+        "value": "Kohaku"
+      },
+      "Metadata#16:32": {
+        "value": "54 cm · $2,400"
+      },
+      "Reference#16:33": {
+        "value": "N° 01"
+      },
+      "Show reference#16:34": {
+        "value": false
+      },
+      "Layout": {
+        "value": "Compact"
+      },
+      "State": {
+        "value": "Hover"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:221",
+        "name": "Media/Koi",
+        "mainId": "16:181",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "54 cm · $2,400",
+        "textContent": "54 cm · $2,400"
+      },
+      {
+        "type": "TEXT",
+        "name": "N° 01",
+        "textContent": "N° 01"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:227",
+    "name": "Layout=Compact, State=Focus",
+    "mainId": "16:234",
+    "properties": {
+      "Media#16:30": {
+        "value": "16:181"
+      },
+      "Title#16:31": {
+        "value": "Kohaku"
+      },
+      "Metadata#16:32": {
+        "value": "54 cm · $2,400"
+      },
+      "Reference#16:33": {
+        "value": "N° 01"
+      },
+      "Show reference#16:34": {
+        "value": false
+      },
+      "Layout": {
+        "value": "Compact"
+      },
+      "State": {
+        "value": "Focus"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:228",
+        "name": "Media/Koi",
+        "mainId": "16:181",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "54 cm · $2,400",
+        "textContent": "54 cm · $2,400"
+      },
+      {
+        "type": "TEXT",
+        "name": "N° 01",
+        "textContent": "N° 01"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:235",
+    "name": "Fact row",
+    "mainId": "16:235",
+    "properties": {
+      "Label#16:35": {
+        "value": "Length & age"
+      },
+      "Value#16:36": {
+        "value": "54 cm · 3 years"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Length & age",
+        "textContent": "Length & age"
+      },
+      {
+        "type": "TEXT",
+        "name": "54 cm · 3 years",
+        "textContent": "54 cm · 3 years"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:539",
+    "name": "Specimen details",
+    "mainId": "16:539",
+    "properties": {},
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "$2,400",
+        "textContent": "$2,400"
+      },
+      {
+        "type": "TEXT",
+        "name": "Mizuho Koi House · Sonoma, CA",
+        "textContent": "Mizuho Koi House · Sonoma, CA"
+      },
+      {
+        "type": "TEXT",
+        "name": "Red and white patterning, viewed fro",
+        "textContent": "Red and white patterning, viewed from above. Confirm condition and handover details with the seller."
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:544",
+        "name": "Fact row",
+        "mainId": "16:235",
+        "properties": {
+          "Value#16:36": {
+            "type": "TEXT",
+            "value": "54 cm · 3 years"
+          },
+          "Label#16:35": {
+            "type": "TEXT",
+            "value": "Length & age"
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Length & age",
+            "textContent": "Length & age"
+          },
+          {
+            "type": "TEXT",
+            "name": "54 cm · 3 years",
+            "textContent": "54 cm · 3 years"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:547",
+        "name": "Fact row",
+        "mainId": "16:235",
+        "properties": {
+          "Value#16:36": {
+            "type": "TEXT",
+            "value": "Not provided"
+          },
+          "Label#16:35": {
+            "type": "TEXT",
+            "value": "Breeder"
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Length & age",
+            "textContent": "Breeder"
+          },
+          {
+            "type": "TEXT",
+            "name": "54 cm · 3 years",
+            "textContent": "Not provided"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:550",
+        "name": "Fact row",
+        "mainId": "16:235",
+        "properties": {
+          "Value#16:36": {
+            "type": "TEXT",
+            "value": "Pondside collection"
+          },
+          "Label#16:35": {
+            "type": "TEXT",
+            "value": "Handover"
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Length & age",
+            "textContent": "Handover"
+          },
+          {
+            "type": "TEXT",
+            "name": "54 cm · 3 years",
+            "textContent": "Pondside collection"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:554",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Save +"
+          },
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Secondary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Save +"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:559",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Make an offer"
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Primary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Make an offer"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:238",
+    "name": "Direction=Received",
+    "mainId": "16:244",
+    "properties": {
+      "Message#16:41": {
+        "value": "I would like to arrange collection this Saturday."
+      },
+      "Timestamp#16:42": {
+        "value": "Tue · Read"
+      },
+      "Direction": {
+        "value": "Received"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "I would like to arrange collection t",
+        "textContent": "I would like to arrange collection this Saturday."
+      },
+      {
+        "type": "TEXT",
+        "name": "Tue · Read",
+        "textContent": "Tue · Read"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:241",
+    "name": "Direction=Sent",
+    "mainId": "16:244",
+    "properties": {
+      "Message#16:41": {
+        "value": "I would like to arrange collection this Saturday."
+      },
+      "Timestamp#16:42": {
+        "value": "Tue · Read"
+      },
+      "Direction": {
+        "value": "Sent"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "I would like to arrange collection t",
+        "textContent": "I would like to arrange collection this Saturday."
+      },
+      {
+        "type": "TEXT",
+        "name": "Tue · Read",
+        "textContent": "Tue · Read"
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:245",
+    "name": "Status=Counter",
+    "mainId": "16:278",
+    "properties": {
+      "Media#16:52": {
+        "value": "16:181"
+      },
+      "Title#16:53": {
+        "value": "Kohaku"
+      },
+      "Seller#16:54": {
+        "value": "Mizuho Koi House · Sonoma, CA"
+      },
+      "Status": {
+        "value": "Counter"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:246",
+        "name": "Media/Koi",
+        "mainId": "16:181",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "Mizuho Koi House · Sonoma, CA",
+        "textContent": "Mizuho Koi House · Sonoma, CA"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:251",
+        "name": "Status badge",
+        "mainId": "13:254",
+        "properties": {
+          "Show amount#21:5": {
+            "type": "BOOLEAN",
+            "value": true
+          },
+          "Amount#21:0": {
+            "type": "TEXT",
+            "value": "· $2,320"
+          },
+          "Status": {
+            "value": "Counter",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Counter · $2,320",
+            "textContent": "Counter"
+          },
+          {
+            "type": "TEXT",
+            "name": "· $2,320",
+            "textContent": "· $2,320"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:253",
+        "name": "Icon/Chevron",
+        "mainId": "13:79",
+        "properties": {},
+        "children": []
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:256",
+    "name": "Status=Reserved",
+    "mainId": "16:278",
+    "properties": {
+      "Media#16:52": {
+        "value": "16:181"
+      },
+      "Title#16:53": {
+        "value": "Kohaku"
+      },
+      "Seller#16:54": {
+        "value": "Mizuho Koi House · Sonoma, CA"
+      },
+      "Status": {
+        "value": "Reserved"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:257",
+        "name": "Media/Koi",
+        "mainId": "16:181",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "Mizuho Koi House · Sonoma, CA",
+        "textContent": "Mizuho Koi House · Sonoma, CA"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:262",
+        "name": "Status badge",
+        "mainId": "13:254",
+        "properties": {
+          "Show amount#21:5": {
+            "type": "BOOLEAN",
+            "value": true
+          },
+          "Amount#21:0": {
+            "type": "TEXT",
+            "value": "· $1,680"
+          },
+          "Status": {
+            "value": "Reserved",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Reserved · $1,680",
+            "textContent": "Reserved"
+          },
+          {
+            "type": "TEXT",
+            "name": "· $2,320",
+            "textContent": "· $1,680"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:264",
+        "name": "Icon/Chevron",
+        "mainId": "13:79",
+        "properties": {},
+        "children": []
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:267",
+    "name": "Status=Pending",
+    "mainId": "16:278",
+    "properties": {
+      "Media#16:52": {
+        "value": "16:181"
+      },
+      "Title#16:53": {
+        "value": "Kohaku"
+      },
+      "Seller#16:54": {
+        "value": "Mizuho Koi House · Sonoma, CA"
+      },
+      "Status": {
+        "value": "Pending"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:268",
+        "name": "Media/Koi",
+        "mainId": "16:181",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Kohaku",
+        "textContent": "Kohaku"
+      },
+      {
+        "type": "TEXT",
+        "name": "Mizuho Koi House · Sonoma, CA",
+        "textContent": "Mizuho Koi House · Sonoma, CA"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:273",
+        "name": "Status badge",
+        "mainId": "13:254",
+        "properties": {
+          "Show amount#21:5": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Amount#21:0": {
+            "type": "TEXT",
+            "value": "· $2,320"
+          },
+          "Status": {
+            "value": "Pending",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Pending",
+            "textContent": "Pending"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:275",
+        "name": "Icon/Chevron",
+        "mainId": "13:79",
+        "properties": {},
+        "children": []
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:279",
+    "name": "Expanded=False",
+    "mainId": "16:300",
+    "properties": {
+      "Label#16:57": {
+        "value": "Living Specimens"
+      },
+      "Expanded": {
+        "value": "False"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Living Specimens",
+        "textContent": "Living Specimens"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:282",
+        "name": "Icon/Chevron",
+        "mainId": "13:79",
+        "properties": {},
+        "children": []
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:285",
+    "name": "Expanded=True",
+    "mainId": "16:300",
+    "properties": {
+      "Label#16:57": {
+        "value": "Living Specimens"
+      },
+      "Expanded": {
+        "value": "True"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Living Specimens",
+        "textContent": "Living Specimens"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:288",
+        "name": "Icon/Down",
+        "mainId": "13:82",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:291",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Pedigree Nishikigoi"
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Pedigree Nishikigoi"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:294",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Imperial Bonsai & Flora"
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Imperial Bonsai & Flora"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:297",
+        "name": "Navigation item",
+        "mainId": "13:214",
+        "properties": {
+          "Show count#13:73": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Count#13:72": {
+            "type": "TEXT",
+            "value": "(1)"
+          },
+          "Label#13:71": {
+            "type": "TEXT",
+            "value": "Suiseki Viewing Stones"
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Collection",
+            "textContent": "Suiseki Viewing Stones"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:348",
+    "name": "Reason=Saved",
+    "mainId": "16:364",
+    "properties": {
+      "Reason": {
+        "value": "Saved"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "No saved specimens",
+        "textContent": "No saved specimens"
+      },
+      {
+        "type": "TEXT",
+        "name": "Save specimens from their detail vie",
+        "textContent": "Save specimens from their detail view to find them here."
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:351",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Browse the collection"
+          },
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Secondary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Browse the collection"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:356",
+    "name": "Reason=Results",
+    "mainId": "16:364",
+    "properties": {
+      "Reason": {
+        "value": "Results"
+      }
+    },
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "No matching specimens",
+        "textContent": "No matching specimens"
+      },
+      {
+        "type": "TEXT",
+        "name": "Try another variety or clear the cur",
+        "textContent": "Try another variety or clear the current filter."
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:359",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Clear filter"
+          },
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Secondary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Clear filter"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:301",
+    "name": "State=Empty",
+    "mainId": "16:347",
+    "properties": {
+      "State": {
+        "value": "Empty"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:302",
+        "name": "Icon/Upload",
+        "mainId": "13:88",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Specimen image",
+        "textContent": "Specimen image"
+      },
+      {
+        "type": "TEXT",
+        "name": "Upload an overhead photograph. PNG o",
+        "textContent": "Upload an overhead photograph. PNG or JPG."
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:307",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Choose image"
+          },
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Secondary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Choose image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:314",
+    "name": "State=Selected",
+    "mainId": "16:347",
+    "properties": {
+      "State": {
+        "value": "Selected"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:315",
+        "name": "Icon/Upload",
+        "mainId": "13:88",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "kohaku-overhead.jpg",
+        "textContent": "kohaku-overhead.jpg"
+      },
+      {
+        "type": "TEXT",
+        "name": "Image selected. Review before publis",
+        "textContent": "Image selected. Review before publishing."
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:320",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Replace image"
+          },
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Secondary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Replace image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:325",
+    "name": "State=Error",
+    "mainId": "16:347",
+    "properties": {
+      "State": {
+        "value": "Error"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:326",
+        "name": "Icon/Upload",
+        "mainId": "13:88",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Specimen image",
+        "textContent": "Specimen image"
+      },
+      {
+        "type": "TEXT",
+        "name": "Use a PNG or JPG image. Try another ",
+        "textContent": "Use a PNG or JPG image. Try another file."
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:331",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Choose image"
+          },
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Secondary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Choose image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:336",
+    "name": "State=Uploading",
+    "mainId": "16:347",
+    "properties": {
+      "State": {
+        "value": "Uploading"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:337",
+        "name": "Icon/Upload",
+        "mainId": "13:88",
+        "properties": {},
+        "children": []
+      },
+      {
+        "type": "TEXT",
+        "name": "Uploading image…",
+        "textContent": "Uploading image…"
+      },
+      {
+        "type": "TEXT",
+        "name": "Upload an overhead photograph. PNG o",
+        "textContent": "Upload an overhead photograph. PNG or JPG."
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:342",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Choose image"
+          },
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Secondary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Choose image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:365",
+    "name": "State=Default",
+    "mainId": "16:404",
+    "properties": {
+      "State": {
+        "value": "Default"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:367",
+        "name": "Field",
+        "mainId": "13:345",
+        "properties": {
+          "Show help#13:163": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Help text#13:162": {
+            "type": "TEXT",
+            "value": "Use USD. The seller will review your offer."
+          },
+          "Value#13:161": {
+            "type": "TEXT",
+            "value": "Arrange a convenient handover time…"
+          },
+          "Label#13:160": {
+            "type": "TEXT",
+            "value": "Message to seller"
+          },
+          "Kind": {
+            "value": "Text",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Filled",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Your offer (USD)",
+            "textContent": "Message to seller"
+          },
+          {
+            "type": "TEXT",
+            "name": "1,650",
+            "textContent": "Arrange a convenient handover time…"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:372",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Send"
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Primary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Send"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:379",
+    "name": "State=Sending",
+    "mainId": "16:404",
+    "properties": {
+      "State": {
+        "value": "Sending"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:381",
+        "name": "Field",
+        "mainId": "13:345",
+        "properties": {
+          "Show help#13:163": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Help text#13:162": {
+            "type": "TEXT",
+            "value": "Use USD. The seller will review your offer."
+          },
+          "Value#13:161": {
+            "type": "TEXT",
+            "value": "Arrange a convenient handover time…"
+          },
+          "Label#13:160": {
+            "type": "TEXT",
+            "value": "Message to seller"
+          },
+          "Kind": {
+            "value": "Text",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Filled",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Your offer (USD)",
+            "textContent": "Message to seller"
+          },
+          {
+            "type": "TEXT",
+            "name": "1,650",
+            "textContent": "Arrange a convenient handover time…"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:386",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Send"
+          },
+          "Appearance": {
+            "value": "Primary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Loading",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "id": "I16:386;13:123",
+            "name": "Icon/Spinner",
+            "mainId": "13:94",
+            "properties": {},
+            "children": []
+          },
+          {
+            "type": "TEXT",
+            "name": "Sending…",
+            "textContent": "Sending…"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:391",
+    "name": "State=Error",
+    "mainId": "16:404",
+    "properties": {
+      "State": {
+        "value": "Error"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:393",
+        "name": "Field",
+        "mainId": "13:345",
+        "properties": {
+          "Show help#13:163": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Help text#13:162": {
+            "type": "TEXT",
+            "value": "Use USD. The seller will review your offer."
+          },
+          "Value#13:161": {
+            "type": "TEXT",
+            "value": "Arrange a convenient handover time…"
+          },
+          "Label#13:160": {
+            "type": "TEXT",
+            "value": "Message to seller"
+          },
+          "Kind": {
+            "value": "Text",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Filled",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Your offer (USD)",
+            "textContent": "Message to seller"
+          },
+          {
+            "type": "TEXT",
+            "name": "1,650",
+            "textContent": "Arrange a convenient handover time…"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:398",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Send"
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Primary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Send"
+          }
+        ]
+      },
+      {
+        "type": "TEXT",
+        "name": "Message was not sent. Try again; you",
+        "textContent": "Message was not sent. Try again; your draft is saved."
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:405",
+    "name": "Offer form",
+    "mainId": "16:405",
+    "properties": {},
+    "children": [
+      {
+        "type": "TEXT",
+        "name": "Propose an offer",
+        "textContent": "Propose an offer"
+      },
+      {
+        "type": "TEXT",
+        "name": "Asking $2,400 · Kohaku N° 01",
+        "textContent": "Asking $2,400 · Kohaku N° 01"
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:408",
+        "name": "Field",
+        "mainId": "13:345",
+        "properties": {
+          "Show help#13:163": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Help text#13:162": {
+            "type": "TEXT",
+            "value": "Use USD. The seller will review your offer."
+          },
+          "Value#13:161": {
+            "type": "TEXT",
+            "value": "2,300"
+          },
+          "Label#13:160": {
+            "type": "TEXT",
+            "value": "Your offer (USD)"
+          },
+          "Kind": {
+            "value": "Text",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Filled",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Your offer (USD)",
+            "textContent": "Your offer (USD)"
+          },
+          {
+            "type": "TEXT",
+            "name": "1,650",
+            "textContent": "2,300"
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:413",
+        "name": "Field",
+        "mainId": "13:345",
+        "properties": {
+          "Show help#13:163": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Help text#13:162": {
+            "type": "TEXT",
+            "value": "Use USD. The seller will review your offer."
+          },
+          "Value#13:161": {
+            "type": "TEXT",
+            "value": "Pondside collection"
+          },
+          "Label#13:160": {
+            "type": "TEXT",
+            "value": "Handover preference"
+          },
+          "Kind": {
+            "value": "Select",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Filled",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Handover preference",
+            "textContent": "Handover preference"
+          },
+          {
+            "type": "TEXT",
+            "name": "Pondside collection",
+            "textContent": "Pondside collection"
+          },
+          {
+            "type": "INSTANCE",
+            "id": "I16:413;13:292",
+            "name": "Icon/Down",
+            "mainId": "13:82",
+            "properties": {},
+            "children": []
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:421",
+        "name": "Field",
+        "mainId": "13:345",
+        "properties": {
+          "Show help#13:163": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Help text#13:162": {
+            "type": "TEXT",
+            "value": "Use USD. The seller will review your offer."
+          },
+          "Value#13:161": {
+            "type": "TEXT",
+            "value": "I would like to coordinate handover this week."
+          },
+          "Label#13:160": {
+            "type": "TEXT",
+            "value": "Message to seller"
+          },
+          "Kind": {
+            "value": "Textarea",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Filled",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Message to seller",
+            "textContent": "Message to seller"
+          },
+          {
+            "type": "TEXT",
+            "name": "I would like to coordinate handover ",
+            "textContent": "I would like to coordinate handover this week."
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:426",
+        "name": "Button",
+        "mainId": "13:187",
+        "properties": {
+          "Icon#13:54": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:76",
+            "preferredValues": []
+          },
+          "Label#13:56": {
+            "type": "TEXT",
+            "value": "Send offer & open thread"
+          },
+          "Show icon#13:55": {
+            "type": "BOOLEAN",
+            "value": false
+          },
+          "Appearance": {
+            "value": "Primary",
+            "type": "VARIANT",
+            "boundVariables": {}
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Make an offer",
+            "textContent": "Send offer & open thread"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:431",
+    "name": "Viewport=Desktop",
+    "mainId": "16:491",
+    "properties": {
+      "Body#16:60": {
+        "value": "16:405"
+      },
+      "Viewport": {
+        "value": "Desktop"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:433",
+        "name": "Icon button",
+        "mainId": "13:204",
+        "properties": {
+          "Icon#13:61": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:73",
+            "preferredValues": []
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "id": "I16:433;13:189",
+            "name": "Icon/Close",
+            "mainId": "13:73",
+            "properties": {},
+            "children": []
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:437",
+        "name": "Offer form",
+        "mainId": "16:405",
+        "properties": {},
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Propose an offer",
+            "textContent": "Propose an offer"
+          },
+          {
+            "type": "TEXT",
+            "name": "Asking $2,400 · Kohaku N° 01",
+            "textContent": "Asking $2,400 · Kohaku N° 01"
+          },
+          {
+            "type": "INSTANCE",
+            "id": "I16:437;16:408",
+            "name": "Field",
+            "mainId": "13:345",
+            "properties": {
+              "Show help#13:163": {
+                "type": "BOOLEAN",
+                "value": false
+              },
+              "Help text#13:162": {
+                "type": "TEXT",
+                "value": "Use USD. The seller will review your offer."
+              },
+              "Value#13:161": {
+                "type": "TEXT",
+                "value": "2,300"
+              },
+              "Label#13:160": {
+                "type": "TEXT",
+                "value": "Your offer (USD)"
+              },
+              "Kind": {
+                "value": "Text",
+                "type": "VARIANT",
+                "boundVariables": {}
+              },
+              "State": {
+                "value": "Filled",
+                "type": "VARIANT",
+                "boundVariables": {}
+              }
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "name": "Your offer (USD)",
+                "textContent": "Your offer (USD)"
+              },
+              {
+                "type": "TEXT",
+                "name": "1,650",
+                "textContent": "2,300"
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "id": "I16:437;16:413",
+            "name": "Field",
+            "mainId": "13:345",
+            "properties": {
+              "Show help#13:163": {
+                "type": "BOOLEAN",
+                "value": false
+              },
+              "Help text#13:162": {
+                "type": "TEXT",
+                "value": "Use USD. The seller will review your offer."
+              },
+              "Value#13:161": {
+                "type": "TEXT",
+                "value": "Pondside collection"
+              },
+              "Label#13:160": {
+                "type": "TEXT",
+                "value": "Handover preference"
+              },
+              "Kind": {
+                "value": "Select",
+                "type": "VARIANT",
+                "boundVariables": {}
+              },
+              "State": {
+                "value": "Filled",
+                "type": "VARIANT",
+                "boundVariables": {}
+              }
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "name": "Handover preference",
+                "textContent": "Handover preference"
+              },
+              {
+                "type": "TEXT",
+                "name": "Pondside collection",
+                "textContent": "Pondside collection"
+              },
+              {
+                "type": "INSTANCE",
+                "id": "I16:437;16:413;13:292",
+                "name": "Icon/Down",
+                "mainId": "13:82",
+                "properties": {},
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "id": "I16:437;16:421",
+            "name": "Field",
+            "mainId": "13:345",
+            "properties": {
+              "Show help#13:163": {
+                "type": "BOOLEAN",
+                "value": false
+              },
+              "Help text#13:162": {
+                "type": "TEXT",
+                "value": "Use USD. The seller will review your offer."
+              },
+              "Value#13:161": {
+                "type": "TEXT",
+                "value": "I would like to coordinate handover this week."
+              },
+              "Label#13:160": {
+                "type": "TEXT",
+                "value": "Message to seller"
+              },
+              "Kind": {
+                "value": "Textarea",
+                "type": "VARIANT",
+                "boundVariables": {}
+              },
+              "State": {
+                "value": "Filled",
+                "type": "VARIANT",
+                "boundVariables": {}
+              }
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "name": "Message to seller",
+                "textContent": "Message to seller"
+              },
+              {
+                "type": "TEXT",
+                "name": "I would like to coordinate handover ",
+                "textContent": "I would like to coordinate handover this week."
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "id": "I16:437;16:426",
+            "name": "Button",
+            "mainId": "13:187",
+            "properties": {
+              "Icon#13:54": {
+                "type": "INSTANCE_SWAP",
+                "value": "13:76",
+                "preferredValues": []
+              },
+              "Label#13:56": {
+                "type": "TEXT",
+                "value": "Send offer & open thread"
+              },
+              "Show icon#13:55": {
+                "type": "BOOLEAN",
+                "value": false
+              },
+              "Appearance": {
+                "value": "Primary",
+                "type": "VARIANT",
+                "boundVariables": {}
+              },
+              "State": {
+                "value": "Default",
+                "type": "VARIANT",
+                "boundVariables": {}
+              }
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "name": "Make an offer",
+                "textContent": "Send offer & open thread"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "INSTANCE",
+    "id": "16:461",
+    "name": "Viewport=Mobile",
+    "mainId": "16:491",
+    "properties": {
+      "Body#16:60": {
+        "value": "16:405"
+      },
+      "Viewport": {
+        "value": "Mobile"
+      }
+    },
+    "children": [
+      {
+        "type": "INSTANCE",
+        "id": "16:463",
+        "name": "Icon button",
+        "mainId": "13:204",
+        "properties": {
+          "Icon#13:61": {
+            "type": "INSTANCE_SWAP",
+            "value": "13:73",
+            "preferredValues": []
+          },
+          "State": {
+            "value": "Default",
+            "type": "VARIANT",
+            "boundVariables": {}
+          }
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "id": "I16:463;13:189",
+            "name": "Icon/Close",
+            "mainId": "13:73",
+            "properties": {},
+            "children": []
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "id": "16:467",
+        "name": "Offer form",
+        "mainId": "16:405",
+        "properties": {},
+        "children": [
+          {
+            "type": "TEXT",
+            "name": "Propose an offer",
+            "textContent": "Propose an offer"
+          },
+          {
+            "type": "TEXT",
+            "name": "Asking $2,400 · Kohaku N° 01",
+            "textContent": "Asking $2,400 · Kohaku N° 01"
+          },
+          {
+            "type": "INSTANCE",
+            "id": "I16:467;16:408",
+            "name": "Field",
+            "mainId": "13:345",
+            "properties": {
+              "Show help#13:163": {
+                "type": "BOOLEAN",
+                "value": false
+              },
+              "Help text#13:162": {
+                "type": "TEXT",
+                "value": "Use USD. The seller will review your offer."
+              },
+              "Value#13:161": {
+                "type": "TEXT",
+                "value": "2,300"
+              },
+              "Label#13:160": {
+                "type": "TEXT",
+                "value": "Your offer (USD)"
+              },
+              "Kind": {
+                "value": "Text",
+                "type": "VARIANT",
+                "boundVariables": {}
+              },
+              "State": {
+                "value": "Filled",
+                "type": "VARIANT",
+                "boundVariables": {}
+              }
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "name": "Your offer (USD)",
+                "textContent": "Your offer (USD)"
+              },
+              {
+                "type": "TEXT",
+                "name": "1,650",
+                "textContent": "2,300"
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "id": "I16:467;16:413",
+            "name": "Field",
+            "mainId": "13:345",
+            "properties": {
+              "Show help#13:163": {
+                "type": "BOOLEAN",
+                "value": false
+              },
+              "Help text#13:162": {
+                "type": "TEXT",
+                "value": "Use USD. The seller will review your offer."
+              },
+              "Value#13:161": {
+                "type": "TEXT",
+                "value": "Pondside collection"
+              },
+              "Label#13:160": {
+                "type": "TEXT",
+                "value": "Handover preference"
+              },
+              "Kind": {
+                "value": "Select",
+                "type": "VARIANT",
+                "boundVariables": {}
+              },
+              "State": {
+                "value": "Filled",
+                "type": "VARIANT",
+                "boundVariables": {}
+              }
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "name": "Handover preference",
+                "textContent": "Handover preference"
+              },
+              {
+                "type": "TEXT",
+                "name": "Pondside collection",
+                "textContent": "Pondside collection"
+              },
+              {
+                "type": "INSTANCE",
+                "id": "I16:467;16:413;13:292",
+                "name": "Icon/Down",
+                "mainId": "13:82",
+                "properties": {},
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "id": "I16:467;16:421",
+            "name": "Field",
+            "mainId": "13:345",
+            "properties": {
+              "Show help#13:163": {
+                "type": "BOOLEAN",
+                "value": false
+              },
+              "Help text#13:162": {
+                "type": "TEXT",
+                "value": "Use USD. The seller will review your offer."
+              },
+              "Value#13:161": {
+                "type": "TEXT",
+                "value": "I would like to coordinate handover this week."
+              },
+              "Label#13:160": {
+                "type": "TEXT",
+                "value": "Message to seller"
+              },
+              "Kind": {
+                "value": "Textarea",
+                "type": "VARIANT",
+                "boundVariables": {}
+              },
+              "State": {
+                "value": "Filled",
+                "type": "VARIANT",
+                "boundVariables": {}
+              }
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "name": "Message to seller",
+                "textContent": "Message to seller"
+              },
+              {
+                "type": "TEXT",
+                "name": "I would like to coordinate handover ",
+                "textContent": "I would like to coordinate handover this week."
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "id": "I16:467;16:426",
+            "name": "Button",
+            "mainId": "13:187",
+            "properties": {
+              "Icon#13:54": {
+                "type": "INSTANCE_SWAP",
+                "value": "13:76",
+                "preferredValues": []
+              },
+              "Label#13:56": {
+                "type": "TEXT",
+                "value": "Send offer & open thread"
+              },
+              "Show icon#13:55": {
+                "type": "BOOLEAN",
+                "value": false
+              },
+              "Appearance": {
+                "value": "Primary",
+                "type": "VARIANT",
+                "boundVariables": {}
+              },
+              "State": {
+                "value": "Default",
+                "type": "VARIANT",
+                "boundVariables": {}
+              }
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "name": "Make an offer",
+                "textContent": "Send offer & open thread"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

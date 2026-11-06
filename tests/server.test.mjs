@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { specimens } from '../model.js';
+import { readdir } from 'node:fs/promises';
 
 let server, base;
 before(async () => {
@@ -44,4 +45,17 @@ test('HEAD serves metadata without a body',async()=>{
   const response=await fetch(base,{method:'HEAD'});
   assert.equal(response.status,200);
   assert.equal(await response.text(),'');
+});
+
+test('marketplace build and SVG masks are served with their correct content types', async () => {
+  const expected = { '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
+  const paths = ['marketplace-dist/marketplace.js', 'marketplace-dist/marketplace.css'];
+  for (const file of await readdir(new URL('../marketplace-dist/assets/', import.meta.url))) paths.push(`marketplace-dist/assets/${file}`);
+  for (const path of paths) {
+    const response = await fetch(`${base}/${path}`);
+    assert.equal(response.status, 200, path);
+    assert.ok((await response.arrayBuffer()).byteLength > 0, path);
+    const type = expected[path.slice(path.lastIndexOf('.'))];
+    if (type) assert.ok(response.headers.get('content-type').startsWith(type), path);
+  }
 });

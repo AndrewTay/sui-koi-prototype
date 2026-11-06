@@ -1,0 +1,107 @@
+@font-face { font-family: Inter; src: url('/assets/inter.woff2') format('woff2'); font-style: normal; font-weight: 100 900; font-display: swap; }
+:root { --sui-display: Inter, Arial, sans-serif; --sui-body: Arial, sans-serif; font-family: var(--sui-body); }
+.market-header { width: 86%; max-width: none; margin: 0 7%; padding: 28px 0 24px; border-bottom: 1px solid var(--sui-line); }
+.market-header .mizu-header__identity { gap: 20px; }
+.market-header .mizu-icon-button { border-color: transparent; background: transparent; }
+.market-header .mizu-navigation-item { min-height: 44px; padding: 10px 16px; border-radius: var(--sui-radius-control); }
+.market-content { margin: 0 7%; padding: 32px 0 40px; }
+.market-title { margin: 0 0 16px; font-family: Inter, Arial, sans-serif; font-size: clamp(34px,4vw,58px); font-weight: 400; letter-spacing: -.045em; line-height: 1.2; }
+.market-title:focus { outline: none; }
+.market-filters { display: flex; gap: 24px; border-bottom: 1px solid var(--sui-line); margin-bottom: 22px; overflow-x: auto; }
+.market-filters .mizu-filter-tab { padding: 12px 0 16px; flex-shrink: 0; }
+.market-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 38px 24px; }
+.market-grid .mizu-specimen-card { max-width: none; width: 100%; gap: 0; }
+.market-grid .mizu-specimen-card__media { position: relative; height: clamp(310px,30vw,390px); width: 100%; aspect-ratio: auto; background: var(--sui-sage); overflow: hidden; }
+.market-grid .mizu-specimen-card:nth-child(3n+2) .mizu-specimen-card__media { background: #e3e6dc; }
+.market-grid .mizu-specimen-card:nth-child(3n+3) .mizu-specimen-card__media { background: #eae7dc; }
+.market-grid .mizu-specimen-card__info { display: flex; flex-direction: row; justify-content: space-between; align-items: baseline; gap: 12px; width: 100%; padding: 18px 0 0; }
+.market-grid .mizu-specimen-card__title { font-family: Inter,Arial,sans-serif; font-size: 21px; font-weight: 500; letter-spacing: -.03em; }
+.market-grid .mizu-specimen-card__metadata { font: 11px/1.5 Arial,sans-serif; white-space: nowrap; color: var(--sui-muted); }
+.market-grid .mizu-specimen-card__reference { top: 20px; left: 20px; }
+.market-grid .mizu-specimen-card:hover .mizu-specimen-card__media { background: var(--sui-sageHover); }
+.catalog.receiving [data-specimen="kohaku-01"] .sprite-window { visibility: hidden; }
+.listing-photo, .department-photo { width: 100%; height: 100%; object-fit: contain; display: block; }
+.department-photo { object-fit: cover; }
+.demo-note { margin: 48px 0 0; font-size: 11px; color: var(--sui-muted); display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.demo-note .mizu-button { font-size: 11px; padding: 8px; }
+.market-grid .mizu-specimen-card:hover { background: transparent; }
+.quiet-note { font-size: 12px; color: var(--sui-muted); line-height: 1.7; }
+.detail-dialog.mizu-dialog { width: min(1000px,92vw); max-width: 1000px; padding: 0; border-radius: 0; }
+.detail-dialog .mizu-dialog__body { padding: 0; }
+.detail-layout { display: grid; grid-template-columns: 1fr 1.1fr; }
+.detail-portrait { background: var(--sui-sage); position: relative; min-height: 540px; }
+.detail-portrait .sprite-window { height: 70%; top: 10%; }
+.detail-portrait.calibrated { background-image: linear-gradient(#23372f15 1px,transparent 1px),linear-gradient(90deg,#23372f15 1px,transparent 1px); background-size: 30px 30px; }
+.detail-portrait > .listing-photo { position: absolute; top: 10%; height: 70%; }
+.portrait-controls { position: absolute; bottom: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 10px; }
+.portrait-controls .mizu-button { font-size: 10px; padding: 8px 12px; }
+.detail-layout .mizu-specimen-details { padding: 64px 38px 36px; }
+.detail-layout .mizu-specimen-details h2 { font-family: Inter,Arial,sans-serif; font-size: 34px; line-height: 1.15; font-weight: 400; letter-spacing: -.04em; }
+.detail-layout .mizu-specimen-details > p { line-height: 1.8; font-size: 13px; }
+.detail-layout .mizu-fact-row { gap: 16px; }
+.detail-layout .mizu-fact-row dd { max-width: 65%; text-align: right; }
+.detail-layout .mizu-specimen-details__actions { margin-top: 24px; }
+.mizu-dialog::backdrop { background: rgb(7 29 25 / .5); backdrop-filter: blur(8px); }
+.mizu-dialog .mizu-dialog__close { z-index: 2; }
+.offer-dialog.mizu-dialog { width: min(600px,92vw); }
+.offer-dialog .mizu-offer-form h2 { font-family: Inter,Arial,sans-serif; font-size: 32px; font-weight: 400; letter-spacing: -.04em; }
+.threads { display: flex; flex-direction: column; gap: 24px; }
+.thread { border: 1px solid var(--sui-line); border-radius: 16px; overflow: hidden; background: var(--sui-paper); }
+.thread .mizu-offer-summary { width: 100%; border: 0; border-radius: 0; padding: 20px 24px; }
+.thread .mizu-offer-summary__media { position: relative; width: 64px; height: 72px; overflow: hidden; background: var(--sui-sage); flex-shrink: 0; }
+.thread .mizu-offer-summary__info { flex: 1; min-width: 0; }
+.thread .mizu-offer-summary__info strong { font: 500 19px Inter,Arial,sans-serif; }
+.thread .mizu-offer-summary__info small { font-size: 12px; line-height: 1.6; }
+.thread-body { border-top: 1px solid var(--sui-line); }
+.negotiation { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 18px 24px; border-bottom: 1px solid var(--sui-line); background: rgb(231 233 223 / .45); }
+.negotiation > div:first-child { display: flex; align-items: baseline; gap: 14px; }
+.negotiation strong { font-size: 25px; font-weight: 400; }
+.negotiation > div:first-child > span { font-size: 11px; color: var(--sui-muted); }
+.thread-actions { display: flex; gap: 8px; }
+.thread-actions .mizu-button { min-height: 40px; padding: 10px 16px; }
+.message-list { padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.message-list .mizu-message { max-width: min(75%,650px); padding: 16px 20px; border-radius: 16px; }
+.message-list .mizu-message--sent { align-self: flex-end; }
+.message-list .mizu-message--received { align-self: flex-start; background: white; border: 1px solid var(--sui-line); }
+.thread .mizu-message-composer { padding: 0 24px 24px; }
+.counter-form { padding: 20px 24px; display: flex; align-items: end; gap: 12px; }
+.counter-form .mizu-field { max-width: 280px; }
+.listing-form { display: grid; grid-template-columns: .7fr 1.3fr; gap: 38px; margin-top: 26px; }
+.listing-fields { display: flex; flex-direction: column; gap: 20px; }
+.field-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.listing-image-column .mizu-image-upload { min-height: 250px; }
+.upload-preview { width: 100%; max-height: 320px; object-fit: contain; background: var(--sui-sage); margin-bottom: 12px; }
+.form-error { font-size: 12px; color: var(--sui-accent); }
+.department-drawer.mizu-dialog { position: fixed; inset: 0 auto 0 0; margin: 0; width: min(390px,92vw); height: 100dvh; max-height: 100dvh; border-radius: 0; padding: 70px 24px 30px; }
+.department-drawer h2 { font: 400 30px Inter,Arial,sans-serif; margin: 0 0 28px; }
+.department-drawer .mizu-department-accordion { border-bottom: 1px solid var(--sui-line); padding-bottom: 16px; margin-bottom: 16px; }
+.department-drawer .mizu-department-accordion__trigger { text-align: left; font-size: 13px; gap: 16px; }
+.department-drawer .mizu-navigation-item { padding: 10px 12px; font-size: 12px; }
+.market-toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 100; max-width: calc(100% - 40px); padding: 16px 24px; border-radius: 16px; background: var(--sui-ink); color: var(--sui-ivory); box-shadow: 0 10px 40px #071d1926; font-size: 13px; }
+.photo-unavailable { height: 100%; display: grid; place-items: center; padding: 24px; font-size: 13px; color: var(--sui-muted); }
+@media (max-width: 1100px) { .market-grid .mizu-specimen-card__info { flex-direction: column; gap: 5px; } .negotiation > div:first-child { flex-direction: column; gap: 4px; } }
+@media (max-width: 760px) {
+  .market-header { flex-direction: column; align-items: stretch; gap: 22px; padding: 24px 0 20px; }
+  .market-header .mizu-header__identity { justify-content: space-between; }
+  .market-header .mizu-brand { font-size: 36px; letter-spacing: -3.24px; }
+  .market-header .mizu-header__routes { justify-content: space-between; gap: 0; }
+  .market-header .mizu-navigation-item { padding: 10px 12px; font-size: 12px; }
+  .market-content { padding-top: 28px; }
+  .market-grid { grid-template-columns: 1fr; gap: 32px; }
+  .market-grid .mizu-specimen-card__media { height: 360px; }
+  .market-grid .mizu-specimen-card__info { flex-direction: row; flex-wrap: wrap; }
+  .market-title { font-size: 37px; }
+  .detail-layout { grid-template-columns: 1fr; }
+  .detail-portrait { min-height: 330px; }
+  .detail-layout .mizu-specimen-details { padding: 30px 24px; }
+  .detail-dialog.mizu-dialog { max-height: 92dvh; }
+  .thread .mizu-offer-summary { padding: 16px; flex-wrap: wrap; gap: 12px; }
+  .thread .mizu-offer-summary__info { flex-basis: 55%; }
+  .negotiation { align-items: stretch; flex-direction: column; padding: 16px; }
+  .negotiation > div:first-child { flex-direction: row; align-items: baseline; }
+  .message-list { padding: 16px; }
+  .message-list .mizu-message { max-width: 90%; }
+  .thread .mizu-message-composer { padding: 0 16px 16px; }
+  .listing-form { grid-template-columns: 1fr; gap: 24px; }
+  .field-pair { grid-template-columns: 1fr; gap: 16px; }
+}

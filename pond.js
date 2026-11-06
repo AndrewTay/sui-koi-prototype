@@ -1,5 +1,4 @@
-import { clamp } from './model.js';
-import { KoiMotion, CollectionFlight, pondLayout } from './swimming.js';
+import { KoiMotion, CollectionFlight, pondLayout, wakeStrength } from './swimming.js';
 
 const screenVertex = `#version 300 es
 in vec2 a_position;
@@ -32,8 +31,9 @@ out vec2 v_uv;
 uniform vec2 u_resolution;
 uniform vec2 u_spine[25];
 uniform float u_length;
-uniform float u_beat;
-uniform float u_speed;
+uniform float u_finPhase;
+uniform float u_finActivity;
+uniform float u_turn;
 uniform float u_settle;
 uniform vec2 u_offset;
 void main(){
@@ -41,14 +41,23 @@ void main(){
   float row=a_uv.y*24.;
   int index=min(int(floor(row)),23);
   vec2 centre=mix(u_spine[index],u_spine[index+1],row-float(index));
-  vec2 tangent=normalize(u_spine[min(index+2,24)]-u_spine[max(index-1,0)]+vec2(0.,.00001));
+  vec2 tangentA=normalize(u_spine[index+1]-u_spine[max(index-1,0)]+vec2(0.,.00001));
+  vec2 tangentB=normalize(u_spine[min(index+2,24)]-u_spine[index]+vec2(0.,.00001));
+  vec2 tangent=normalize(mix(tangentA,tangentB,row-float(index)));
   vec2 side=vec2(tangent.y,-tangent.x);
   float lateral=(a_uv.x-.5)*u_length*(2./3.);
-  float finBand=exp(-pow((a_uv.y-.33)*9.,2.));
-  lateral*=1.+sin(u_beat*.62)*.065*finBand*(1.-u_settle);
-  float tail=pow(a_uv.y,2.6);
-  lateral+=sin(u_beat-a_uv.y*5.4)*u_length*(.002+tail*(.018+u_speed*.02))*(1.-u_settle);
-  vec2 p=centre+side*lateral+u_offset;
+  // Animate outer fin vertices around their roots; the body follows the CPU spine once.
+  float finBand=smoothstep(.235,.27,a_uv.y)*(1.-smoothstep(.355,.39,a_uv.y));
+  float finWeight=finBand*smoothstep(.13,.22,abs(a_uv.x-.5));
+  float hand=a_uv.x<.5?-1.:1.;
+  float fan=(sin(u_finPhase+(hand+1.)*.65)*.24+u_turn*hand*.16)*u_finActivity*(1.-u_settle);
+  vec2 local=vec2(lateral,0.);
+  vec2 pivot=vec2(hand*u_length*.09,(.27-a_uv.y)*u_length);
+  vec2 delta=local-pivot;
+  float angle=fan*hand;
+  vec2 rotated=vec2(delta.x*cos(angle)-delta.y*sin(angle),delta.x*sin(angle)+delta.y*cos(angle))+pivot;
+  local=mix(local,rotated,finWeight);
+  vec2 p=centre+side*local.x+tangent*local.y+u_offset;
   gl_Position=vec4(p.x/u_resolution.x*2.-1.,1.-p.y/u_resolution.y*2.,0.,1.);
 }`;
 
@@ -63,11 +72,15 @@ out vec4 color;
 void main(){
   vec4 fish=texture(u_image,v_uv);
   if(fish.a<.008)discard;
-  if(u_shadow>.5){color=vec4(.015,.08,.065,fish.a*.20*(1.-u_settle));return;}
-  vec3 lit=fish.rgb*mix(vec3(.84,.9,.83),vec3(1.),u_settle);
-  float light=pow(max(0.,sin(v_uv.x*16.+v_uv.y*19.+u_time*.6)),16.);
-  lit+=vec3(.07,.095,.06)*light*(1.-u_settle);
-  color=vec4(lit,fish.a);
+  if(u_shadow>.5){color=vec4(.012,.065,.052,smoothstep(0.,.65,fish.a)*.09*(1.-u_settle));return;}
+  float crown=clamp(cos((v_uv.x-.48)*2.35),0.,1.);
+  float luminance=dot(fish.rgb,vec3(.2126,.7152,.0722));
+  vec3 submerged=mix(vec3(luminance),fish.rgb,.78)*vec3(.72,.86,.80)*mix(.86,1.06,pow(crown,1.35));
+  submerged=mix(submerged,vec3(.09,.24,.21),.20);
+  vec2 surface=gl_FragCoord.xy*.025;
+  float waves=(sin(surface.x+surface.y*1.17+u_time*.65)+cos(surface.x*.72-surface.y*.83-u_time*.48))*.5;
+  vec3 lit=mix(submerged,fish.rgb,u_settle)+vec3(.075,.10,.07)*pow(max(0.,waves),10.)*crown*(1.-u_settle);
+  color=vec4(lit,fish.a*mix(.90,1.,u_settle));
 }`;
 
 const waterFragment = `#version 300 es
@@ -91,11 +104,11 @@ void main(){
     vec2 delta=p-u_ripples[i].xy;
     float dist=length(delta);
     float radius=age*95.;
-    float band=exp(-pow((dist-radius)/24.,2.));
-    float fade=exp(-age*.95)*u_ripples[i].w;
-    float wave=cos((dist-radius)*.17);
+    float band=exp(-pow((dist-radius)/(20.+age*5.),2.));
+    float fade=exp(-age*1.02)*u_ripples[i].w;
+    float wave=cos((dist-radius)*.185);
     shift+=delta/max(dist,1.)*band*wave*fade*5.;
-    foam+=band*wave*fade*.035;
+    foam+=band*max(0.,wave)*fade*.042;
   }
   float field=smoothstep(.01,.22,v_uv.x)*smoothstep(.0,.18,1.-v_uv.x)*smoothstep(.0,.16,v_uv.y)*smoothstep(.0,.12,1.-v_uv.y);
   vec2 uv=clamp(v_uv+vec2(shift.x,-shift.y)*field*(1.-u_settle)/u_resolution,vec2(.001),vec2(.999));
@@ -147,7 +160,7 @@ export class Pond {
     this.handleVisibility = () => document.hidden ? this.stop() : this.start();
     this.handleLost = event => { event.preventDefault(); this.contextLost = true; this.stop(); this.onFallback(true); };
     this.handleRestored = () => {
-      try { this.resources = []; this.target = null; this.buildResources(); this.contextLost = false; this.resize(); this.onFallback(false); this.start(); }
+      try { this.resources = []; this.target = null; this.buildResources(); this.contextLost = false; this.resize(); if (!this.contextLost) { this.onFallback(false); this.start(); } }
       catch (error) { console.error('Pond context restore failed', error); this.onFallback(true); }
     };
   }
@@ -208,7 +221,7 @@ export class Pond {
     const triangle = [-1, -1, 3, -1, -1, 3];
     this.backgroundMesh = this.mesh(this.background, 'a_position', triangle);
     this.waterMesh = this.mesh(this.water, 'a_position', triangle);
-    const vertices = [], indices = [], rows = 64, columns = 8;
+    const vertices = [], indices = [], rows = 64, columns = 24;
     for (let y = 0; y <= rows; y++) for (let x = 0; x <= columns; x++) vertices.push(x / columns, y / rows);
     for (let y = 0; y < rows; y++) for (let x = 0; x < columns; x++) { const a = y * (columns + 1) + x, b = a + columns + 1; indices.push(a, b, a + 1, a + 1, b, b + 1); }
     this.fishMesh = this.mesh(this.fish, 'a_uv', vertices, indices);
@@ -244,7 +257,8 @@ export class Pond {
     if (this.canvas.width !== width || this.canvas.height !== height || !this.target) {
       this.canvas.width = width;
       this.canvas.height = height;
-      this.createTarget(width, height);
+      try { this.createTarget(width, height); }
+      catch (error) { this.contextLost = true; this.stop(); this.onFallback(true); return; }
     }
     this.render();
   }
@@ -297,8 +311,9 @@ export class Pond {
     gl.uniform2f(this.fish.uniform('u_resolution'), this.width, this.height);
     gl.uniform2fv(this.fish.uniform('u_spine[0]'), frame.spine);
     gl.uniform1f(this.fish.uniform('u_length'), size);
-    gl.uniform1f(this.fish.uniform('u_beat'), pose.beat);
-    gl.uniform1f(this.fish.uniform('u_speed'), pose.speed / size);
+    gl.uniform1f(this.fish.uniform('u_finPhase'), pose.finPhase);
+    gl.uniform1f(this.fish.uniform('u_finActivity'), pose.finActivity);
+    gl.uniform1f(this.fish.uniform('u_turn'), pose.turnRate);
     gl.uniform1f(this.fish.uniform('u_settle'), settle);
     gl.uniform1f(this.fish.uniform('u_time'), this.time);
     gl.uniform2f(this.fish.uniform('u_offset'), size * .045, size * .07);
@@ -355,8 +370,11 @@ export class Pond {
     this.lastStamp = stamp;
     this.time += dt;
     if (!this.transition) this.swimmer.advance(dt);
-    const pose = this.pose();
-    if (!this.transition && this.time - this.lastWake > .36) { this.addRipple(pose.x - Math.cos(pose.heading) * pose.length * .45, pose.y - Math.sin(pose.heading) * pose.length * .45, clamp(pose.speed / pose.length, .03, .22)); this.lastWake = this.time; }
+    const frame = this.swimmer.sampleFrame(), strength = wakeStrength(frame.pose);
+    if (!this.transition && this.time - this.lastWake > .36 && strength > .008 && Math.sin(frame.pose.beat * 2) > .5) {
+      this.addRipple(frame.spine[40], frame.spine[41], strength);
+      this.lastWake = this.time;
+    }
     if (!this.transition && this.dprCap > 1) {
       this.frameTimes.push(frameMs);
       if (this.frameTimes.length >= 120) { const median = [...this.frameTimes].sort((a,b) => a-b)[60]; if (median > 28) { this.dprCap = 1; this.resize(); } this.frameTimes.length = 0; }

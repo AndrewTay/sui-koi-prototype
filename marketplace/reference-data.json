@@ -1,0 +1,417 @@
+{
+  "details": [
+    {
+      "id": "kohaku-01",
+      "title": "Three-Step Sandan Kohaku",
+      "price": 2400,
+      "sellerId": "seller-mizuho",
+      "location": "Sonoma, CA",
+      "breeder": "Dainichi Koi Farm (Niigata)",
+      "quarantineStatus": "42 days completed · KHV PCR negative (Batch #MZ-2608)",
+      "fulfilment": [
+        "Pondside Collection",
+        "Specialist Oxygenated Courier"
+      ],
+      "waterParameters": "18.5°C · pH 7.4 · KH 5 dKH",
+      "conditionNotes": "Clean pectoral fins with even porcelain leading edges; no missing scales or carp pox history."
+    },
+    {
+      "id": "showa-02",
+      "title": "Kindai Showa with Motoguro",
+      "price": 3150,
+      "sellerId": "seller-mizuho",
+      "location": "Sonoma, CA",
+      "breeder": "Isa Koi Farm (Niigata)",
+      "quarantineStatus": "60 days completed · Full mucus scrape clear",
+      "fulfilment": [
+        "Pondside Collection",
+        "Specialist Oxygenated Courier"
+      ],
+      "waterParameters": "18.0°C · pH 7.3 · KH 5 dKH",
+      "conditionNotes": "All fin rays intact; sumi has consolidated steadily at 18°C."
+    },
+    {
+      "id": "ogon-03",
+      "title": "Izumiya Yamabuki Ogon",
+      "price": 920,
+      "sellerId": "seller-aoki",
+      "location": "Portland, OR",
+      "breeder": "Izumiya Koi Farm (Niigata)",
+      "quarantineStatus": "38 days completed · Microscope scrape clear",
+      "fulfilment": [
+        "Pondside Collection",
+        "Specialist Oxygenated Courier"
+      ],
+      "waterParameters": "17.5°C · pH 7.5 · KH 6 dKH",
+      "conditionNotes": "High metallic sheen; zero orange secondary spots on head or fins."
+    },
+    {
+      "id": "sanke-04",
+      "title": "Taisho Sanke with Tsubo Sumi",
+      "price": 1950,
+      "sellerId": "seller-mizuho",
+      "location": "Sonoma, CA",
+      "breeder": "Torazo (Urakawa line)",
+      "quarantineStatus": "45 days completed · KHV PCR negative",
+      "fulfilment": [
+        "Pondside Collection",
+        "Specialist Oxygenated Courier"
+      ],
+      "waterParameters": "18.5°C · pH 7.4 · KH 5 dKH",
+      "conditionNotes": "Very thick beni pigment; slight natural wave on left pectoral margin."
+    },
+    {
+      "id": "tancho-05",
+      "title": "Marudo Tancho Kohaku",
+      "price": 1480,
+      "sellerId": "seller-aoki",
+      "location": "Portland, OR",
+      "breeder": "Marudo Koi Farm",
+      "quarantineStatus": "40 days completed · Scrape & gill check documented",
+      "fulfilment": [
+        "Pondside Collection",
+        "Specialist Oxygenated Courier"
+      ],
+      "waterParameters": "17.5°C · pH 7.5 · KH 6 dKH",
+      "conditionNotes": "No stray secondary hi flecks on trunk or caudal fin."
+    },
+    {
+      "id": "goshiki-06",
+      "title": "Kuro Goshiki (Five-Color Reticulated)",
+      "price": 1750,
+      "sellerId": "seller-aoki",
+      "location": "Portland, OR",
+      "breeder": "Kase Koi Farm",
+      "quarantineStatus": "50 days completed · Reserved pending Saturday collection",
+      "fulfilment": [
+        "Pondside Collection"
+      ],
+      "waterParameters": "17.0°C · pH 7.4 · KH 6 dKH",
+      "conditionNotes": "Excellent skin luster; reticulation darkens further in cooler autumn water."
+    },
+    {
+      "id": "kujaku-07",
+      "title": "Metallic Kujaku with Pine-Cone Reticulation",
+      "price": 1320,
+      "sellerId": "seller-aoki",
+      "location": "Portland, OR",
+      "breeder": "Kaneko Koi Farm",
+      "quarantineStatus": "36 days completed · Ready for handover",
+      "fulfilment": [
+        "Pondside Collection",
+        "Specialist Oxygenated Courier"
+      ],
+      "waterParameters": "17.5°C · pH 7.5 · KH 6 dKH",
+      "conditionNotes": "Distinctive individual dorsal scale edging; energetic swimmer."
+    },
+    {
+      "id": "shiro-utsuri-08",
+      "title": "Omosako Bloodline Shiro Utsuri",
+      "price": 2680,
+      "sellerId": "seller-mizuho",
+      "location": "Sonoma, CA",
+      "breeder": "Omosako Koi Farm (Hiroshima)",
+      "quarantineStatus": "55 days completed · Omosako certificate included",
+      "fulfilment": [
+        "Pondside Collection",
+        "Specialist Oxygenated Courier"
+      ],
+      "waterParameters": "18.5°C · pH 7.4 · KH 5 dKH",
+      "conditionNotes": "Zero creamy yellowing on the head; robust 60 cm frame."
+    },
+    {
+      "id": "chagoi-09",
+      "title": "Hand-Tame Ginrin-Edge Chagoi",
+      "price": 890,
+      "sellerId": "seller-thames",
+      "location": "Hudson Valley, NY",
+      "breeder": "Unknown / Not provided (Purchased as Nisai)",
+      "quarantineStatus": "4 years in single closed private pond · Vet health note 2026",
+      "fulfilment": [
+        "Pondside Collection"
+      ],
+      "waterParameters": "16.5°C · pH 7.6 · Unheated mature garden pond",
+      "conditionNotes": "Broad shoulder and deep body; breeder unknown as she was acquired from a local specialist without paperwork."
+    }
+  ],
+  "sellers": [
+    {
+      "id": "seller-mizuho",
+      "name": "Mizuho Koi House",
+      "location": "Sonoma, CA",
+      "proprietor": "Kenji & Clara Sato"
+    },
+    {
+      "id": "seller-aoki",
+      "name": "Aoki Nishikigoi Studio",
+      "location": "Portland, OR",
+      "proprietor": "Haruto Aoki"
+    },
+    {
+      "id": "seller-thames",
+      "name": "Hudson Valley Pond & Koi",
+      "location": "Hudson Valley, NY",
+      "proprietor": "Eleanor Vance"
+    }
+  ],
+  "threads": [
+    {
+      "id": "conv-kohaku-01",
+      "listingId": "kohaku-01",
+      "unread": true,
+      "status": "Counter",
+      "amount": 2320,
+      "handover": "Pondside Collection (Sonoma, CA)",
+      "messages": [
+        {
+          "id": "m-1",
+          "text": "Hi Kenji, is Vat 3 still at 18.5°C, and is Saturday morning open for pickup?",
+          "sent": true,
+          "time": "Yesterday"
+        },
+        {
+          "id": "m-2",
+          "text": "Yes, holding steady at 18.5°C and Saturday at 11:00 AM works well.",
+          "sent": false,
+          "time": "Yesterday"
+        },
+        {
+          "id": "m-3",
+          "text": "Great — submitted an offer of $2,250 for Saturday collection.",
+          "sent": true,
+          "time": "11:30 AM"
+        },
+        {
+          "id": "m-4",
+          "text": "We can meet at $2,320 including pure oxygen dual-bagging and her KHV certificate.",
+          "sent": false,
+          "time": "2:20 PM"
+        }
+      ]
+    },
+    {
+      "id": "conv-goshiki-06",
+      "listingId": "goshiki-06",
+      "unread": false,
+      "status": "Reserved",
+      "amount": 1680,
+      "handover": "Pondside Collection (Portland, OR)",
+      "messages": [
+        {
+          "id": "m-5",
+          "text": "Offering $1,680 with pickup in Portland this Saturday.",
+          "sent": true,
+          "time": "Tue"
+        },
+        {
+          "id": "m-6",
+          "text": "Accepted at $1,680. She is now reserved for you — see you Saturday at 10:00 AM.",
+          "sent": false,
+          "time": "Wed"
+        }
+      ]
+    }
+  ],
+  "departments": {
+    "plants": [
+      {
+        "id": "plant-01",
+        "number": "B-01",
+        "name": "Itoigawa Shimpaku Juniper (Moyogi)",
+        "size": "44 cm H",
+        "price": 1650,
+        "photoUrl": "https://images.unsplash.com/photo-1544152338-8cf6652e0c5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "plant-02",
+        "number": "B-02",
+        "name": "Kuramayama Japanese Black Pine",
+        "size": "52 cm H",
+        "price": 3400,
+        "photoUrl": "https://images.unsplash.com/photo-1561641250-c06551cf3b02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "plant-03",
+        "number": "B-03",
+        "name": "Fruiting Kaki Persimmon in Tokoname Oval",
+        "size": "38 cm H",
+        "price": 2200,
+        "photoUrl": "https://images.unsplash.com/photo-1762198076150-ea555ca227f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "plant-04",
+        "number": "B-04",
+        "name": "Kamogawa River Suiseki & Dwarf Flora",
+        "size": "29 cm W",
+        "price": 1950,
+        "photoUrl": "https://images.unsplash.com/photo-1762198076153-3b00f6548675?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "plant-05",
+        "number": "B-05",
+        "name": "Shohin Hinoki Cypress in Unglazed Bowl",
+        "size": "26 cm H",
+        "price": 1280,
+        "photoUrl": "https://images.unsplash.com/photo-1641412722397-3be359096577?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "plant-06",
+        "number": "B-06",
+        "name": "Aged Satsuki Azalea in Bizen Stoneware",
+        "size": "41 cm W",
+        "price": 2750,
+        "photoUrl": "https://images.unsplash.com/photo-1627347902083-edbcaa5c4286?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      }
+    ],
+    "antiques": [
+      {
+        "id": "antique-vessel-01",
+        "number": "A-01",
+        "name": "Qing Kangxi Blue & White Baluster Vase",
+        "size": "36.5 cm H",
+        "price": 6800,
+        "photoUrl": "https://images.unsplash.com/photo-1723110870990-0943a50561cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "antique-vessel-02",
+        "number": "A-02",
+        "name": "Song Longquan Celadon Basin on Zitan Stand",
+        "size": "28.4 cm D",
+        "price": 9400,
+        "photoUrl": "https://images.unsplash.com/photo-1723107622582-aa5b882f57f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "antique-vessel-03",
+        "number": "A-03",
+        "name": "Gold-Lacquer Kintsugi Stoneware Suite",
+        "size": "22 cm D",
+        "price": 4200,
+        "photoUrl": "https://images.unsplash.com/photo-1783192485616-90cc518983f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "antique-vessel-04",
+        "number": "A-04",
+        "name": "Langyao Copper-Red Monochrome Meiping",
+        "size": "31 cm H",
+        "price": 8200,
+        "photoUrl": "https://images.unsplash.com/photo-1723779235849-ffb97534b2c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "antique-vessel-05",
+        "number": "A-05",
+        "name": "Ming-Style Blue & White Double Vases",
+        "size": "34 cm H",
+        "price": 7600,
+        "photoUrl": "https://images.unsplash.com/photo-1721373487789-413c798cc157?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "antique-vessel-06",
+        "number": "A-06",
+        "name": "Scholar’s Studio Glazed Vessels & Guardian",
+        "size": "19 cm H",
+        "price": 5400,
+        "photoUrl": "https://images.unsplash.com/photo-1725917482778-472d78c69278?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      }
+    ],
+    "tea": [
+      {
+        "id": "tea-item-01",
+        "number": "C-01",
+        "name": "Kuro Raku Chawan Tea Bowl",
+        "size": "11.8 cm",
+        "price": 3900,
+        "photoUrl": "https://images.unsplash.com/photo-1609054691436-fc8d64bf9a62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "tea-item-02",
+        "number": "C-02",
+        "name": "Nambu Tekki Cast-Iron Tetsubin & Chawan Set",
+        "size": "21 cm W",
+        "price": 4600,
+        "photoUrl": "https://images.unsplash.com/photo-1757507423608-ae47cddef75f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "tea-item-03",
+        "number": "C-03",
+        "name": "Kyara Agarwood & Koro Incense Burner",
+        "size": "14.5 cm",
+        "price": 5100,
+        "photoUrl": "https://images.unsplash.com/photo-1574063900403-a4e29a4690b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "tea-item-04",
+        "number": "C-04",
+        "name": "Yixing Zisha Clay Teapot & Scholar Folio",
+        "size": "13.2 cm",
+        "price": 3200,
+        "photoUrl": "https://images.unsplash.com/photo-1689759071797-c8a3fa5ab66a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "tea-item-05",
+        "number": "C-05",
+        "name": "Hagi-yaki Chawan & Bamboo Chasen Whisk",
+        "size": "12.4 cm",
+        "price": 2450,
+        "photoUrl": "https://images.unsplash.com/photo-1759933164283-ab161f34bd02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "tea-item-06",
+        "number": "C-06",
+        "name": "Tokoname Kyusu & Hand-Thrown Tea Bowls",
+        "size": "16 cm",
+        "price": 2900,
+        "photoUrl": "https://images.unsplash.com/photo-1783192485589-74ea71b42d4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      }
+    ],
+    "timepieces": [
+      {
+        "id": "timepiece-01",
+        "number": "T-01",
+        "name": "King Seiko 44-9990 Observatory Chronometer",
+        "size": "36.5 mm",
+        "price": 2850,
+        "photoUrl": "https://images.unsplash.com/photo-1508962914676-134849a727f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "timepiece-02",
+        "number": "T-02",
+        "name": "Urushi Lacquer & Rose-Gold Dress Chronometer",
+        "size": "37 mm",
+        "price": 6400,
+        "photoUrl": "https://images.unsplash.com/photo-1574611846857-4015019f2d1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "timepiece-03",
+        "number": "T-03",
+        "name": "Muromachi Bizen Osafune Katana & Koshirae",
+        "size": "69.4 cm Nagasa",
+        "price": 14500,
+        "photoUrl": "https://images.unsplash.com/photo-1662826321315-c72a74f871c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "timepiece-04",
+        "number": "T-04",
+        "name": "Tamahagane Tanto Blade with Hamon Temper",
+        "size": "27.8 cm",
+        "price": 7800,
+        "photoUrl": "https://images.unsplash.com/photo-1671015522549-e7aa41ded44f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "timepiece-05",
+        "number": "T-05",
+        "name": "Edo Kanbun Hanging Calligraphy Scroll (Kakemono)",
+        "size": "118 × 46 cm",
+        "price": 4900,
+        "photoUrl": "https://images.unsplash.com/photo-1603251426790-28a9954b7f01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      },
+      {
+        "id": "timepiece-06",
+        "number": "T-06",
+        "name": "Independent Silver-Dial Manual Chronometer",
+        "size": "38 mm",
+        "price": 5200,
+        "photoUrl": "https://images.unsplash.com/photo-1568010120371-b0d72e4a4fe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+      }
+    ]
+  }
+}

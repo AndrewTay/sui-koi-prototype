@@ -1,0 +1,230 @@
+{
+  "checkedAt": "2026-11-06",
+  "fileKey": "vzZcV01fYoCl3eGZylJHha",
+  "familyCount": 30,
+  "variantAndStandaloneCount": 92,
+  "sourceMappingIssues": [],
+  "fullTemplateRecordCount": 164,
+  "components": [
+    {
+      "component": "Button",
+      "nodeId": "13:187",
+      "source": "packages/mizu-ui/src/controls.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "IconButton",
+      "nodeId": "13:204",
+      "source": "packages/mizu-ui/src/controls.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "NavigationItem",
+      "nodeId": "13:214",
+      "source": "packages/mizu-ui/src/controls.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "FilterTab",
+      "nodeId": "13:245",
+      "source": "packages/mizu-ui/src/controls.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "StatusBadge",
+      "nodeId": "13:254",
+      "source": "packages/mizu-ui/src/controls.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "Field",
+      "nodeId": "13:345",
+      "source": "packages/mizu-ui/src/controls.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "IconClose",
+      "nodeId": "13:73",
+      "source": "packages/mizu-ui/src/icons.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "IconPlus",
+      "nodeId": "13:76",
+      "source": "packages/mizu-ui/src/icons.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "IconChevron",
+      "nodeId": "13:79",
+      "source": "packages/mizu-ui/src/icons.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "IconDown",
+      "nodeId": "13:82",
+      "source": "packages/mizu-ui/src/icons.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "IconMenu",
+      "nodeId": "13:85",
+      "source": "packages/mizu-ui/src/icons.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "IconUpload",
+      "nodeId": "13:88",
+      "source": "packages/mizu-ui/src/icons.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "IconCheck",
+      "nodeId": "13:91",
+      "source": "packages/mizu-ui/src/icons.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "IconSpinner",
+      "nodeId": "13:94",
+      "source": "packages/mizu-ui/src/icons.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "MediaKoi",
+      "nodeId": "16:181",
+      "source": "packages/mizu-ui/src/media.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "MediaCeramic",
+      "nodeId": "16:183",
+      "source": "packages/mizu-ui/src/media.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "MediaBonsai",
+      "nodeId": "16:185",
+      "source": "packages/mizu-ui/src/media.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "Brand",
+      "nodeId": "16:191",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "Header",
+      "nodeId": "16:538",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "SpecimenCard",
+      "nodeId": "16:234",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "FactRow",
+      "nodeId": "16:235",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "SpecimenDetails",
+      "nodeId": "16:539",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "Message",
+      "nodeId": "16:244",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "OfferSummary",
+      "nodeId": "16:278",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "DepartmentAccordion",
+      "nodeId": "16:300",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "EmptyState",
+      "nodeId": "16:364",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "ImageUpload",
+      "nodeId": "16:347",
+      "source": "packages/mizu-ui/src/marketplace.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "MessageComposer",
+      "nodeId": "16:404",
+      "source": "packages/mizu-ui/src/forms.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "OfferForm",
+      "nodeId": "16:405",
+      "source": "packages/mizu-ui/src/forms.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    },
+    {
+      "component": "Dialog",
+      "nodeId": "16:491",
+      "source": "packages/mizu-ui/src/forms.tsx",
+      "sourceMappingVerified": true,
+      "hasTemplate": true
+    }
+  ],
+  "publishedTemplateFamilyCount": 30,
+  "publicationMethod": "Figma Code Connect CLI with --force; replaced source-only React mappings",
+  "hostedSnippetRecordCount": 164,
+  "variantAndStandaloneCoverageVerified": 92,
+  "hostedNestedChecks": [
+    "SpecimenCard with MediaKoi",
+    "Dialog with OfferForm",
+    "Header Desktop",
+    "Header Mobile"
+  ]
+}
